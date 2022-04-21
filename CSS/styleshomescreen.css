@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Comic Sans MS;
+    text-decoration: none;
+}
+
+.contenedor {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+/*Estilos para el encabezado de inicio, productos*/
+
+header {
+    width: 100%;
+    overflow: hidden;
+    background-color: #d0d32e;
+    margin-bottom: 0px;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+header nav {
+    float: none;
+    line-height: 75px;
+    text-align: center;
+}
+
+header nav a {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: normal;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+header nav a:hover {
+    background-color: #F56F3A;
+    border-radius: 50px;
+    color: #FFF;
+}
+
+.header2 {
+    position: fixed;
+    height: 100px;
+}
+
+.header2 nav {
+    line-height: 100px;
+}
+
+.contenido p {
+    margin-bottom: 1em;
+}
+
+.menu_bar {
+    display: none;
+}
+
+
+/*Esta es la configuración para telefono únicamente*/
+
+@media screen and (max-width: 800px) {
+    body {
+        padding-top: 0px;
+    }
+    .menu_bar {
+        display: block;
+        width: 100%;
+        background-color: #d0d32e;
+    }
+    .menu_bar .bt_menu {
+        display: block;
+        padding: 20px;
+        background: #024959;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .menu_bar span {
+        float: left;
+        font-size: 40px;
+        color: #000;
+    }
+    header nav {
+        width: 80%;
+        height: 40%;
+        left: -100%;
+        margin: 0;
+        position: fixed;
+        background-color: #d0d32e;
+    }
+}
+
+
+/*Configuración para el footer*/
+
+body {
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #d0d32e;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+}
+
+
+/*Para el cuerpo de la página*/
+
+
+/*Para la imagen del logo*/
+
+.imagen {
+    width: 100%;
+    text-align: center;
+}
+
+
+/*Para las columnas de la página*/
