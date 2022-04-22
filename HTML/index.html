@@ -8,6 +8,7 @@
     <!--Aquí se agregan los estilos para la pantalla principal-->
     <link rel="stylesheet" href="../CSS/styleshomescreen.css" />
     <link rel="stylesheet" href="../CSS/fonts.css" />
+    <script src="https://kit.fontawesome.com/50276591f0.js" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../JS/header.js"></script>
     <script src="../JS/menu.js"></script>
@@ -21,19 +22,85 @@
                 <a href="#" class="bt-menu"><span class="icon-menu"></span></a>
             </div>
             <div class="wrapper">
-                <nav>
-                    <a href="#">Inicio</a>
-                    <a href="#">Productos</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Recomendaciones</a>
-                    <a href="#">Foros</a>
-                    <a href="#">Conócenos</a>
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Productos</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Recomendaciones</a>
+                        </li>
+                        <li>
+                            <a href="#">Foros</a>
+                        </li>
+                        <li class="Last">
+                            <a href="#">Conócenos</a>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </header>
-
         <img src="../Images/InicioGeekit.png" class="imagen" />
-
+        <!--Parte inferior de la imagen-->
+        <div class="row">
+            <div class="column side">
+                <p class="TRecomendaciones">¿No sabes por donde empezar?</p>
+                <div class="wrapper">
+                    <nav class="Recomendaciones" id="Recomendaciones">
+                        <ul>
+                            <li><a href="#">Recomendación 1</a></li>
+                            <li class="Rec2"><a href="#">Recomendación 2</a></li>
+                            <li class="Rec3"><a href="#">Recomendación 3</a></li>
+                            <li><a href="#">Ver más...</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="column middle">
+                <div class="contendedorBusqueda">
+                    <div class="buscar">
+                        <input type="search" placeholder="Buscar" />
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="Filtro">
+                        <p>
+                            <i class="fa-solid fa-sliders"></i>
+                        </p>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="Categorias">
+                    <ul>
+                        <li>
+                            <a href="#">Cómics</a>
+                        </li>
+                        <li>
+                            <a href="#">Manga</a>
+                        </li>
+                        <li>
+                            <a href="#">Anime</a>
+                        </li>
+                        <li>
+                            <a href="#">Figuras</a>
+                        </li>
+                    </ul>
+                </div>
+                <br />
+                <div class="TituloProduc">Productos más populares</div>
+            </div>
+            <div class="column side">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus
+                    quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.
+                </p>
+            </div>
+        </div>
         <br />
         <footer>
             Instituto Politécnico Nacional <br /> Escuela Superior de Cómputo
