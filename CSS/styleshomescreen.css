@@ -349,21 +349,25 @@ i {
 
 .Dis {
     display: grid;
+    border: 1px solid;
+    border-radius: 10px;
 }
 
 .Comment {
     border: 1px solid;
     border-radius: 10px;
+    margin: 3px;
 }
 
 .Comment th {
     color: darkgreen;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .Foto {
     width: 85%;
-    height: 85%;
+    height: 25%;
     border-radius: 150px;
     border: 8px solid #666;
 }
@@ -376,6 +380,14 @@ i {
 
 .Usuario {
     text-align: center;
+}
+
+.Comentarios {
+    text-align: justify;
+}
+
+.Comment tr {
+    border: 1px solid;
 }
 
 
