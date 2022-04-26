@@ -1,8 +1,14 @@
+
+@font-face {
+    font-family: Roboto;
+    src: url("./fonts/Roboto-Light.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Comic Sans MS;
+    font-family: Roboto;
     text-decoration: none;
 }
 
@@ -12,20 +18,24 @@
     overflow: hidden;
 }
 
+@font-face {
+    font-family: Permanent;
+    src: url("./fonts/PermanentMarker-Regular.ttf");
+}
+
 
 /*Estilos para el encabezado de inicio, productos*/
 
 header {
     width: 100%;
     overflow: hidden;
-    background-color: #d0d32e;
+    background-color: #EBEF38;
     margin-bottom: 0px;
 }
 
 .wrapper {
     width: 100%;
-    max-width: 1000px;
-    margin: auto;
+    margin-left: 16.67%;
     overflow: hidden;
 }
 
@@ -41,36 +51,26 @@ header nav ul {
 
 header nav ul li {
     float: left;
-    text-align: center;
 }
 
 header nav ul li a {
     display: inline-block;
     color: #000;
     text-decoration: none;
-    padding: 10px 20px;
+    margin: 20px;
     line-height: normal;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 25px;
     -webkit-transition: all 500ms ease;
     -o-transition: all 500ms ease;
     transition: all 500ms ease;
+    font-family: Permanent !important;
 }
 
 header nav a:hover {
-    background-color: #F56F3A;
-    border-radius: 50px;
+    background-color: red;
+    border-radius: 10px;
     color: #FFF;
-    display: block;
-}
-
-.header2 {
-    position: fixed;
-    height: 100px;
-}
-
-.header2 nav {
-    line-height: 100px;
+    padding: 5px;
 }
 
 .contenido p {
@@ -93,7 +93,7 @@ body {
 }
 
 footer {
-    background-color: #d0d32e;
+    background-color: #EBEF38;
     text-align: center;
     padding: 1em 0;
     margin-top: auto;
@@ -122,11 +122,11 @@ footer {
 }
 
 .column.side {
-    width: 25%;
+    width: 20%;
 }
 
 .column.middle {
-    width: 50%;
+    width: 60%;
 }
 
 .row:after {
@@ -141,8 +141,9 @@ footer {
 .TRecomendaciones {
     font-size: 20px;
     text-align: center;
-    color: #900C3F;
+    color: black;
     font-weight: bold;
+    text-shadow: 1px 2px #EE14CB
 }
 
 .Recomendaciones {
@@ -159,7 +160,6 @@ footer {
     -webkit-transition: all 500ms ease;
     -o-transition: all 500ms ease;
     transition: all 500ms ease;
-    border-bottom: 1px solid rgba(0, 0, 0, .3);
 }
 
 .Recomendaciones ul a:hover {
@@ -170,6 +170,12 @@ footer {
     font-weight: bold;
 }
 
+hr{
+    width: 180px;
+    margin-top: 10px;
+    margin-left: 15%;
+}
+
 
 /*Para la columna de la busqueda y los productos*/
 
@@ -178,20 +184,21 @@ footer {
     padding: 0 0 0 40px;
 }
 
-input,
-button {
+#buscar,
+#btnBuscar {
     float: left;
     width: 200px;
     height: 50px;
     padding: 0;
 }
 
-input {
-    border: none;
-    color: #666;
+#buscar {
+    border: 1px solid #666;
+    border-radius: 10px;
+    width: 600px;
 }
 
-button {
+#btnBuscar {
     font-size: 1.4em;
     width: 50px;
     border: none;
@@ -209,16 +216,16 @@ button {
     transition: all .1s ease-in-out;
 }
 
-input:focus {
+#buscar:focus {
     outline: none;
 }
 
-input:focus+button {
+#buscar:focus+#btnBuscar {
     transform: translate(0, 0);
     transition-duration: .3s;
 }
 
-input:focus+button .fas {
+#buscar:focus+#btnBuscar .fas {
     transform: translate(0, 0);
     transition-duration: .5s;
 }
@@ -238,9 +245,9 @@ input:focus+button .fas {
     width: 56.5%;
     margin: auto;
     overflow: hidden;
-    background: #e6e785;
     text-align: center;
-    border-radius: 50px;
+    margin-top: -50px;
+    margin-left: 25px;
 }
 
 .Categorias ul {
@@ -251,6 +258,7 @@ input:focus+button .fas {
 .Categorias ul li {
     float: left;
     text-align: center;
+    margin: 10px;
 }
 
 .Categorias ul li a {
@@ -259,18 +267,9 @@ input:focus+button .fas {
     text-decoration: none;
     padding: 10px 20px;
     line-height: normal;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    -webkit-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: all 500ms ease;
-}
-
-.Categorias ul li a:hover {
-    background-color: #F56F3A;
-    border-radius: 50px;
-    color: #FFF;
-    display: block;
+    background: #FAFC9C;
 }
 
 
@@ -280,7 +279,7 @@ input:focus+button .fas {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    -webkit-text-stroke: 0.75px yellow;
+    text-shadow: 1px 2px yellow   
 }
 
 
@@ -388,6 +387,34 @@ i {
 
 .Comment tr {
     border: 1px solid;
+}
+
+/*Footer*/
+
+.formFooter{
+    display: block;
+    margin: 10px;
+    width: 540px;
+    height: 30px;
+    margin-left: 30%;
+}
+
+textarea{
+    display: block;
+    margin:10px;
+    margin-left: 30%;
+}
+
+#enviar{
+    display: block;
+    background-color: red;
+    color: white;
+    font-family: Roboto;
+    border-color: red;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 1em;
+    margin-left:48%;
 }
 
 
