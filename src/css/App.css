@@ -1,0 +1,497 @@
+@font-face {
+  font-family: Roboto;
+  src: url("./fonts/Roboto-Light.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+  text-decoration: none;
+}
+
+.contenedor {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Permanent;
+  src: url("./fonts/PermanentMarker-Regular.ttf");
+}
+
+
+/*Estilos para el encabezado de inicio, productos*/
+
+header {
+  width: 100%;
+  overflow: hidden;
+  background-color: #EBEF38;
+  margin-bottom: 0px;
+}
+
+.wrapper {
+  width: 100%;
+  margin-left: 16.67%;
+  overflow: hidden;
+}
+
+header nav {
+  float: none;
+  line-height: 75px;
+}
+
+header nav ul {
+  overflow: hidden;
+  list-style: none;
+}
+
+header nav ul li {
+  float: left;
+}
+
+header nav ul li a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  margin: 20px;
+  line-height: normal;
+  font-size: 25px;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+  font-family: Permanent !important;
+}
+
+header nav a:hover {
+  background-color: red;
+  border-radius: 10px;
+  color: #FFF;
+  padding: 5px;
+}
+
+.contenido p {
+  margin-bottom: 1em;
+}
+
+.menu_bar {
+  display: none;
+}
+
+.menu_Rec {
+  display: none;
+}
+
+
+/*Configuración para el footer*/
+
+body {
+  min-height: 100vh;
+}
+
+footer {
+  background-color: #EBEF38;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: auto;
+}
+
+
+/*Para el cuerpo de la página*/
+
+
+/************************************************************************************************************/
+
+
+/*Para la imagen del logo*/
+
+.imagen {
+  width: 100%;
+  text-align: center;
+}
+
+
+/*Para las columnas de la página*/
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.column.side {
+  width: 20%;
+}
+
+.column.middle {
+  width: 60%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/*Para la columna de las recomendaciones*/
+
+.TRecomendaciones {
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  text-shadow: 1px 2px #EE14CB
+}
+
+.Recomendaciones {
+  text-align: center;
+}
+
+.Recomendaciones ul a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  line-height: normal;
+  font-size: 20px;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.Recomendaciones ul a:hover {
+  background-color: #F56F3A;
+  border-radius: 50px;
+  color: #FFF;
+  display: block;
+  font-weight: bold;
+}
+
+hr {
+  width: 180px;
+  margin-top: 10px;
+  margin-left: 15%;
+}
+
+
+/*Para la columna de la busqueda y los productos*/
+
+.buscar {
+  border-radius: 50px;
+  padding: 0 0 0 40px;
+}
+
+#buscar,
+#btnBuscar {
+  float: left;
+  width: 200px;
+  height: 50px;
+  padding: 0;
+}
+
+#buscar {
+  border: none;
+  border-radius: 10px;
+  width: 500px;
+}
+
+#btnBuscar {
+  font-size: 1.4em;
+  width: 50px;
+  border: none;
+  background: #333;
+  border-radius: 50px;
+  transform: translate(-50px, 0);
+  transition-duration: .3s;
+  position: relative;
+  z-index: -1;
+}
+
+.fas.fa-search {
+  color: #BBB;
+  transform: translate(-190px, 0);
+  transition: all .1s ease-in-out;
+}
+
+#buscar:focus {
+  outline: none;
+}
+
+#buscar:focus+#btnBuscar {
+  transform: translate(0, 0);
+  transition-duration: .3s;
+}
+
+#buscar:focus+#btnBuscar .fas {
+  transform: translate(0, 0);
+  transition-duration: .5s;
+}
+
+
+/*Para el filtro*/
+
+.Filtro {
+  text-align: center;
+  font-size: 25px;
+}
+
+
+/*Para los botones debajo de la barra de busqueda*/
+
+.Categorias {
+  width: 56.5%;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  margin-top: -50px;
+  margin-left: 25px;
+}
+
+.Categorias ul {
+  overflow: hidden;
+  list-style: none;
+}
+
+.Categorias ul li {
+  float: left;
+  text-align: center;
+  margin: 10px;
+}
+
+.Categorias ul li a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  line-height: normal;
+  font-size: 15px;
+  font-weight: bold;
+  background: #FAFC9C;
+}
+
+
+/*Para el titulo*/
+
+.TituloProduc {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 1px 2px yellow
+}
+
+
+/*Para los productos*/
+
+.Productos {
+  float: left;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  border-spacing: 5px;
+}
+
+.TProductos {
+  padding: auto;
+  width: 25%;
+  border: 1px solid;
+  border-radius: 10px;
+  float: left;
+  width: 33%;
+  margin: 2px;
+}
+
+.imagenes {
+  width: 60%;
+  display: block;
+  margin: auto;
+  transition: transform 0.5s;
+}
+
+.imagenes:hover {
+  transform: scale(1.5);
+}
+
+td {
+  text-align: justify;
+  padding: 0.5rem;
+  padding-top: 0;
+}
+
+.Precio {
+  border: none;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/*Configuración para la tercera columna*/
+
+
+/***************************************************************************************************/
+
+.LogIn {
+  text-align: center;
+  font-size: 30px;
+}
+
+.Log {
+  font-size: medium;
+}
+
+i {
+  margin: 10px;
+}
+
+.Dis {
+  display: grid;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.Comment {
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 3px;
+}
+
+.Comment th {
+  color: darkgreen;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Foto {
+  width: 85%;
+  height: 25%;
+  border-radius: 150px;
+  border: 8px solid #666;
+}
+
+.Foto2 {
+  width: 30%;
+  padding-top: 0.5rem;
+  text-align: center;
+}
+
+.Usuario {
+  text-align: center;
+}
+
+.Comentarios {
+  text-align: justify;
+}
+
+.Comment tr {
+  border: 1px solid;
+}
+
+
+/*Footer*/
+
+.formFooter {
+  display: block;
+  margin: 10px;
+  width: 540px;
+  height: 30px;
+  margin-left: 30%;
+}
+
+textarea {
+  display: block;
+  margin: 10px;
+  margin-left: 30%;
+}
+
+#enviar {
+  display: block;
+  background-color: red;
+  color: white;
+  font-family: Roboto;
+  border-color: red;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 1em;
+  margin-left: 48%;
+}
+
+
+/*Esta es la configuración para telefono únicamente*/
+
+
+/**********************************************************************************/
+
+@media screen and (max-width: 800px) {
+  body {
+      padding-top: 0px;
+  }
+  header nav ul li {
+      display: block;
+      float: none;
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      text-align: center;
+  }
+  .menu_bar {
+      display: block;
+      width: 100%;
+      background-color: #d0d32e;
+  }
+  .menu_bar .bt_menu {
+      display: block;
+      padding: 20px;
+      background: #024959;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 25px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  .menu_bar span {
+      float: left;
+      font-size: 40px;
+      color: #000;
+  }
+  header nav {
+      width: 80%;
+      height: 80%;
+      left: -100%;
+      margin: 0;
+      position: fixed;
+      background-color: #d0d32e;
+      border-radius: 15px;
+  }
+  .column.side,
+  .column.middle {
+      width: 100%;
+  }
+  .wrapper .Recomendaciones ul a {
+      font-size: 15px;
+      text-align: center;
+  }
+  .Filtro p {
+      font-size: 35px;
+  }
+  .Categorias {
+      width: 80%;
+      text-align: center;
+  }
+  .Categorias ul li a {
+      width: 100%;
+      text-align: justify;
+      font-size: 20px;
+  }
+  .Categorias ul li a:hover {
+      width: 100%;
+      text-align: center;
+      float: none;
+      display: block;
+  }
+  .imagenes {
+      position: relative;
+      z-index: -1;
+  }
+}
