@@ -40,7 +40,7 @@ export default class PopularesBusquedas extends Component {
             <table className="TProductos">
                 <tbody><tr>
                     <td colSpan={2}>
-                        <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/AoTBefore.png"} className="imagenes" />
+                        <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/AoTBefore.png"} className="imagenes" alt=""/>
                     </td>
                 </tr>
                     <tr>
@@ -58,7 +58,7 @@ export default class PopularesBusquedas extends Component {
             <table className="TProductos">
                 <tbody><tr>
                     <td colSpan={2}>
-                        <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/Boys.jpg"} className="imagenes" />
+                        <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/Boys.jpg"} className="imagenes" alt=""/>
                     </td>
                 </tr>
                     <tr>
@@ -76,7 +76,7 @@ export default class PopularesBusquedas extends Component {
             <table className="TProductos">
                 <tbody><tr>
                     <td colSpan={2}>
-                        <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/Levi.jpg"} className="imagenes" />
+                        <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/Levi.jpg"} className="imagenes" alt=""/>
                     </td>
                 </tr>
                     <tr>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 export default class PanelDiscusiones extends Component {
     render() {
@@ -11,7 +10,7 @@ export default class PanelDiscusiones extends Component {
                 <table className="Comment">
                     <tbody><tr>
                         <td rowSpan={2} className="Foto2">
-                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" />
+                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" alt=""/>
                         </td><td>
                             <p className="Usuario">Jefferson Guitierritos</p>
                             <p className="Comentarios">
@@ -23,7 +22,7 @@ export default class PanelDiscusiones extends Component {
                 <table className="Comment">
                     <tbody><tr>
                         <td rowSpan={2} className="Foto2">
-                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" />
+                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" alt=""/>
                         </td><td>
                             <p className="Usuario">Jefferson Guitierritos</p>
                             <p className="Comentarios">
@@ -35,7 +34,7 @@ export default class PanelDiscusiones extends Component {
                 <table className="Comment">
                     <tbody><tr>
                         <td rowSpan={2} className="Foto2">
-                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" />
+                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" alt=""/>
                         </td><td>
                             <p className="Usuario">Jefferson Guitierritos</p>
                             <p className="Comentarios">
@@ -47,7 +46,7 @@ export default class PanelDiscusiones extends Component {
                 <table className="Comment">
                     <tbody><tr>
                         <td rowSpan={2} className="Foto2">
-                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" />
+                            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="Foto" alt=""/>
                         </td><td>
                             <p className="Usuario">Jefferson Guitierritos</p>
                             <p className="Comentarios">

@@ -6,28 +6,28 @@ export default class Navigation extends Component {
     return (
       <header>
       <div className="menu_bar">
-        <a href="#" className="bt-menu"><span className="icon-menu" /></a>
+        <a href="!#" className="bt-menu"><span className="icon-menu" /></a>
       </div>
       <div className="wrapper">
         <nav id="menu">
           <ul>
             <li>
-              <Link to="#">Inicio</Link>
+              <Link to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="#">Productos</Link>
+              <Link to="!#">Productos</Link>
             </li>
             <li>
-              <Link to="#">Blog</Link>
+              <Link to="!#">Blog</Link>
             </li>
             <li>
-              <Link to="#">Recomendaciones</Link>
+              <Link to="!#">Recomendaciones</Link>
             </li>
             <li>
-              <Link to="#">Foros</Link>
+              <Link to="!#">Foros</Link>
             </li>
             <li className="Last">
-              <Link to="#">Conócenos</Link>
+              <Link to="!#">Conócenos</Link>
             </li>
           </ul>
         </nav>
