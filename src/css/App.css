@@ -142,7 +142,7 @@ footer {
   text-align: center;
   color: black;
   font-weight: bold;
-  text-shadow: 1px 2px #EE14CB
+  text-shadow: 1px 2px #EE14CB;
 }
 
 .Recomendaciones {
@@ -162,7 +162,7 @@ footer {
 }
 
 .Recomendaciones ul a:hover {
-  background-color: #F56F3A;
+  background-color: #EE14CB;
   border-radius: 50px;
   color: #FFF;
   display: block;
@@ -173,6 +173,7 @@ hr {
   width: 180px;
   margin-top: 10px;
   margin-left: 15%;
+  border-color: #EE14CB;
 }
 
 
@@ -192,7 +193,7 @@ hr {
 }
 
 #buscar {
-  border: none;
+  border: 1px solid grey;
   border-radius: 10px;
   width: 500px;
 }
@@ -347,20 +348,20 @@ i {
 
 .Dis {
   display: grid;
-  border: 1px solid;
-  border-radius: 10px;
 }
 
 .Comment {
-  border: 1px solid;
+  border: 1px solid #2C8E09;
   border-radius: 10px;
   margin: 3px;
 }
 
-.Comment th {
-  color: darkgreen;
+.title_Comment {
+  color: black;
+  text-shadow: 1px 2px #47ff05;
   font-weight: bold;
   font-size: 20px;
+  text-align: center;
 }
 
 .Foto {
