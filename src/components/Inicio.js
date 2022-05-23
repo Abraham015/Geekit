@@ -14,7 +14,7 @@ export default class Inicio extends Component {
           <input type="password" placeholder="Contraseña" />
           <input type="submit" value="Entrar" />
           <a href="!#"> ¿Olvidaste tu contraseña ? </a> <br />
-          <a href="!#"> ¿No tienes una cuenta ? </a>{" "}
+          <a href="/registro"> ¿No tienes una cuenta ? </a>{" "}
         </form>{" "}
       </div>{" "}
     </div>

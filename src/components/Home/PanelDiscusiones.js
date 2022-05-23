@@ -4,7 +4,9 @@ export default class PanelDiscusiones extends Component {
     render() {
         return (
             <div className="Dis panel-discusiones">
-                <p className="title_Comment">Súmate a la discusión</p>
+                <table className="Comment">
+                    <tbody><tr><th colSpan={2}>Súmate a la discusión</th>
+                    </tr></tbody></table>
                 <table className="Comment">
                     <tbody><tr>
                         <td rowSpan={2} className="Foto2">

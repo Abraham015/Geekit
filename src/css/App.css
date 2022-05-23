@@ -9,6 +9,7 @@
   box-sizing: border-box;
   font-family: Roboto;
   text-decoration: none;
+  zoom: 100%;
 }
 
 .contenedor {
@@ -142,7 +143,7 @@ footer {
   text-align: center;
   color: black;
   font-weight: bold;
-  text-shadow: 1px 2px #EE14CB;
+  text-shadow: 1px 2px #EE14CB
 }
 
 .Recomendaciones {
@@ -162,7 +163,7 @@ footer {
 }
 
 .Recomendaciones ul a:hover {
-  background-color: #EE14CB;
+  background-color: #F56F3A;
   border-radius: 50px;
   color: #FFF;
   display: block;
@@ -173,7 +174,6 @@ hr {
   width: 180px;
   margin-top: 10px;
   margin-left: 15%;
-  border-color: #EE14CB;
 }
 
 
@@ -193,7 +193,7 @@ hr {
 }
 
 #buscar {
-  border: 1px solid grey;
+  border: none;
   border-radius: 10px;
   width: 500px;
 }
@@ -348,20 +348,20 @@ i {
 
 .Dis {
   display: grid;
+  border: 1px solid;
+  border-radius: 10px;
 }
 
 .Comment {
-  border: 1px solid #2C8E09;
+  border: 1px solid;
   border-radius: 10px;
   margin: 3px;
 }
 
-.title_Comment {
-  color: black;
-  text-shadow: 1px 2px #47ff05;
+.Comment th {
+  color: darkgreen;
   font-weight: bold;
   font-size: 20px;
-  text-align: center;
 }
 
 .Foto {
@@ -575,6 +575,244 @@ textarea {
 }
 
 .CuadroGrande a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+/*Para la pantalla de registro*/
+
+.Datos1{
+  width: 320px;
+    height: 120px;
+    background-color: rgba(234, 237, 95, .7);
+    top: 22.5%;
+    left: 25%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 20px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.enunciado{
+  padding-bottom: 10px;
+}
+
+.Campo > div{
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.registro {
+    margin: 0;
+    padding: 0;
+    background: url(./Images/fondoinicio.JPG) no-repeat center top;
+    background-size: cover;
+    height: 89vh;
+}
+
+.Datos {
+    width: 320px;
+    height: 640px;
+    background-color: rgba(234, 237, 95, .7);
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 20px 30px;
+    border-radius: 50px;
+}
+
+.Datos h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.Datos label {
+    margin: 0;
+    padding: 0 0 0.4em;
+    font-weight: bold;
+    display: block;
+}
+
+.Datos input {
+    width: 100%;
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+    border-radius: 10px; 
+}
+
+.Datos input[type="text"],
+.Datos input[type="password"] {
+  border: none;
+    border-bottom: 1px solid #EDE7E7;
+    height: 40px;
+    font-size: 18px;
+
+}
+
+.Datos input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #75F460;
+    color: #000;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.cont{
+    padding-bottom: 0.4em;
+}
+
+.Datos input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.Datos a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.DatosV{
+  width: 320px;
+    height: 640px;
+    background-color: rgba(234, 237, 95, .7);
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 20px 30px;
+    border-radius: 50px;
+}
+
+.DatosV h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.DatosV label {
+    margin: 0;
+    padding: 0 0 0.4em;
+    font-weight: bold;
+    display: block;
+}
+
+.DatosV input {
+    width: 100%;
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+    border-radius: 10px;
+}
+
+.DatosV input[type="text"],
+.DatosV input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #EDE7E7;
+    height: 40px;
+    font-size: 18px;
+}
+
+.DatosV input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #75F460;
+    color: #000;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.cont{
+    padding-bottom: 0.6em;
+}
+
+.DatosV input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.DatosV a {
     text-decoration: none;
     font-size: 18px;
     line-height: 20px;
