@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import Inicio from './components/Inicio';
 import Registro from './components/Registro';
+import Conocenos from './components/Conocenos';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/inicio" element={<Inicio/>}/>
           <Route path="/registro" element={<Registro/>}/>
+          <Route path="/conocenos" element={<Conocenos/>}/>
         </Routes>
       </div>
 

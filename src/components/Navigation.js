@@ -27,7 +27,7 @@ export default class Navigation extends Component {
               <Link to="!#">Foros</Link>
             </li>
             <li className="Last">
-              <Link to="!#">Conócenos</Link>
+              <Link to="/conocenos">Conócenos</Link>
             </li>
           </ul>
         </nav>
