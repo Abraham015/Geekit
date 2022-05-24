@@ -193,11 +193,8 @@ hr {
 }
 
 #buscar {
-<<<<<<< HEAD
   border: 1px solid grey !important;
-=======
   border: 1px solid gray;
->>>>>>> 0ea48d34de8f7e576be7288ae4a8a7ababad4640
   border-radius: 10px;
   width: 500px;
 }
