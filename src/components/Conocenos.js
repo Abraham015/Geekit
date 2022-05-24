@@ -10,7 +10,6 @@ export default class Conocenos extends Component {
     this.setState({value: e.target.value})
   }
   render() {
-    const {value}=this.state;
     return (
       <div className="conocenos">
           <img src={"Images/fondoConocenos.jpeg"} className="imgFondoConocenos" alt="fondoConocenos" />
@@ -19,9 +18,9 @@ export default class Conocenos extends Component {
                 <p>Ofrecer a la Comunidad Geek un espacio digital web donde puedan convivir y comprar una variedad de artículos, tales como manga, anime, cómics, figuras de colección, entre otros. Además de brindar oportunidades de trabajo para los vendedores que quieran formar parte de Geek it!</p>
                 <h1 className="tituloConocenos">Contáctanos</h1>
                 <div className="botonera">
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="!#" className="facebook"><i className="fa fa-facebook"></i></a>
+                        <a href="!#" className="twitter"><i className="fa fa-twitter"></i></a>
+                        <a href="!#" className="instagram"><i className="fa fa-instagram"></i></a>
                 </div>
                 <img src={"Images/mario.png"} className="mario" alt="MarioBros" />
                 <img src={"Images/lakitu.png"} className="lakitu" alt="Lakitu" />
