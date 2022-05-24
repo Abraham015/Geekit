@@ -193,7 +193,7 @@ hr {
 }
 
 #buscar {
-  border: none;
+  border: 1px solid gray;
   border-radius: 10px;
   width: 500px;
 }
@@ -359,7 +359,8 @@ i {
 }
 
 .Comment th {
-  color: darkgreen;
+  color: black;
+  text-shadow: 1px 2px #49f00c ;
   font-weight: bold;
   font-size: 20px;
 }
