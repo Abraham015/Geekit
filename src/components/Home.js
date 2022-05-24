@@ -12,7 +12,7 @@ export default class Home extends Component {
     return (
       <div>
         <img
-          src={process.env.REACT_APP_BASE_URL_IMAGES + "/InicioGeekit.png"}
+          src={process.env.REACT_APP_BASE_URL_IMAGES + "/Inicio.jpg"}
           className="imagen" alt=""
         />
         {/*Parte inferior de la imagen*/}{" "}
