@@ -9,7 +9,6 @@
   box-sizing: border-box;
   font-family: Roboto;
   text-decoration: none;
-  zoom: 100%;
 }
 
 .contenedor {
@@ -89,7 +88,7 @@ header nav a:hover {
 /*Configuración para el footer*/
 
 body {
-  min-height: 100vh;
+  min-height: 125vh;
 }
 
 footer {
@@ -110,6 +109,7 @@ footer {
 
 .imagen {
   width: 100%;
+  height: 100%;
   text-align: center;
 }
 
@@ -143,7 +143,7 @@ footer {
   text-align: center;
   color: black;
   font-weight: bold;
-  text-shadow: 1px 2px #EE14CB;
+  text-shadow: 1px 2px #EE14CB
 }
 
 .Recomendaciones {
@@ -163,7 +163,7 @@ footer {
 }
 
 .Recomendaciones ul a:hover {
-  background-color: #EE14CB;
+  background-color: #F56F3A;
   border-radius: 50px;
   color: #FFF;
   display: block;
@@ -193,7 +193,7 @@ hr {
 }
 
 #buscar {
-  border: 1px solid gray;
+  border: none;
   border-radius: 10px;
   width: 500px;
 }
@@ -348,6 +348,8 @@ i {
 
 .Dis {
   display: grid;
+  border: 1px solid;
+  border-radius: 10px;
 }
 
 .Comment {
@@ -357,8 +359,7 @@ i {
 }
 
 .Comment th {
-  color: black;
-  text-shadow: 1px 2px #49f00c ;
+  color: darkgreen;
   font-weight: bold;
   font-size: 20px;
 }
@@ -584,10 +585,10 @@ textarea {
 /*Para la pantalla de registro*/
 
 .Datos1{
-  width: 320px;
+  width: 300px;
     height: 120px;
     background-color: rgba(234, 237, 95, .7);
-    top: 22.5%;
+    top: 27.5%;
     left: 25%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -675,14 +676,15 @@ textarea {
     padding: 0;
     background: url(./Images/fondoinicio.JPG) no-repeat center top;
     background-size: cover;
-    height: 89vh;
+    height: 112.5vh;
 }
 
+/********************************************************************************************/
 .Datos {
     width: 320px;
     height: 640px;
     background-color: rgba(234, 237, 95, .7);
-    top: 55%;
+    top: 68%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -697,6 +699,7 @@ textarea {
     font-weight: bold;
     display: block;
     text-align: center;
+    font-size: 25px;
 }
 
 .Datos label {
@@ -753,7 +756,7 @@ textarea {
   width: 320px;
     height: 640px;
     background-color: rgba(234, 237, 95, .7);
-    top: 55%;
+    top: 68%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -817,107 +820,4 @@ textarea {
     line-height: 20px;
     color: black;
     font-weight: bold;
-}
-
-/* ----------- Página conócenos ------------*/
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
-
-.imgFondoConocenos{
-    width: 100%;
-    height:575px;
-    opacity: 0.5;
-}
-
-.textoEncima{
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-}
-
-.botonera{
-  position: fixed;
-  top: 100%;
-}
-.botonera a{
-  display: inline-block;
-  text-align: center;
-  transition: all .5s;
-  color: white;
-  font-size: 20px;
-  margin: 5px;
-}
-.facebook{
-  background-color: #3b5998;
-  color: white; 
-}
-
-.twitter{
-  background-color: #55acee;
-  color: white; 
-}
-
-.instagram{
-  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-  color: white;
-}
-
-.tituloConocenos{
-  font-family: 'Fugaz One', cursive;
-}
-
-.textoEncima p{
-  font-size: 1.2em;
-  text-align: justify;
-}
-
-.mario{
-  position: fixed;
-  width: 150px;
-  height: 200px;
-  margin-top: 90px;
-  margin-left: -130px;
-}
-
-.lakitu{
-  position: fixed;
-  width: 150px;
-  height: 200px;
-  margin-top: -270px;
-  margin-left: 1050px;
-}
-
-.desarrolladores{
-  text-align: center;
-}
-
-.cuadroDes{
-  position: fixed;
-  width: 350px;
-  height: 200px;
-  margin-top: 90px;
-  opacity: 0.8;
-}
-
-.textoEncima2{
-  position: absolute;
-  top: 300px;
-  left: 55%;
-}
-
-.textoEncima2 h1{
-  font-size: 1.3em;
-  text-align: center;
-}
-
-.textoEncima2 ul{
-  margin-top: 10px;
-}
-
-.estrella{
-  position: fixed;
-  width: 150px;
-  height: 150px;
-  margin-left: 1050px;
-  margin-top: 140px;
 }
