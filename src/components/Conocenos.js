@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../css/Conocenos.css';
 
 export default class Conocenos extends Component {
   constructor(props){

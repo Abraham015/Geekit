@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import '../css/Inicio.css';
+
 
 export default class Inicio extends Component {
   render() {

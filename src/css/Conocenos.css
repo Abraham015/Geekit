@@ -1,0 +1,103 @@
+
+ /* ----------- Página conócenos ------------*/
+ @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+ .imgFondoConocenos{
+     width: 100%;
+     opacity: 0.5;
+     height: 86.5vh;
+ }
+ 
+ .textoEncima{
+   position: absolute;
+   top: 40%;
+   left: 40%;
+   transform: translate(-50%, -50%);
+ }
+ 
+ .botonera{
+   position: fixed;
+   top: 100%;
+ }
+ .botonera a{
+   display: inline-block;
+   text-align: center;
+   transition: all .5s;
+   color: white;
+   font-size: 20px;
+   margin: 5px;
+ }
+ .facebook{
+   background-color: #3b5998;
+   color: white; 
+ }
+ 
+ .twitter{
+   background-color: #55acee;
+   color: white; 
+ }
+ 
+ .instagram{
+   background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+   color: white;
+ }
+ 
+ .tituloConocenos{
+   font-family: 'Fugaz One', cursive;
+ }
+ 
+ .textoEncima p{
+   font-size: 1.2em;
+   text-align: justify;
+ }
+ 
+ .mario{
+   position: fixed;
+   width: 150px;
+   height: 200px;
+   margin-top: 75px;
+   margin-left: -130px;
+ }
+ 
+ .lakitu{
+   position: fixed;
+   width: 150px;
+   height: 200px;
+   margin-top: -255px;
+   margin-left: 1050px;
+ }
+ 
+ .desarrolladores{
+   text-align: center;
+ }
+ 
+ .cuadroDes{
+   position: fixed;
+   width: 350px;
+   height: 200px;
+   margin-top: 70px;
+   opacity: 0.8;
+ }
+ 
+ .textoEncima2{
+   position: absolute;
+   top: 250px;
+   left: 55%;
+ }
+ 
+ .textoEncima2 h1{
+   font-size: 1.3em;
+   text-align: center;
+ }
+ 
+ .textoEncima2 ul{
+   margin-top: 10px;
+ }
+ 
+ .estrella{
+   position: fixed;
+   width: 150px;
+   height: 150px;
+   margin-left: 1050px;
+   margin-top: 125px;
+ }
