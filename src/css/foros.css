@@ -1,11 +1,19 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Cairo:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+
+/* Adecuando cuerpo de la vista */
 body{
     background-color: #afcec9;
 }
-#root, #root > div{
-    min-height: 100vh;
-}
+
+/* Dividiendo la vista en paneles para cada sección */
 .container{
-    min-height: 91.2vh;
+    margin: 0px;
+
+    height: 92vh;
+    max-height: 92vh;
 
     display: flex;
     flex-flow:  row wrap;
@@ -17,21 +25,103 @@ body{
 }
 
 .container > div{
-    min-width: 49%;
-    max-width: 50%;
+    width: 49.5%;
 }
 
 .foro-seccion{
     max-width: 100%;
-    min-height: 100%;
+    height: 100%;
 
     display: flex;
     flex-flow:  column wrap;
-    
+
     justify-content: space-between;
 }
 
-.foro-seccion div{
+.foro-seccion > div{
+    background-color: #D9ECE9;
     border: 1px solid #45897E;
     border-radius: 15px;
+
+    display: flex;
+    flex-flow:  column nowrap;
+    justify-content: flex-start;
+
+    align-items: stretch;
+
+    overflow: hidden;
+}
+
+.foro-seccion .tus-foros{
+    height: 39%;
+}
+.foro-seccion .explorar-foros{
+    height: 59%;
+}
+.foro-seccion .discusiones{
+    height: 100%;
+}
+
+/* Dando estilos propios a cada sección */
+.titulo-seccion{
+    font-family: 'Cairo';
+    font-size: 24px;
+
+    padding: 5px 20px 5px 20px;
+}
+
+/* Estilo a la sección de foros */
+.foros{
+    overflow-y: auto;
+    padding: 0px 20px 10px 20px;
+}
+
+.foros .foro-item{
+    border-radius: 15px;
+    background-color: #AFCEC9;
+
+    height: 85px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-flow:  row nowrap;
+    justify-content: space-between;
+    
+    cursor: pointer;
+}
+.foros .foro-item:hover{
+    background-color: #7e9c97;
+    transform: scale(1.01);
+}
+
+.foros .foro-item .foto-foro{
+    border-radius: 0px 15px 15px 0px;
+    
+    height: 85px;
+    width: 130px;
+    margin-left: 20px;
+}
+
+/* Estilo a cada foro */
+.informacion-foro{
+    padding: 5px 0px 10px 10px;
+    flex-grow: 1;
+}
+.informacion-foro .nombre-foro{
+    margin-bottom: 3px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #39397F;
+}
+.informacion-foro .descripcion-foro{
+    margin-bottom: 3px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    line-height: 1.2;
+}
+.informacion-foro .miembros-foro{
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 1.2;
 }

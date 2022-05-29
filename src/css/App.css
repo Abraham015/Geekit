@@ -37,6 +37,7 @@ header {
   margin-bottom: 0px;
   
   height: 8vh;
+  max-height: 65px;
 
   display:flex;
   align-items: center;
