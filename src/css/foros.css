@@ -7,6 +7,9 @@
 body{
     background-color: #afcec9;
 }
+input, select{
+    outline:none;
+}
 
 /* Dividiendo la vista en paneles para cada sección */
 .container{
@@ -14,18 +17,24 @@ body{
 
     height: 92vh;
     max-height: 92vh;
-
+    
     display: flex;
     flex-flow:  row wrap;
     justify-content: space-between;
 
     padding: 1.2%;
 
-    cursor: default;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    cursor: auto;
+
+    overflow: hidden;
 }
 
 .container > div{
-    width: 49.5%;
+    width: 49%;
 }
 
 .foro-seccion{
@@ -90,7 +99,7 @@ body{
     cursor: pointer;
 }
 .foros .foro-item:hover{
-    background-color: #7e9c97;
+    background-color: #a2dab0;
     transform: scale(1.01);
 }
 
@@ -124,4 +133,270 @@ body{
     font-weight: bold;
     font-size: 13px;
     line-height: 1.2;
+}
+
+/* Estios a seccion explorar foros */
+.busqueda-foros{
+    padding: 5px 20px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: flex-start;
+}
+/* Busqueda por input o filtro */
+.criterios-busquedas{
+    display: flex;
+    flex-flow: row wrap;
+    
+    justify-content: flex-start;
+    max-height: 40px;
+    margin-bottom: 12px;
+}
+.contenedor-barra-busqueda{
+    height: 40px;
+    width: 60%;
+    background-color: white;
+
+    border-radius: 10px;
+    border: 1px solid black;  
+    
+}
+.contenedor-barra-busqueda form{
+    display: flex;
+    flex-flow: row nowrap;
+
+    max-height: 100%;
+}
+.contenedor-barra-busqueda form input{
+    position: relative !important;
+
+    opacity: 1;
+    border: none;
+    flex-grow: 1;
+
+    border-radius: 10px;
+    padding: 0px 5px;
+    font-family: 'Cairo', sans-serif;
+}
+#filtro-busqueda{
+    margin: 0px 10px;
+    font-size: 25px;
+    
+}
+
+/* Busquedas por categorías */
+.categorias-busquedas ul{
+    display: flex;
+    flex-flow:  row wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    list-style: none;
+}
+.categorias-busquedas ul li{
+    background-color: #484C88;
+    margin-left: 10px;
+    height: 35px;
+    width: 110px;
+
+    text-align: center;
+    line-height: 35px;
+    color: white;
+
+}
+.categorias-busquedas ul li:hover{
+    color: #484C88;
+    background-color: white;
+    transition: all 400ms ease;
+    border: 1px solid #484C88;
+}
+
+/* Estilos de discusiones */
+.discusiones{
+    overflow-y: auto !important;
+    max-width: 100%;
+}
+.discusiones > div {
+    padding: 0px 20px;
+}
+.discusiones .orden-panel{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    margin-bottom: 5px;
+}
+.discusiones .orden-panel > label{
+    margin-right: 10px;
+
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    color: black;
+    font-weight: normal;
+}
+.discusiones .orden-panel > select{
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    color: #4D9386;
+    font-weight: normal;
+
+    max-height: 30px;
+    line-height: 30px;
+
+    border-radius: 3px;
+    border: none;
+
+    background-color: #D9D9D9;
+}
+/* Estilos de discusion */
+.discusion{
+    align-self: center;
+    width: 95%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+    background-color: #AFCEC9; 
+}
+/* Informacion de discusion */
+.discusion .informacion-discusion{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    padding: 10px 0px 0px 0px;
+}
+.discusion .informacion-discusion > a{
+    
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+
+    border-radius: 50%;
+    border: 0.2px solid white;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+}
+.discusion .informacion-discusion img{
+   max-width: 40px;
+   max-height: 40px;
+}
+.informacion-discusion .titulo-discusion{
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.informacion-discusion .titulo-discusion a{
+    color:#39397F;
+    font-family: 'Cairo', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+
+    font-style: italic;
+}
+.informacion-discusion .titulo-discusion a:hover{
+    text-decoration: underline;
+}
+/* Antiguedad discusion */
+.antiguedad{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    margin-top: -13px;
+    margin-bottom: 10px;
+
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+.antiguedad:hover{
+    text-decoration: underline;
+}
+
+/* Contenido de discusion */
+.contenido-discusion{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    border: 0.1px dotted #39397F;
+
+    border-radius: 30px 30px 0px 0px;
+}
+.contenido-discusion > pre{
+    margin: 20px;
+    height: auto;
+}
+.contenido-discusion .imagenes-discusion{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: black;
+
+    width: 100%;
+}
+.contenido-discusion .imagenes-discusion img{
+    max-width: 200px;
+    max-height: 200px;
+
+    margin: 2px;
+}
+.contenido-discusion .imagenes-discusion img:hover{
+    transform: scale(1.5);
+    border: 1px solid black;
+}
+/* Reacciones de la discusión */
+.reacciones-discusion{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #9BBEB9;
+    border-top:0.1px dotted #39397F;
+
+    border-radius: 0px 0px 20px 20px;
+}
+.reacciones-discusion .reaccion{
+    flex-grow: 1;
+    border-right: 0.1px dotted #39397F;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 7px;
+    cursor:pointer;
+    
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
+}
+.reacciones-discusion .mas-opciones{
+    flex-grow: 0;
+    flex-shrink: 1;
+    border: none;
+}
+.reacciones-discusion .reaccion:hover{
+    background-color: #7da09a;
+    transition: all 200ms ease;
+}
+.reacciones-discusion .reaccion:first-child{
+    border-radius: 0px 0px 0px 20px;
+}
+.reacciones-discusion .reaccion:last-child{
+    border-radius: 0px 0px 20px 0px;
 }
