@@ -25,6 +25,10 @@
 
 /*Estilos para el encabezado de inicio, productos*/
 
+#root > div{
+  display: flex;
+  flex-flow: column wrap;
+}
 header {
   width: 100%;
   overflow: hidden;

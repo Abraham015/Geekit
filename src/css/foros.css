@@ -1,0 +1,37 @@
+body{
+    background-color: #afcec9;
+}
+#root, #root > div{
+    min-height: 100vh;
+}
+.container{
+    min-height: 91.2vh;
+
+    display: flex;
+    flex-flow:  row wrap;
+    justify-content: space-between;
+
+    padding: 1.2%;
+
+    cursor: default;
+}
+
+.container > div{
+    min-width: 49%;
+    max-width: 50%;
+}
+
+.foro-seccion{
+    max-width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    flex-flow:  column wrap;
+    
+    justify-content: space-between;
+}
+
+.foro-seccion div{
+    border: 1px solid #45897E;
+    border-radius: 15px;
+}
