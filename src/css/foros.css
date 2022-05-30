@@ -4,15 +4,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
 
 /* Adecuando cuerpo de la vista */
-body{
+/*body{
     background-color: #afcec9;
-}
+}*/
 input, select{
     outline:none;
 }
 
 /* Dividiendo la vista en paneles para cada sección */
 .container{
+    background-color: #afcec9;
+
     margin: 0px;
 
     height: 92vh;
