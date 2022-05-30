@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default class Foros extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="foro-containter">
                 <div className="foro-seccion">
                     <div className="tus-foros">
                         <h2 className="titulo-seccion">Tus foros</h2>
