@@ -11,8 +11,8 @@
   .registro {
       background: url(./Images/fondoinicio.JPG) no-repeat center top;
       background-size: cover;
-      height: 90vh; 
-    width: 100vw; 
+      height: 110vh; 
+    width: 98.5vw; 
   }
 /*Para la pantalla de registro*/
 
@@ -112,7 +112,7 @@
       width: 320px;
       height: 670px;
       background-color: rgba(234, 237, 95, .7);
-      top: 54%;
+      top: 60%;
       left: 50%;
       position: absolute;
       transform: translate(-50%, -50%);
@@ -184,7 +184,7 @@
     width: 320px;
       height: 670px;
       background-color: rgba(234, 237, 95, .7);
-      top: 54%;
+      top: 60%;
       left: 50%;
       position: absolute;
       transform: translate(-50%, -50%);
