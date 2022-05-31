@@ -11,6 +11,7 @@ import Registro from './components/Registro';
 import Conocenos from './components/Conocenos';
 import Foros from './components/Foros';
 import Blog from './components/Blog';
+import Productos from './components/Productos';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/foros" element={<Foros/>}/>
           <Route path="/conocenos" element={<Conocenos/>}/>
+          <Route path="/productos" element={<Productos/>}/>
         </Routes>
       </div>
 
