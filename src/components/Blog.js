@@ -12,7 +12,7 @@ export default class Blog extends Component {
                 <h4 className="nickname">Nickname</h4>
                 <p className="txtDes">Descripcion de usuario</p>
                 <p className="txtDes">Algunos datos informativos del usuario (gustos, redes sociales)</p>
-                <button className="buttonP">Configurar Perfil</button>
+                <p className="buttonP">Configurar Perfil</p>
             </div>
             <div className="contenido">
                 <section className='crearPublicacion'>
