@@ -17,12 +17,12 @@ export default class Registro extends Component {
       <div className="registro">
       <div className="Datos1">
             <div className="enunciado">Tipo de Usuario:</div> 
-                <div><label className="container">Cliente
+                <div><label className="opciones">Cliente
                 <input type="radio" name="user" value="1" onChange={this.onchange}/>
                 <span className="checkmark"></span>
                 </label>
                 </div>
-                <div><label className="container">Vendedor
+                <div><label className="opciones">Vendedor
                 <input type="radio" name="user" value="0" onChange={this.onchange}/>
                 <span className="checkmark"></span>
                 </label>

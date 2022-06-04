@@ -105,7 +105,6 @@ header nav li a:hover {
   display: none;
 }
 
-
 /*Configuración para el footer*/
 
 body {
@@ -326,7 +325,7 @@ hr {
 }
 
 .imagenes {
-  width: 60%;
+  width: 60% !important;
   display: block;
   margin: auto;
   transition: transform 0.5s;
@@ -349,15 +348,14 @@ td {
   text-align: center;
 }
 
-
 /*Configuración para la tercera columna*/
 
 
 /***************************************************************************************************/
-
 .LogIn {
   text-align: center;
   font-size: 30px;
+  margin-right: 0 !important;
 }
 
 .Log {
@@ -372,6 +370,11 @@ i {
   display: grid;
   border: none;
   border-radius: 10px;
+}
+
+.panel-discusiones{
+  margin-left: 100px;
+  margin-right: -120px;
 }
 
 .Comment {

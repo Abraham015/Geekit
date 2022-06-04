@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+    src: url("./fonts/Roboto-Light.ttf");
+    text-decoration: none;
+}
+
+.productos {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    zoom: 100%;
+    background-color: white;
+}
+
+/*Para el div donde estara todo*/
+
+.column.middle {
+    width: 50%;
+    padding-left: 2.5%;
+}
+
+/*Para la columna de la busqueda y los productos*/
+
+.buscar {
+    border-radius: 50px;
+    padding: 0 0 0 70px;
+}
+
+input,
+button {
+    float: left;
+    width: 400px;
+    height: 50px;
+    padding: 0;
+}
+
+input {
+    border: 1px solid #666;
+    color: #666;
+    padding-left: 7px;
+}
+
+button {
+    font-size: 1.4em;
+    width: 50px;
+    border: none;
+    background: #333;
+    border-radius: 50px;
+    transform: translate(-50px, 0);
+    transition-duration: .3s;
+    position: relative;
+    z-index: -1;
+}
+
+.fas.fa-search {
+    color: #BBB;
+    transform: translate(-190px, 0);
+    transition: all .1s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:focus+button {
+    transform: translate(0, 0);
+    transition-duration: .3s;
+}
+
+input:focus+button .fas {
+    transform: translate(0, 0);
+    transition-duration: .5s;
+}
+
+
+/*Para el filtro*/
+
+.Filtro {
+    text-align: center;
+    font-size: 25px;
+    padding-left: 30px;
+}
+
+
+/*Para los productos*/
+
+.card {
+  border: 2px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.img {
+  border-radius: 10px 10px 0 0;
+}
+.badge {
+  top: 10px; right: 20px;
+  font-size: 17px;
+}
+
+.imagenes {
+    width: 40%;
+    display: block;
+    margin: auto;
+    padding-top: 2%;
+}
+
+.NombreProducto{
+    text-align: center;
+    font-weight: bold;
+}
+
+.Precio {
+    border: none;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*.Productos {
+    padding-left: 21%;
+    width: 80%;
+    display: -webkit-flex;
+    display: flex;
+    overflow-x: auto;
+}
+
+.TProductos {
+    padding: auto;
+    width: 25%;
+    border: 1px solid;
+    border-radius: 10px;
+    float: left;
+    width: 33%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.imagenes {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+
+td {
+    text-align: justify;
+    padding: 0.5rem;
+    padding-top: 0;
+}
+
+.Precio {
+    border: none;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.NombreProducto{
+    text-align: center;
+    font-weight: bold;
+}*/

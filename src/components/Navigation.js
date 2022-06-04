@@ -15,7 +15,7 @@ export default class Navigation extends Component {
               <Link to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="!#">Productos</Link>
+              <Link to="/productos">Productos</Link>
             </li>
             <li>
               <Link to="/blog">Blog</Link>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/Foros.css';
+import '../css/foros.css';
 import { Link } from 'react-router-dom'
 
 export default class Foros extends Component {

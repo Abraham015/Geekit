@@ -1,0 +1,27 @@
+.rowProductos{
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-gap: 50px;
+    margin-bottom: 50px;
+}
+
+.wrapperProductos{
+    width: 100%;
+    overflow: hidden;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.img, .wrapperProductos{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+img{
+    width: 350px;
+    height: 300px;
+}
+
+.descripcionProducto{
+    text-align: justify;
+}

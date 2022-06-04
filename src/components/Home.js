@@ -24,6 +24,7 @@ export default class Home extends Component {
               <i className="fa-solid fa-cart-shopping" />
               <i className="fa-solid fa-arrow-right-to-bracket" />
               <p className="Log"><Link to="/inicio">Iniciar Sesión</Link></p>
+              <p className="Log"><Link to="/registro">Registrarse</Link></p>
             </div>
             <br />
             <PanelDiscusiones />
