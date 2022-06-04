@@ -1,0 +1,94 @@
+.wrapperVendedorPerfil{
+    display: grid;
+    grid-template-columns: 300px 600px;
+    gap: 10px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.wrapperVendedorPerfil div {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.itemCardVendedor{
+    grid-row: 1 / span 2;
+}
+
+.itemCardVendedor{
+    border: 1px solid #FAFC9C;
+    background-color: #FAFC9C;
+    border-radius: 10px;
+    padding: 10px !important;
+}
+
+.fechaUnionTotal, .headerCertificaciones, .headerAcercaDeMi{
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 5px;
+}
+
+.iconosVendedorPerfil{
+    width: 50px;
+    height: 50px;
+}
+
+.nicknameVendedor{
+    text-align: center;
+    text-shadow: 2px 2px #1CEECC;
+}
+
+.fotoPerfilVendedor{
+    width: 250px;
+    height: 300px;
+}
+
+.calificacion{
+    color: blue;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.datosPersonalesVendedor{
+    text-align: left;
+}
+
+.miembroDesde{
+    margin-top: 15px;
+}
+
+.contactoVendedor{
+    background-color: #4BCFFA;
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid #4BCFFA;
+    border-radius: 5px;
+    font-size: 1em;
+    margin: 10px;
+}
+
+.botonContactoVendedor{
+    display: flex;
+    justify-content: center;
+}
+
+.certificaciones, .acerca-de-mi{
+    border: 1px solid rgb(250, 248, 248);
+    background-color: rgb(250, 248, 248);
+    border-radius: 10px;
+    height: 300px;
+    padding: 10px !important;
+    box-shadow: 5px 10px rgb(180, 180, 180);
+    margin-right: -350px;
+    margin-left: 300px;
+}
+
+.subtituloCert-Info{
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.acercademi-Info{
+    text-align: justify;
+}
