@@ -12,7 +12,7 @@ input, select{
 }
 
 /* Dividiendo la vista en paneles para cada sección */
-.container{
+.foro-containter{
     margin: 0px;
 
     height: 92vh;
@@ -33,7 +33,7 @@ input, select{
     overflow: hidden;
 }
 
-.container > div{
+.foro-containter > div{
     width: 49%;
 }
 
