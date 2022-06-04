@@ -1,0 +1,145 @@
+.wrapperProductoIndividual {
+    display: grid;
+    grid-template-columns: 80px auto 500px;
+    gap: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.wrapperProductoIndividual div {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.item1 {
+    grid-row: 4 / span 1;
+}
+
+.item5, .item3{
+    grid-row: 1 / span 5
+}
+
+.item1, .item2, .item4, .item6{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.item5{
+    border: 1px solid black;
+    padding: 20px !important;
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(180, 180, 180);
+}
+
+.entrega{
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 5px;
+}
+
+.descripcion-vendedor{
+    display: grid;
+    grid-template-columns: 700px auto;
+    gap: 50px;
+}
+
+.vendedorTotal{
+    display: flex;
+    justify-content: right;
+}
+
+.vendedor{
+    display: grid;
+    grid-template-columns: 110px auto;
+    gap: 3px;
+    margin-right: 0;
+}
+
+.imgComplementarias{
+    width: 70px;
+    height: 70px;
+}
+
+.imgPrincipal{
+    margin-top: 50px;
+    height: 300px;
+    margin-left: -150px;
+}
+
+.iconoTransporte{
+    width: 50px;
+    height: 50px;
+}
+
+.item5 h1{
+    text-align: left;
+    font-weight: bolder;
+}
+
+.tags{
+    text-align: left;
+    color: blue;
+}
+
+.disponibles{
+    text-align: left;
+    color: #666;
+}
+
+.precio{
+    color: red;
+    font-size: 1.7em;
+    font-weight: bolder;
+}
+
+.entregaDomicilio{
+    text-align: left;
+    margin-top: 15px;
+}
+
+.stock{
+    color: rgb(128, 209, 6);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.cantProductosTotal{
+    display: flex;
+}
+
+.cantRequerida{
+    width: 70px;
+}
+
+.cantidadProd, .disponibles{
+    margin-top: 10px;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+}
+
+.comprar, .carrito{
+    background-color: #4BCFFA;
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid #4BCFFA;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin: 10px;
+}
+
+.productoDescripcion{
+    font-size: 1.2em;
+    text-align:justify;
+}
+
+.fotoVendedor{
+    width: 100px;
+    height: 90px;
+}
+
+.infoVendedor{
+    text-align: left;
+}
