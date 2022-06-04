@@ -1,0 +1,182 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Cairo:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cairo:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kreon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+.foro-container{
+    margin: 0px;
+
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-flow:  column wrap;
+    align-items: center;
+
+    padding: 1.2%;
+
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    cursor: auto;
+
+    background-color: #808E9B !important;
+}
+
+/* DIMAGEN Y TÍTULO DEL FORO */
+.foro-container .foto-nombre-foro{
+    width: 80vw;
+    height: 50vh;
+
+    background-color: #808E9B !important;
+
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    border-radius: 30px;
+
+}
+.foro-container .foto-nombre-foro img{
+    width: 100%;
+}
+.foto-nombre-foro .nombre-foro{
+    position: absolute;
+    background-color: white;
+
+    border-radius: 40px;
+
+    padding: 5px 12px;
+    bottom: 10px;
+    right: 10px;
+
+
+    border: 4px solid #808E9B;
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
+}
+
+/* INFORMACIÖN DEL FORO */
+.foro-container .detalles-foro{
+    width: 80vw;
+
+    background-color: #D2DAE2 !important;
+    border-radius: 0px 22px 0px 22px;
+    padding: 15px;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: space-between;
+}
+.foro-container .detalles-foro >div{
+    margin-bottom: 20px;
+}
+.foro-container .detalles-foro .titulo-informacion-foro{
+    font-style: italic;
+    font-size: 21px;
+    font-family: 'Fugaz One', cursive;
+}
+.foro-container .detalles-foro > div > hr{
+    position: relative;
+    width: 100%;
+    margin: 10px 0px;
+
+    border: 1px solid #808E9B;
+}
+.foro-container .detalles-foro .contenido-informacion-foro{
+    background-color: #485460 !important;
+    border-radius: 22px 0px 22px 0px;
+    padding: 15px;
+
+    color: white;
+    font-family: 'Kreon', serif;
+    font-size: 18px;
+}
+
+
+/* ESTILOS DE MIEMBROS DEL FORO */
+.foro-container .miembros-foro{
+    width: 63%;
+}
+/* Busqueda por input o filtro */
+.busqueda{
+    margin: 0px 0px;
+}
+.contenedor-barra-busqueda{
+    height: 40px !important;
+    width: 60% !important;
+    background-color: white;
+
+    border-radius: 10px;
+    border: 1px solid black;  
+
+    color: black;
+}
+/* Estilos de lista de miembros */
+.miembros-foro .lista-miembros{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 0px;
+}
+.miembros-foro .lista-miembros .miembro-foro{
+    width: 48%;
+    height: 80px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 5px;
+
+    border-radius: 50px 15px 15px 50px;
+
+    background-color: #1E272E !important;
+}
+.miembro-foro .foto-miembro-foro{
+    height: 80px;
+    width: 80px;
+
+    border-radius: 50px;
+}
+.miembro-foro .detalles-miembro-foro{
+    margin-left: 6px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.miembro-foro .detalles-miembro-foro .nombre-miembro-foro{
+    font-family: 'Fugaz One', cursive;
+    font-size: 15px;
+    padding: 0px 2px;
+}
+.miembro-foro .detalles-miembro-foro .descripción-miembro-foro{
+    font-family: 'Delius', cursive;
+    font-size: 13px;
+    padding: 0px 2px;
+}
+
+/* ESTILOS DE REGLAS DEL FORO */
+.foro-container .reglas-acciones-foro{
+    width: 35%;
+}
+.reglas-acciones-foro .contenido-informacion-foro ul li{
+    list-style-position: inside;
+    
+    font-family: 'Acme', sans-serif;
+    font-size: 16px;
+}

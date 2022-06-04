@@ -12,7 +12,7 @@ input, select{
 }
 
 /* Dividiendo la vista en paneles para cada sección */
-.foro-containter{
+.foros-containter{
     margin: 0px;
 
     height: 92vh;
@@ -31,13 +31,14 @@ input, select{
     cursor: auto;
 
     overflow: hidden;
+    background-color: #afcec9 !important;
 }
 
-.foro-containter > div{
+.foros-containter > div{
     width: 49%;
 }
 
-.foro-seccion{
+.foros-seccion{
     max-width: 100%;
     height: 100%;
 
@@ -47,7 +48,7 @@ input, select{
     justify-content: space-between;
 }
 
-.foro-seccion > div{
+.foros-seccion > div{
     background-color: #D9ECE9;
     border: 1px solid #45897E;
     border-radius: 15px;
@@ -61,13 +62,13 @@ input, select{
     overflow: hidden;
 }
 
-.foro-seccion .tus-foros{
+.foros-seccion .tus-foros{
     height: 39%;
 }
-.foro-seccion .explorar-foros{
+.foros-seccion .explorar-foros{
     height: 59%;
 }
-.foro-seccion .discusiones{
+.foros-seccion .discusiones{
     height: 100%;
 }
 

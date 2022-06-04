@@ -26,7 +26,7 @@ function App() {
           <Route path="/registro" element={<Registro/>}/>
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/foros" element={<Foros/>}/>
-          <Route exact path="/foro/:id" element={<ForoDetalles/>}/> {/* Ruta para editar */}
+          <Route exact path="/foro/:id" element={<ForoDetalles/>}/> 
           <Route path="/conocenos" element={<Conocenos/>}/>
           <Route path="/productos" element={<Productos/>}/>
         </Routes>

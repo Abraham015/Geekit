@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import '../css/foros.css';
+import '../css/Foros.css';
 import { Link } from 'react-router-dom'
 import Buscar from './Buscar';
 
 export default class Foros extends Component {
     render() {
         return (
-            <div className="foro-containter">
-                <div className="foro-seccion">
+            <div className="foros-containter">
+                <div className="foros-seccion ">
                     <div className="tus-foros">
                         <h2 className="titulo-seccion">Tus foros</h2>
                         <div className="foros">
@@ -69,7 +69,7 @@ export default class Foros extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="foro-seccion">
+                <div className="foros-seccion">
                     <div className="discusiones">
                         <h2 className="titulo-seccion">Discusiones</h2>
                         <div className="orden-panel">
