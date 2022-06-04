@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../css/foros.css';
 import { Link } from 'react-router-dom'
+import Buscar from './Buscar';
 
 export default class Foros extends Component {
     render() {
@@ -51,30 +52,7 @@ export default class Foros extends Component {
                     </div>
                     <div className="explorar-foros">
                         <h2 className="titulo-seccion">Explorar foros</h2>
-                        <div className="busqueda-foros">
-                            <div className="criterios-busquedas">
-                                <div className="contenedor-barra-busqueda">
-                                    <form>
-                                        <label htmlFor="input-busqueda">
-                                            <i className="fa-solid fa-magnifying-glass"></i>
-                                        </label>
-                                        <input type="text" name="input-busqueda" id="input-busqueda" placeholder="Buscar foro" />
-                                    </form>
-
-                                </div>
-                                <div id="filtro-busqueda">
-                                    <i className="fa-solid fa-sliders" />
-                                </div>
-                            </div>
-                            <div className="categorias-busquedas">
-                                <ul>
-                                    <li>Cómics</li>
-                                    <li>Manga</li>
-                                    <li>Anime</li>
-                                    <li>Figuras</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <Buscar></Buscar>
                         <div className="foros">
                             <div className="foro-item">
                                 <div className="informacion-foro">

@@ -1,5 +1,6 @@
 import React, { Component} from "react";
 import "../css/Productos.css";
+import Buscar from "./Buscar";
 import Products from "./Products/Products";
 
 export default class Productos extends Component {
@@ -9,19 +10,7 @@ export default class Productos extends Component {
           <br />
 
           <div className="column middle">
-            <div className="contendedorBusqueda">
-              <div className="buscar">
-                <input type="search" placeholder="Buscar" id="inputSearch" />
-                <button type="submit">
-                  <i className="fas fa-search"> </i>
-                </button>
-              </div>
-              <div className="Filtro">
-                <p>
-                  <i className="fa-solid fa-sliders"> </i>
-                </p>
-              </div>
-            </div>
+          <Buscar></Buscar>
             <br />
             <br />
           </div>

@@ -1,38 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Buscar from '../Buscar'
 
 export default class PopularesBusquedas extends Component {
   render() {
     return (
         <div className="column middle populares-busquedas">
-        <div className="contendedorBusqueda">
-            <div className="buscar">
-                <input type="search" placeholder="Buscar" id="buscar" />
-                <button type="submit" id="btnBuscar"><i className="fas fa-search" /></button>
-            </div>
-            <div className="Filtro">
-                <p>
-                    <i className="fa-solid fa-sliders" />
-                </p>
-            </div>
-        </div>
-        <br /><br />
-        <div className="Categorias">
-            <ul>
-                <li>
-                    <Link to="#">Cómics</Link>
-                </li>
-                <li>
-                    <Link to="#">Manga</Link>
-                </li>
-                <li>
-                    <Link to="#">Anime</Link>
-                </li>
-                <li>
-                    <Link to="#">Figuras</Link>
-                </li>
-            </ul>
-        </div>
+            <Buscar></Buscar>
         <br />
         <div className="TituloProduc">Productos más populares</div>
         <br />

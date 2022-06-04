@@ -4,7 +4,7 @@ export default class FormularioContacto extends Component {
     render() {
         return (
             <div className="formulario-contacto">
-                <p id="duda">¿Tienes alguna duda?, contáctanos</p>
+                <p id="duda">¿Tienes alguna duda? Contáctanos</p>
                 <form action="">
                     <input type="text" name="" id="" placeholder="Nombre Completo" className="formFooter" />
                     <input type="email" name="" id="" placeholder="Correo" className="formFooter" />
