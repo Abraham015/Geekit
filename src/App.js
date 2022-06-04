@@ -12,6 +12,7 @@ import Conocenos from './components/Conocenos';
 import Foros from './components/Foros';
 import Blog from './components/Blog';
 import Productos from './components/Productos';
+import ForoDetalles from './components/ForoDetalles';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/registro" element={<Registro/>}/>
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/foros" element={<Foros/>}/>
+          <Route exact path="/foro/:id" element={<ForoDetalles/>}/> {/* Ruta para editar */}
           <Route path="/conocenos" element={<Conocenos/>}/>
           <Route path="/productos" element={<Productos/>}/>
         </Routes>
