@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+.blog {
+    background-color: #89dd4473;
+    width: 100%;
+    height: 92vh;
+}
+
+.imagenBlog {
+    width: 100%;
+    height: 20vh;
+}
+
+.comenzarBlog {
+    text-align: center;
+}
+
+.msjComenzar {
+    margin-top: 30px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 26px;
+    text-shadow: black 0.08em 0.08em 0.18em;
+}
+
+.cajaBotones {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btnSesion {
+    border-radius: 10px;
+    width: 130px;
+    height: 30px;
+    border-color: #88DD33DB;
+    background-color: #88DD33DB;
+    opacity: 0.7;
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+    font-size: 23px;
+    margin:auto;
+    padding: 8px;
+    transition: all 400ms ease;
+    box-shadow: 3px 3px rgba(0,0,0,0.5);
+}
+
+.btnSesion:hover {
+    background-color: #88DD33;
+    color: #FFF;
+    border-style: solid;
+    border-color: #88DD33;
+  }
+
+.unionBtn {
+    font-family: 'Acme', sans-serif;
+    font-size: 33px;
+}
+
+.imgComienza {
+    width: 15%;
+    height: 15%;
+    margin-top: 30px;
+}
+
+
+
