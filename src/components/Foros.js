@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../css/Foros.css';
 import { Link } from 'react-router-dom'
 import Buscar from './Buscar';
+import Discusion from './Discusion';
 
 export default class Foros extends Component {
     render() {
@@ -79,96 +80,8 @@ export default class Foros extends Component {
                                 <option value="1">Más relevante</option>
                             </select>
                         </div>
-                        <div className="discusion">
-                            <div className="informacion-discusion">
-                                <Link to="#">
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="foto-cliente" />
-                                </Link>
-                                <p className="titulo-discusion">
-                                    <Link to="#">Ernesto de la Cruz</Link> agregó en <Link to="#"> FullMetal Alchemist salvó mi vida</Link>
-                                </p>
-                                <Link to="#">
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/fma 2003.webp"} alt="" className="foto-cliente" />
-                                </Link>
-                            </div>
-                            <Link to="#" className="antiguedad">Hace 2 hr</Link>
-                            <div className="contenido-discusion">
-                                <pre>¿Quién es su waifu?
-                                    (Imagen altamente relacionada)
-                                </pre>
-                                <div className="imagenes-discusion">
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="imagen-discusion" />
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/Naruto.jpg"} alt="" className="imagen-discusion" />
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="imagen-discusion" />
-
-                                </div>
-                            </div>
-                            <div className="reacciones-discusion">
-                                <div className="reaccion like">
-                                    <i className="fa-solid fa-thumbs-up"></i>
-                                    <span>Ta' chido</span>
-                                    <span>352</span>
-                                </div>
-                                <div className="reaccion dislike">
-                                    <i className="fa-solid fa-thumbs-down"></i>
-                                    <span>No ta' chido</span>
-                                    <span>16</span>
-                                </div>
-                                <div className="reaccion comment">
-                                    <i className="fa-regular fa-comments"></i>
-                                    <span>Discutir</span>
-                                    <span>456</span>
-                                </div>
-                                <div className="reaccion mas-opciones">
-                                    <i className="fa-solid fa-ellipsis-h"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="discusion">
-                            <div className="informacion-discusion">
-                                <Link to="#">
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="foto-cliente" />
-                                </Link>
-                                <p className="titulo-discusion">
-                                    <Link to="#">Ernesto de la Cruz</Link> agregó en <Link to="#"> FullMetal Alchemist salvó mi vida</Link>
-                                </p>
-                                <Link to="#">
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/fma 2003.webp"} alt="" className="foto-cliente" />
-                                </Link>
-                            </div>
-                            <Link to="#" className="antiguedad">Hace 2 hr</Link>
-                            <div className="contenido-discusion">
-                                <pre>¿Quién es su waifu?
-                                    (Imagen altamente relacionada)
-                                </pre>
-                                <div className="imagenes-discusion">
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="imagen-discusion" />
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/Naruto.jpg"} alt="" className="imagen-discusion" />
-                                    <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="imagen-discusion" />
-
-                                </div>
-                            </div>
-                            <div className="reacciones-discusion">
-                                <div className="reaccion like">
-                                    <i className="fa-solid fa-thumbs-up"></i>
-                                    <span>Ta' chido</span>
-                                    <span>352</span>
-                                </div>
-                                <div className="reaccion dislike">
-                                    <i className="fa-solid fa-thumbs-down"></i>
-                                    <span>No ta' chido</span>
-                                    <span>16</span>
-                                </div>
-                                <div className="reaccion comment">
-                                    <i className="fa-regular fa-comments"></i>
-                                    <span>Discutir</span>
-                                    <span>456</span>
-                                </div>
-                                <div className="reaccion mas-opciones">
-                                    <i className="fa-solid fa-ellipsis-h"></i>
-                                </div>
-                            </div>
-                        </div>
+                        <Discusion></Discusion>
+                        <Discusion></Discusion>
                     </div>
                 </div>
             </div>

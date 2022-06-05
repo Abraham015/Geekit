@@ -1,0 +1,213 @@
+/* Estilos columnas generales */
+.discusiones-container {
+    margin: 0px;
+
+    height: 92vh;
+    max-height: 92vh;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    padding: 1.2%;
+
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    cursor: auto;
+
+    overflow: hidden;
+    background-color: #afcec9 !important;
+}
+
+.discusiones-container>div {
+    width: 24%;
+}
+
+/* ESTILOS ACCIONES DISCUSIONES */
+.discusiones-container .acciones-seccion {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.discusiones-container .acciones-seccion button {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #4BCFFA;
+    border-radius: 15px;
+    background-color: #1E272E;
+    color: white;
+    cursor: pointer;
+
+    font-family: 'acme', sans-serif;
+    font-size: 15px;
+
+    width: 180px;
+}
+
+.discusiones-container .acciones-seccion button:hover {
+    background-color: #d1e4e1;
+    color: #1E272E;
+    border: 1px solid #1E272E;
+}
+
+/* ESTILOS SECCIÓN DISCUSIONES */
+.discusiones-seccion {
+    width: 49% !important;
+    max-width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: space-between;
+}
+
+.discusiones-seccion>div {
+    background-color: #D9ECE9;
+    border: 1px solid #45897E;
+    border-radius: 15px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    align-items: stretch;
+
+    overflow: hidden;
+}
+
+.discusiones-seccion .discusiones {
+    height: 100%;
+}
+
+/* ESTILOS COMENTARIOS SECCION */
+.comentarios-seccion {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 10px;
+    cursor: auto;
+    max-height: 100%;
+
+    overflow: auto;
+
+    background-color: #D9ECE9;
+    border: 1px solid #45897E;
+    border-radius: 15px;
+}
+
+.comentarios-seccion h3 {
+    font-family: 'Cairo';
+    font-size: 24px;
+    line-height: 1.5em;
+    color: #1E272E;
+
+    margin-bottom: 10px;
+}
+
+.comentarios-seccion .comentario {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 10px 10px 0px 10px;
+    max-width: 100%;
+    background-color: #AFCEC9;
+    border-radius: 30px;
+
+    margin-bottom: 10px;
+}
+
+/* Estilos foto y nombre del usuario en comentario */
+.comentarios-seccion .comentario .wrapper-foto-nombre {
+    align-self: flex-start;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comentarios-seccion .comentario .foto-usuario {
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+
+    border-radius: 50%;
+    border: 0.2px solid white;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    margin-right: 5px;
+}
+
+.comentarios-seccion .comentario .foto-usuario img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.comentarios-seccion .comentario .nombre-usuario {
+    font-family: 'Cabin';
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #39397F;
+}
+
+/* Estilos del comentario y fotos */
+.comentarios-seccion .texto-comentario {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    line-height: 1.15em;
+
+    padding: 5px 20px;
+}
+.comentarios-seccion .fotos-comentario {
+    align-self: flex-start;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 3px 20px;
+    overflow-y: auto;
+}
+.comentarios-seccion .fotos-comentario img{
+    max-height: 40px;
+    margin: 2px;
+}
+
+/* Estulos votos y antiguedad */
+.comentarios-seccion .wrapper-votos-antiguedad {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 20px;
+    width: 100%;
+}
+.comentarios-seccion .comentario-votos{
+    color: #39397F;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.comentarios-seccion .comentario-antiguedad{
+    color: black;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}

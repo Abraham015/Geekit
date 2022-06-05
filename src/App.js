@@ -13,6 +13,8 @@ import Foros from './components/Foros';
 import Blog from './components/Blog';
 import Productos from './components/Productos';
 import ForoDetalles from './components/ForoDetalles';
+import ForoDiscusiones from './components/ForoDiscusiones';
+import DiscusionComentarios from './components/DiscusionComentarios';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/blog" element={<Blog/>}/>
           <Route path="/foros" element={<Foros/>}/>
           <Route exact path="/foro/:id" element={<ForoDetalles/>}/> 
+          <Route exact path="/foro/:id/discusiones/" element={<ForoDiscusiones/>}/> 
+          <Route exact path="/foro/:id/discusiones/:id" element={<DiscusionComentarios/>}/> 
           <Route path="/conocenos" element={<Conocenos/>}/>
           <Route path="/productos" element={<Productos/>}/>
         </Routes>

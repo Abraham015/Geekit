@@ -1,0 +1,151 @@
+
+/* Estilos de discusion */
+.discusion{
+    align-self: center;
+    width: 95%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+    background-color: #AFCEC9; 
+    padding: 0px 20px !important;
+}
+/* Informacion de discusion */
+.discusion .informacion-discusion{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    padding: 10px 0px 0px 0px;
+}
+.discusion .informacion-discusion > a{
+    
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+
+    border-radius: 50%;
+    border: 0.2px solid white;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+}
+.discusion .informacion-discusion img{
+   max-width: 40px;
+   max-height: 40px;
+}
+.informacion-discusion .titulo-discusion{
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.informacion-discusion .titulo-discusion a{
+    color:#39397F;
+    font-family: 'Cairo', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+
+    font-style: italic;
+}
+.informacion-discusion .titulo-discusion a:hover{
+    text-decoration: underline;
+}
+/* Antiguedad discusion */
+.antiguedad{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    margin-top: -13px;
+    margin-bottom: 10px;
+
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+.antiguedad:hover{
+    text-decoration: underline;
+}
+
+/* Contenido de discusion */
+.contenido-discusion{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    border: 0.1px dotted #39397F;
+
+    border-radius: 30px 30px 0px 0px;
+}
+.contenido-discusion > pre{
+    margin: 20px;
+    height: auto;
+}
+.contenido-discusion .imagenes-discusion{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: black;
+
+    width: 100%;
+}
+.contenido-discusion .imagenes-discusion img{
+    max-height: 100px;
+
+    margin: 2px;
+}
+.contenido-discusion .imagenes-discusion img:hover{
+    transform: scale(1.5);
+    border: 1px solid black;
+}
+/* Reacciones de la discusión */
+.reacciones-discusion{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #9BBEB9;
+    border-top:0.1px dotted #39397F;
+
+    border-radius: 0px 0px 20px 20px;
+}
+.reacciones-discusion .reaccion{
+    flex-grow: 1;
+    border-right: 0.1px dotted #39397F;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 7px;
+    cursor:pointer;
+    
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
+}
+.reacciones-discusion .mas-opciones{
+    flex-grow: 0;
+    flex-shrink: 1;
+    border: none;
+}
+.reacciones-discusion .reaccion:hover{
+    background-color: #7da09a;
+    transition: all 200ms ease;
+}
+.reacciones-discusion .reaccion:first-child{
+    border-radius: 0px 0px 0px 20px;
+}
+.reacciones-discusion .reaccion:last-child{
+    border-radius: 0px 0px 20px 0px;
+}

@@ -1,0 +1,221 @@
+/* Estilos documento general */
+.discusion-container {
+    margin: 0px;
+
+    height: 92vh;
+    max-height: 92vh;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    padding: 1.2%;
+
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    cursor: auto;
+
+    overflow: hidden;
+    background-color: #3C6382 !important;
+}
+.discusion-container .wrapper-discusion-comentarios {
+    width: 50%;
+    background-color: #D9ECE9;
+    border-radius: 15px;
+    padding: 3px;
+    max-height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* ESTILOS COMENTARIOS SECCION */
+.comentarios-container {
+    align-self: center;
+    width: 90%;
+    flex-grow: 1;
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+    background-color: #AFCEC9; 
+    padding: 0px !important;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: auto;
+
+    overflow-y: auto;
+}
+
+.comentarios-container h3 {
+    font-family: 'Cairo';
+    font-size: 24px;
+    line-height: 1.5em;
+    color: #1E272E;
+
+    margin-bottom: 10px;
+}
+
+.comentarios-container .comentario {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 10px 10px 0px 10px;
+    max-width: 100%;
+    background-color: #AFCEC9;
+    border-radius: 20px;
+    margin-bottom: 2px;
+
+    border: 0.7px solid #484C88;
+}
+
+/* Estilos foto y nombre del usuario en comentario */
+.comentarios-container .comentario .wrapper-foto-nombre-antiguedad {
+    align-self: flex-start;
+
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    position: relative;
+}
+
+.comentarios-container .comentario .foto-usuario {
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+
+    border-radius: 50%;
+    border: 0.2px solid white;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    margin-right: 5px;
+}
+
+.comentarios-container .comentario .foto-usuario img {
+    max-width: 30px;
+    max-height: 30px;
+}
+.comentarios-container .comentario .nombre-usuario {
+    font-family: 'Cabin';
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #39397F;
+}
+.comentarios-container .comentario .comentario-antiguedad {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 20px;
+
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Estilos del comentario y fotos */
+.comentarios-container .texto-comentario {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    line-height: 1.15em;
+
+    padding: 5px 20px;
+}
+.comentarios-container .fotos-comentario {
+    align-self: flex-start;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 3px 20px;
+}
+.comentarios-container .fotos-comentario img{
+    max-height: 40px;
+    margin: 2px;
+}
+.comentarios-container .fotos-comentario img:hover{
+    transform: scale(1.5);
+    border: 1px solid #AFCEC9;
+}
+
+/* Estilos de las reacciones */
+.comentarios-container .reacciones{
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 0.7px solid #484C88;
+}
+.comentarios-container .reacciones > button{
+    flex-grow: 1;
+    height: 100%;
+    padding: 0px 10px;
+
+    background-color: #9BBEB9;
+    cursor: pointer;
+    border: none;
+    border-right: 0.7px solid #484C88;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+.comentarios-container .reacciones > button:hover{
+    background-color: #AFCEC9;
+}
+.comentarios-container .reacciones > button:first-child{
+    border-radius: 0px 0px 0px 7px;
+}
+.comentarios-container .reacciones > button:last-child{
+    flex-grow: 0;
+    border-radius: 0px 0px 7px 0px;
+    border-right: none;
+}
+
+/* Estilos de respuestas a comentarios */
+.comentarios-container .respuestas {
+    width: 96%;
+    align-self: flex-end;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    cursor: auto;
+
+    overflow-y: auto;
+}
+
+.comentarios-container .respuestas .respuesta  {
+    width: 100%;
+    margin-top: 5px;
+}

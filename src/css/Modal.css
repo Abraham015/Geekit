@@ -1,0 +1,200 @@
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1000 !important;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  max-height: 100%;
+  /* Full height */
+  overflow: hidden;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #ffeaa7;
+  margin: 15% auto;
+  padding: 21px;
+  width: 700px;
+  border-radius: 20px;
+
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.modal-header {
+  margin-bottom: 10px;
+  
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-header h2 {
+  font-family: 'Cabin', sans-serif !important;
+  font-size: 20px;
+}
+
+.modal-header h2 a {
+  font-family: 'Cabin', sans-serif !important;
+  font-style: italic;
+  font-size: 20px;
+}
+
+#text-modal {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.close {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.close:hover {
+  cursor: pointer;
+  color: #977b1e;
+}
+
+#modal-body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+#modal-body textarea{
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 20px;
+
+  padding: 10px;
+  background-color: #FFF2C9;
+
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+}
+#modal-body .imagenes-agregadas{
+  width: 100%;
+  height: 95px;
+  border: none;
+  border-radius: 20px;
+
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #FFF2C9;
+
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: row wrap;
+
+  overflow-y: auto;
+}
+#modal-body .imagenes-agregadas img{
+  max-height: 75px;
+  border: 1px solid #d4c17f;
+  margin: 5px 2px;
+}
+#modal-footer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+}
+#modal-footer .anadir-imagen{
+  width: 160px;
+  height: 30px;
+
+  border: none;
+  border-radius: 20px;
+  padding: 10px 10px 10px 0px;
+
+  background-color: #f0d377;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+#modal-footer .anadir-imagen:hover{
+  background-color: #e4c357;
+  transition: all 0.3s ease;
+}
+#modal-footer .anadir-imagen .icono{
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow: hidden;
+}
+#modal-footer .anadir-imagen .icono i{
+  margin: 0px;
+}
+#modal-footer .anadir-imagen span{
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+#modal-footer .wrapper-reglas-agregar button{
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+
+  margin-left: 10px;
+  border-radius: 15px;
+  padding: 0px 10px;
+
+  border: none;
+  cursor: pointer;
+}
+
+#modal-footer .wrapper-reglas-agregar #ver-reglas{
+  background-color: #e15555;
+  color: white;
+}
+#modal-footer .wrapper-reglas-agregar #ver-reglas:hover{
+  background-color: #c04141;
+}
+#modal-footer .wrapper-reglas-agregar #agregar-discusion{
+  background-color: #00B894;
+  color: white;
+}
+#modal-footer .wrapper-reglas-agregar #agregar-discusion:hover{
+  background-color: #05977a;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
+}

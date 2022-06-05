@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kreon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
+
 .foro-container{
     margin: 0px;
 
@@ -83,7 +84,7 @@
     font-size: 21px;
     font-family: 'Fugaz One', cursive;
 }
-.foro-container .detalles-foro > div > hr{
+.foro-container .detalles-foro hr{
     position: relative;
     width: 100%;
     margin: 10px 0px;
@@ -173,10 +174,74 @@
 /* ESTILOS DE REGLAS DEL FORO */
 .foro-container .reglas-acciones-foro{
     width: 35%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 }
 .reglas-acciones-foro .contenido-informacion-foro ul li{
     list-style-position: inside;
     
     font-family: 'Acme', sans-serif;
     font-size: 16px;
+}
+
+/* ESTILOS DE LOS BOTONES DE ACCIÓN */
+.reglas-acciones-foro .acciones-foro > div{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.reglas-acciones-foro .acciones-foro .boton-accion{
+    width: 40%;
+    height: 25px;
+
+    border-radius: 10px;
+    border: none;
+
+    color: white;
+
+    font-family: 'Acme', sans-serif;
+    font-size: 17px;
+
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+#ver-discusiones{
+    background-color: #FFC048;
+}
+#reportar-foro{
+    background-color: #FF3F34;
+}
+#abandonar-foro{
+    background-color: #1E272E;
+}
+#unirme{
+    background-color: #05C46B;
+}
+#ver-discusiones:hover{
+    background-color: white;
+    color: #FFC048;
+}
+#reportar-foro:hover{
+    background-color: white;
+    color: #FF3F34;
+}
+#abandonar-foro:hover{
+    background-color: white;
+    color: #1E272E;
+}
+#unirme:hover{
+    background-color: white;
+    color: #05C46B;
+}
+.reglas-acciones-foro .acciones-foro .boton-accion:hover{
+    border: 1px solid #D2DAE2;
+}
+.acciones-foro .mostrar-botones{
+    display: flex !important;
+}
+.acciones-foro .no-mostrar-botones{
+    display: none !important;
 }
