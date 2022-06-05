@@ -1,11 +1,30 @@
 import React, { Component } from 'react'
 import '../css/Blog.css';
 
+const Tab = () => {return <>&nbsp;&nbsp;&nbsp;&nbsp;</>;}
+
+/**
+ * Propuesta de componente para las publicaciones
+ */
+class PubBlog extends Component {
+    render() {
+        return (
+            <div className="publicacionB">
+                <h4>¡Ya saliooooo! El nuevo juego de Zelda esta aqui</h4>
+                <p>Asi es, esta mañana el creador de Zelda, Nintendo, lanzo el images de los personajes del nuevo juego Zelda y esta siendo trending topic en todos los sitios de internet.</p>
+                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/princesaZelda.png"} className="imagenAgregada" alt=""/>
+                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/linkZelda.png"} className="imagenAgregada" alt=""/>
+                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/princesaDeZora.png"} className="imagenAgregada" alt=""/>
+            </div>
+        )
+    }
+}
+
 export default class Blog extends Component {
     render() {
       return (
         <div className="blog">
-            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/BarraBlog.jpg"} className="imagenBlog" alt=""/>
+            <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/BarraBlog.png"} className="imagenBlog" alt=""/>
             <div className="perfil columnside">
                 <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/user.jpg"} className="imagenPerfil" alt=""/>
                 <h4 className="nombreUsuario">Nombre usuario</h4>
@@ -14,11 +33,34 @@ export default class Blog extends Component {
                 <p className="txtDes">Algunos datos informativos del usuario (gustos, redes sociales)</p>
                 <p className="buttonP">Configurar Perfil</p>
             </div>
+            
             <div className="contenido-columnmiddle">
                 <div className="crearPublicacion">
                     <input className="escribe" type="text" placeholder="Escribe algo..."/>
-                    <p className="buttonPub">Publicar</p>
+                    <div className="barraPublicar">
+                        <span className="agregarEmoji">
+                                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/emoji.png"} className="iconoEmoji" alt=""/>
+                                Emoji
+                        </span>
+                        <Tab/><Tab/>
+                        <span className="agregarImagen">
+                                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/adjuntarImagen.png"} className="iconoImagen" alt=""/>
+                                Foto/Video
+                        </span>
+                        <Tab/><Tab/>
+                        <p className="buttonPub">Publicar</p>
+                    </div>
                 </div>
+
+                <div className="publicacionesB">
+                    <PubBlog/>
+                    <PubBlog/>
+                    <PubBlog/>
+                    <PubBlog/>
+                </div>
+               
+
+
             </div>
         </div>
         )
