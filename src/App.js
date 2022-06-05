@@ -15,6 +15,7 @@ import Productos from './components/Productos';
 import ForoDetalles from './components/ForoDetalles';
 import ForoDiscusiones from './components/ForoDiscusiones';
 import DiscusionComentarios from './components/DiscusionComentarios';
+import Recomendaciones from './components/Recomendaciones';
 
 function App() {
   return (
@@ -27,10 +28,11 @@ function App() {
           <Route path="/inicio" element={<Inicio/>}/>
           <Route path="/registro" element={<Registro/>}/>
           <Route path="/blog" element={<Blog/>}/>
+          <Route path="/recomendaciones" element={<Recomendaciones/>}/>
           <Route path="/foros" element={<Foros/>}/>
-          <Route exact path="/foro/:id" element={<ForoDetalles/>}/> 
-          <Route exact path="/foro/:id/discusiones/" element={<ForoDiscusiones/>}/> 
-          <Route exact path="/foro/:id/discusiones/:id" element={<DiscusionComentarios/>}/> 
+          <Route exact path="/foros/:id" element={<ForoDetalles/>}/> 
+          <Route exact path="/foros/:id/discusiones/" element={<ForoDiscusiones/>}/> 
+          <Route exact path="/foros/:id/discusiones/:id" element={<DiscusionComentarios/>}/> 
           <Route path="/conocenos" element={<Conocenos/>}/>
           <Route path="/productos" element={<Productos/>}/>
         </Routes>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Discusion from './Discusion';
 import '../css/ForoDiscusiones.css';
-import '../css/Modal.css';
+import ModalNuevoContenido from './ModalNuevoContenido';
 
 export default class ForoDiscusiones extends Component {
     constructor(props) {
@@ -15,14 +15,6 @@ export default class ForoDiscusiones extends Component {
         // Get the modal
         var modal = document.getElementById("discusion-modal");
         modal.style.display = "block";
-    }
-    closeModal() {
-        // Get the modal
-        var modal = document.getElementById("discusion-modal");
-        modal.style.display = "none";
-    }
-    abrirSelectorArchivos(){
-        document.getElementById('choose').click();      
     }
     render() {
         return (
@@ -105,36 +97,7 @@ export default class ForoDiscusiones extends Component {
                     </div>
                 </div>
 
-                <div id="discusion-modal" className="modal">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h2 id="text-head">Nueva discusión en <Link to="#">FullMetal Alchemist salvó mi vida</Link></h2>
-                            <span id="close-span" className="close" onClick={this.closeModal}>×</span>
-                        </div>
-                        <div id="modal-body">
-                            <textarea cols="30" rows="10" placeholder="Escribe sobre un tema..."></textarea>
-                            <div className="imagenes-agregadas">
-                                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/naruto.jpg"} alt="" className="foto-cliente" />
-                                <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="foto-cliente" />
-                            </div>
-                        </div>
-                        <div id="modal-footer">
-                            {/* Input para los archivos donde solo se usará el boton de anadir imagen */}
-                            <input type="file" hidden id="choose" accept="image/png, .jpeg, .jpg, image/gif"/>
-
-                            <button className="anadir-imagen" onClick={this.abrirSelectorArchivos}>
-                                <div className="icono">
-                                    <i className="fa-regular fa-image"></i>
-                                </div>
-                                <span>AÑADIR IMAGEN</span>
-                            </button>
-                            <div className="wrapper-reglas-agregar">
-                                <button id='ver-reglas'>VER REGLAS</button>
-                                <button id='agregar-discusion'>AGREGAR DISCUSION</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ModalNuevoContenido titulo="Nueva discusión en " placeholder="Escribe sobre un tema..."></ModalNuevoContenido>
 
             </div>
         )

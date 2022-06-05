@@ -2,14 +2,25 @@ import React, { Component } from 'react'
 import { useParams, Link } from "react-router-dom";
 import Discusion from './Discusion';
 import '../css/DiscusionComentario.css';
+import ModalNuevoContenido from './ModalNuevoContenido';
 
 export default function ForoDetalles(props) {
     const { id } = useParams();
 
+    const abrirModalComentario = () => {
+        // Get the modal
+        var modal = document.getElementById("discusion-modal");
+        modal.style.display = "block";
+    }
+    const abrirModal = () => {
+        // Get the modal
+        var modal = document.getElementById("discusion-modal");
+        modal.style.display = "block";
+    }
     return (
         <div className="discusion-container">
             <div className="wrapper-discusion-comentarios">
-                <Discusion></Discusion>
+                <Discusion abrir={abrirModalComentario}></Discusion>
                 <div className="comentarios-container">
                     <div className="comentario">
                         <div className="wrapper-foto-nombre-antiguedad">
@@ -26,22 +37,22 @@ export default function ForoDetalles(props) {
                         </div>
                         <div className="reacciones">
                             <button className="voto-positivo">
-                                <i class="fa-solid fa-up-long"></i>
+                                <i className="fa-solid fa-up-long"></i>
                                 <span>Pa' arriba</span>
                                 <span>352</span>
                             </button>
                             <button className="voto-negativo">
-                                <i class="fa-solid fa-down-long"></i>
+                                <i className="fa-solid fa-down-long"></i>
                                 <span>Pa' abajo</span>
                                 <span>352</span>
                             </button>
-                            <button className="discutir">
-                                <i class="fa-solid fa-comments"></i>
+                            <button className="discutir" onClick={abrirModal}>
+                                <i className="fa-solid fa-comments"></i>
                                 <span>Discutir</span>
                                 <span>352</span>
                             </button>
                             <button className="mas-opciones">
-                                <i class="fa-solid fa-ellipsis-h"></i>
+                                <i className="fa-solid fa-ellipsis-h"></i>
                             </button>
                         </div>
                         <div className="respuestas">
@@ -60,17 +71,17 @@ export default function ForoDetalles(props) {
                                 </div>
                                 <div className="reacciones">
                                     <button className="voto-positivo">
-                                        <i class="fa-solid fa-up-long"></i>
+                                        <i className="fa-solid fa-up-long"></i>
                                         <span>Pa' arriba</span>
                                         <span>352</span>
                                     </button>
                                     <button className="voto-negativo">
-                                        <i class="fa-solid fa-down-long"></i>
+                                        <i className="fa-solid fa-down-long"></i>
                                         <span>Pa' abajo</span>
                                         <span>352</span>
                                     </button>
                                     <button className="mas-opciones">
-                                        <i class="fa-solid fa-ellipsis-h"></i>
+                                        <i className="fa-solid fa-ellipsis-h"></i>
                                     </button>
                                 </div>
                             </div>
@@ -89,17 +100,17 @@ export default function ForoDetalles(props) {
                                 </div>
                                 <div className="reacciones">
                                     <button className="voto-positivo">
-                                        <i class="fa-solid fa-up-long"></i>
+                                        <i className="fa-solid fa-up-long"></i>
                                         <span>Pa' arriba</span>
                                         <span>352</span>
                                     </button>
                                     <button className="voto-negativo">
-                                        <i class="fa-solid fa-down-long"></i>
+                                        <i className="fa-solid fa-down-long"></i>
                                         <span>Pa' abajo</span>
                                         <span>352</span>
                                     </button>
                                     <button className="mas-opciones">
-                                        <i class="fa-solid fa-ellipsis-h"></i>
+                                        <i className="fa-solid fa-ellipsis-h"></i>
                                     </button>
                                 </div>
                             </div>
@@ -120,30 +131,28 @@ export default function ForoDetalles(props) {
                         </div>
                         <div className="reacciones">
                             <button className="voto-positivo">
-                                <i class="fa-solid fa-up-long"></i>
+                                <i className="fa-solid fa-up-long"></i>
                                 <span>Pa' arriba</span>
                                 <span>352</span>
                             </button>
                             <button className="voto-negativo">
-                                <i class="fa-solid fa-down-long"></i>
+                                <i className="fa-solid fa-down-long"></i>
                                 <span>Pa' abajo</span>
                                 <span>352</span>
                             </button>
-                            <button className="discutir">
-                                <i class="fa-solid fa-comments"></i>
+                            <button className="discutir" onClick={abrirModal}>
+                                <i className="fa-solid fa-comments"></i>
                                 <span>Discutir</span>
                                 <span>352</span>
                             </button>
                             <button className="mas-opciones">
-                                <i class="fa-solid fa-ellipsis-h"></i>
+                                <i className="fa-solid fa-ellipsis-h"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-                <div className="agregar-comentario">
-
-                </div>
             </div>
+            <ModalNuevoContenido titulo="Nueva comentario en " placeholder="Escribe un comentario o respuesta..."></ModalNuevoContenido>
         </div>
     )
 }
