@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { useParams, Link } from "react-router-dom";
+import React from 'react'
+//import { useParams, Link } from "react-router-dom";
 import '../css/Foro.css';
 
 export default function ForoDetalles(props) {
-    const { id } = useParams();
+    //const { id } = useParams();
 
     return (
         <div className="foro-container">

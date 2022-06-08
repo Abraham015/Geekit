@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { useParams, Link } from "react-router-dom";
+import React from 'react'
+import { /*useParams, */Link } from "react-router-dom";
 import Discusion from './Discusion';
 import '../css/DiscusionComentario.css';
 import ModalNuevoContenido from './ModalNuevoContenido';
 
 export default function ForoDetalles(props) {
-    const { id } = useParams();
+    //const { id } = useParams();
 
     const abrirModalComentario = () => {
         // Get the modal

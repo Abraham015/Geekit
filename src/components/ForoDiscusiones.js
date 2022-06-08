@@ -5,9 +5,9 @@ import '../css/ForoDiscusiones.css';
 import ModalNuevoContenido from './ModalNuevoContenido';
 
 export default class ForoDiscusiones extends Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
-    }
+    }*/
     componentDidMount() {
         
     }

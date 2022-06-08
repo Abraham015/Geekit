@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import '../css/Discusion.css';
 
@@ -8,13 +8,13 @@ export default function ForoDetalles({ abrir }) {
     return (
         <div className="discusion">
             <div className="informacion-discusion">
-                <Link to="#">
+                <Link to="!#">
                     <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/ernesto.jpg"} alt="" className="foto-cliente" />
                 </Link>
                 <p className="titulo-discusion">
                     <Link to="#">Ernesto de la Cruz</Link> agregó en <Link to="#"> FullMetal Alchemist salvó mi vida</Link>
                 </p>
-                <Link to="#">
+                <Link to="!#">
                     <img src={process.env.REACT_APP_BASE_URL_IMAGES + "/fma 2003.webp"} alt="" className="foto-cliente" />
                 </Link>
             </div>

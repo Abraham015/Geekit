@@ -7,7 +7,7 @@ const Products = ({productName, productImage, productPrice, productDescription, 
         <div className="rowProductos">
             <div className="card">
                 <div className="img imagenes">
-                    <img src={productImage} className="imgProd"/>
+                    <img src={productImage} className="imgProd" alt=""/>
                 </div>
                 <p className="NombreProducto">{productName}</p>
                 <p className="Precio">{productPrice}</p>
@@ -15,7 +15,7 @@ const Products = ({productName, productImage, productPrice, productDescription, 
             </div>
             <div className="card">
                 <div className="img imagenes">
-                    <img src={productImage2} className="imgProd"/>
+                    <img src={productImage2} className="imgProd" alt=""/>
                 </div>
                 <p className="NombreProducto">{productName2}</p>
                 <p className="Precio">{productPrice2}</p>
@@ -23,7 +23,7 @@ const Products = ({productName, productImage, productPrice, productDescription, 
             </div>
             <div className="card">
                 <div className="img imagenes">
-                    <img src={productImage3} className="imgProd"/>
+                    <img src={productImage3} className="imgProd" alt=""/>
                 </div>
                 <p className="NombreProducto">{productName3}</p>
                 <p className="Precio">{productPrice3}</p>

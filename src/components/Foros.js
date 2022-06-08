@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import '../css/Foros.css';
-import { Link } from 'react-router-dom'
+import '../css/foros.css';
+//import { Link } from 'react-router-dom'
 import Buscar from './Buscar';
 import Discusion from './Discusion';
 

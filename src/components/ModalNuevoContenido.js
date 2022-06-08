@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { useParams, Link } from "react-router-dom";
+import { /*useParams,*/ Link } from "react-router-dom";
 import '../css/ModalNuevoContenido.css';
 
 export default class ModalNuevoContenido extends Component {
-    constructor(props){
+    /*constructor(props){
         super(props);
-    }
+    }*/
     closeModal() {
         // Get the modal
         var modal = document.getElementById("discusion-modal");
