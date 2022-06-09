@@ -16,15 +16,21 @@ import ForoDetalles from './components/ForoDetalles';
 import ForoDiscusiones from './components/ForoDiscusiones';
 import DiscusionComentarios from './components/DiscusionComentarios';
 import Recomendaciones from './components/Recomendaciones';
+import PrivateRoutes from './components/Login/PrivateRoutes';
+import UserContext from './components/Login/AccountContext';
 
 function App() {
   return (
+    <UserContext>
     <Router>
       <div>
         <Navigation/>
 
         <Routes> {/* Renderizamos componentes según las rutas */}
           <Route path="/" element={<Home/>}/>
+          <Route element={<PrivateRoutes/>}>
+            <Route path="/Home" element={<Home/>}/>
+          </Route>
           <Route path="/inicio" element={<Inicio/>}/>
           <Route path="/registro" element={<Registro/>}/>
           <Route path="/blog" element={<Blog/>}/>
@@ -39,6 +45,7 @@ function App() {
       </div>
 
     </Router>
+    </UserContext>
   );
 }
 

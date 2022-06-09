@@ -22,7 +22,8 @@ CREATE TABLE vendedor
   calificacion float not null,
   certificacion int not null,
   nicknameVendedor varchar(45) not null,
-  fotoVendedor varchar(45) not null
+  fotoVendedor varchar(45) not null,
+  contrasena varchar(45)
 );
 
 /*Administrador*/
@@ -171,4 +172,4 @@ CREATE TABLE administrador_has_reporteContenido
 INSERT INTO cliente
   (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
-  ('1','admin', 'admin', '2022-06-06', 'prueba', 'localhost', 'admin');
+  ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'prueba', 'localhost', 'prueba123');

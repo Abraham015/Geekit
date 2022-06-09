@@ -6,6 +6,7 @@ import Recomendaciones from "./Home/Recomendaciones";
 import PopularesBusquedas from "./Home/PopularesBusquedas";
 import PanelDiscusiones from "./Home/PanelDiscusiones";
 import FormularioContacto from "./Home/FormularioContacto";
+import { AccountContext } from "./Login/AccountContext";
 
 export default class Home extends Component {
   render() {

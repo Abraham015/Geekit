@@ -3,9 +3,11 @@ import "../css/Inicio.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AccountContext } from "./Login/AccountContext";
 
 const Inicio = () => {
-
+  const {setUser}=useContext(AccountContext);
   const formik = useFormik({
     initialValues: { username: "", password: "" },
     validationSchema: Yup.object({
@@ -32,6 +34,8 @@ const Inicio = () => {
       }).then(data=>{
         if(!data) return;
         console.log(data);
+        setUser({...data});
+        navigate("/Home");
       });
     }
   });
