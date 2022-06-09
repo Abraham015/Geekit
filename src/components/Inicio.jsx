@@ -1,13 +1,14 @@
-import { VStack, ButtonGroup, FormControl, FormLabel, Button, FormErrorMessage } from "@chakra-ui/react";
+import { VStack, ButtonGroup, FormControl, FormLabel, Button, FormErrorMessage, Text } from "@chakra-ui/react";
 import "../css/Inicio.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AccountContext } from "./Login/AccountContext";
 
 const Inicio = () => {
   const {setUser}=useContext(AccountContext);
+  const [error,setError]=useState(null);
   const formik = useFormik({
     initialValues: { username: "", password: "" },
     validationSchema: Yup.object({
@@ -35,7 +36,12 @@ const Inicio = () => {
         if(!data) return;
         console.log(data);
         setUser({...data});
+        if(data.status) {
+          setError(data.status);
+        }else if(data.loggedIn){
         navigate("/Home");
+        }
+        
       });
     }
   });
@@ -46,6 +52,9 @@ const Inicio = () => {
     <FormControl className="CuadroGrande">
       <img src={"Images/iniciosesion.png"} className="avatar" alt="fondo" />
       <h1> Iniciar Sesión </h1>{" "}
+      <Text as="p" color="red">
+        {error}
+      </Text>
       <FormControl isInvalid={formik.errors.username && formik.touched.username}>
         <FormLabel>Usuario</FormLabel>
         <input type="text" placeholder="Usuario" autoComplete="off" name="username" 
