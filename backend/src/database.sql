@@ -169,6 +169,6 @@ CREATE TABLE administrador_has_reporteContenido
 
 /*Valores de prueba para el login*/
 INSERT INTO cliente
-  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+  (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
-  ('admin', 'admin', '2022-06-06', 'prueba', 'localhost', 'admin');
+  ('1','admin', 'admin', '2022-06-06', 'prueba', 'localhost', 'admin');

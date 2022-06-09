@@ -33,6 +33,11 @@
   
 .Datos1 .enunciado{
   font-size: 22px;
+  padding-left: 4.5em;
+}
+
+.op{
+  padding-left: 3em;
 }
 
   .opciones {

@@ -1,5 +1,5 @@
 {
-    "name": "backend",
+    "name": "@geekit-clone/backend",
     "version": "1.0.0",
     "description": "Backend of Geekit project",
     "main": "index.js",
@@ -24,7 +24,8 @@
         "express": "^4.18.1",
         "express-session": "^1.17.3",
         "morgan": "^1.10.0",
-        "pg": "^8.7.3"
+        "pg": "^8.7.3",
+        "@geekit-clone/common":"1.0.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.16"
