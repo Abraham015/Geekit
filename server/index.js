@@ -6,7 +6,7 @@ const cors=require("cors");
 const session=require("express-session");
 const authRouter=require("./routers/authRouter");
 const server = require("http").createServer(app);
-require("dotenv").config();
+//require("dotenv").config();
 
 const io =new Server(server,{
   cors:{
@@ -22,7 +22,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(session({
-  secret: process.env.COOKIE_SECRET,
+  secret: "iuiuiusdaficxzvmzx322343124123",
   credentials: true,
   name:"sid",
   resave: false,

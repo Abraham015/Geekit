@@ -60,7 +60,7 @@ router.route("/inicio")
     });
 
 /*Esto sera para el cliente*/
-router.post("/registro", async (req, res) => {
+router.post("/registroCliente", async (req, res) => {
     validateForm(req, res);
     //Para el cliente
     const existingUserClient = await pool.query("SELECT nicknamecliente FROM cliente WHERE nicknamecliente=$1", [req.body.username]);
@@ -71,9 +71,20 @@ router.post("/registro", async (req, res) => {
     //comprobar la existencia 
     if (existingUserClient.rowCount === 0 && existingUserSeller.rowCount === 0 && existingUserAdmin.rowCount === 0) {
         //registrar
+        const fecha=new Date(req.body.birth);
+        const cero="0";
+        let mes="";
+        if(fecha.getMonth()<10){
+            let mes1=(fecha.getMonth()+1).toString();
+            mes=cero+mes1;
+        }else{
+            mes=fecha.getMonth().toString();
+        }
+        let date=fecha.getFullYear()+"-"+mes+"-"+fecha.getDate();
+        const newUserQuery=await pool.query("INSERT INTO cliente (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena,correo) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING idcliente",[req.body.name,req.body.username, date, "algo",req.body.direction,req.body.password,req.body.email]);
         req.session.user = {
-            username,
-            id: newUserQuery.rows[0].id,
+            username: req.body.username,
+            id: newUserQuery.rows[0].idcliente,
         }
         res.json({ loggedIn: true, username: req.body.username });
     } else {

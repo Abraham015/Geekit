@@ -10,7 +10,7 @@ const RegistroCliente = () => {
   const { setUser } = useContext(AccountContext);
   const [error, setError] = useState(null);
   const formik = useFormik({
-    initialValues: { username: "", password: "" },
+    initialValues: { username: "", password: "", name: "", birth: "", email: "", direction: "" },
     validationSchema: Yup.object({
       username: Yup.string().required("¡Nombre de usuario requerido!"),
       password: Yup.string().required("¡Contraseña requerida!").min(5, "Contraseña corta").max(15, "Contraseña demasiado larga"),
@@ -18,7 +18,7 @@ const RegistroCliente = () => {
     onSubmit: (values, actions) => {
       const vals = { ...values };
       actions.resetForm();
-      fetch("http://localhost:4000/auth/inicio", {
+      fetch("http://localhost:4000/auth/registroCliente", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -39,7 +39,7 @@ const RegistroCliente = () => {
         if (data.status) {
           setError(data.status);
         } else if (data.loggedIn) {
-          navigate("/Home");
+          navigate("/inicio");
         }
 
       });
@@ -54,15 +54,23 @@ const RegistroCliente = () => {
       </Text>
       <FormControl>
         <label htmlFor="Nombre">Nombre:</label>
-        <input type="text" placeholder="Nombre" />
+        <input type="text" placeholder="Nombre" name="name" {...formik.getFieldProps("name")} autoComplete="off" />
+      </FormControl>
+      <FormControl>
         <label htmlFor="username">Dirección:</label>
-        <input type="text" placeholder="Dirección" />
+        <input type="text" placeholder="Dirección" name="direction" {...formik.getFieldProps("direction")} autoComplete="off" />
+      </FormControl>
+      <FormControl>
         <label htmlFor="username">Fecha de Nacimiento:</label>
-        <input type="text" placeholder="Fecha de nacimiento" />
+        <input type="date" placeholder="Fecha de nacimiento" name="birth" {...formik.getFieldProps("birth")} autoComplete="off" />
+      </FormControl>
+      <FormControl>
         <label htmlFor="username">Foto de Perfil:</label>
         <input type="file" placeholder="Fecha de Nacimiento" />
+      </FormControl>
+      <FormControl>
         <label htmlFor="username">Correo Electrónico:</label>
-        <input type="text" placeholder="Correo Electrónico" />
+        <input type="text" placeholder="Correo Electrónico" name="email" {...formik.getFieldProps("email")} autoComplete="off" />
       </FormControl>
       <FormControl isInvalid={formik.errors.username && formik.touched.username}>
         <FormLabel>Nickname:</FormLabel>

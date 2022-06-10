@@ -2,13 +2,14 @@ CREATE DATABASE geekit;
 /*Tabla del cliente*/
 CREATE TABLE cliente
 (
-  idcliente int not null primary key,
+  idcliente serial not null primary key,
   nombreCliente varchar(100),
   nicknameCliente varchar(45),
   fechaNacimiento DATE,
   fotoPerfil varchar(45),
   direccion varchar(100),
-  contrasena varchar(45)
+  contrasena varchar(45),
+  correo varchar(100)
 );
 
 /*Vendedor*/
