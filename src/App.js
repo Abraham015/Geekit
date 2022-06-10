@@ -31,7 +31,7 @@ function App() {
             <Route path="/" element={<Home />} />
             {/*Dentro de esta ruta deben ir todas las pantallas que el usuario utilizará cuando haya iniciado sesión*/}
             {<Route element={<PrivateRoutes />}>
-              <Route path="/Home" element={<newHome />} />
+              <Route path="/Home" element={<Home />} />
             </Route>}
             <Route path="/inicio" element={<Inicio />} />
             <Route path="/registro" element={<Registro />} />

@@ -17,7 +17,7 @@ const RegistroCliente = () => {
     }),
     onSubmit: (values, actions) => {
       const vals = { ...values };
-      actions.resetForm();
+      //actions.resetForm();
       fetch("http://localhost:4000/auth/registroCliente", {
         method: "POST",
         credentials: "include",
@@ -52,9 +52,10 @@ const RegistroCliente = () => {
       <Text as="p" color="red">
         {error}
       </Text>
-      <FormControl>
+      <FormControl isInvalid={formik.errors.name && formik.touched.name}>
         <label htmlFor="Nombre">Nombre:</label>
         <input type="text" placeholder="Nombre" name="name" {...formik.getFieldProps("name")} autoComplete="off" />
+        <FormErrorMessage className="mensaje">{formik.errors.user}</FormErrorMessage>
       </FormControl>
       <FormControl>
         <label htmlFor="username">Dirección:</label>
@@ -68,9 +69,10 @@ const RegistroCliente = () => {
         <label htmlFor="username">Foto de Perfil:</label>
         <input type="file" placeholder="Fecha de Nacimiento" />
       </FormControl>
-      <FormControl>
+      <FormControl isInvalid={formik.errors.email && formik.touched.email}>
         <label htmlFor="username">Correo Electrónico:</label>
         <input type="text" placeholder="Correo Electrónico" name="email" {...formik.getFieldProps("email")} autoComplete="off" />
+        <FormErrorMessage className="mensaje">{formik.errors.email}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={formik.errors.username && formik.touched.username}>
         <FormLabel>Nickname:</FormLabel>
