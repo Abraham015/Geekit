@@ -15,7 +15,7 @@ CREATE TABLE cliente
 /*Vendedor*/
 CREATE TABLE vendedor
 (
-  idvendedor int not null primary key,
+  idvendedor serial not null primary key,
   nombreVendedor varchar(45) not null,
   fechaUnio date not null,
   categoria varchar(45) not null,
@@ -24,13 +24,14 @@ CREATE TABLE vendedor
   certificacion int not null,
   nicknameVendedor varchar(45) not null,
   fotoVendedor varchar(45) not null,
+  correo varchar(100),
   contrasena varchar(45)
 );
 
 /*Administrador*/
 CREATE TABLE administrador
 (
-  idadministrador int not null primary key,
+  idadministrador serial not null primary key,
   contrasenaadmin varchar(45) not null,
   nombreAdmin varchar(45) not null,
   emailAdmin varchar(45) not null,

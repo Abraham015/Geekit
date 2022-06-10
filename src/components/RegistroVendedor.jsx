@@ -10,7 +10,7 @@ const RegistroVendedor = () => {
   const { setUser } = useContext(AccountContext);
   const [error, setError] = useState(null);
   const formik = useFormik({
-    initialValues: { username: "", password: "" },
+    initialValues: { username: "", password: "" , name:"", category: "", certification: "", email: "", type: ""},
     validationSchema: Yup.object({
       username: Yup.string().required("¡Nombre de usuario requerido!"),
       password: Yup.string().required("¡Contraseña requerida!").min(5, "Contraseña corta").max(15, "Contraseña demasiado larga"),
@@ -18,7 +18,7 @@ const RegistroVendedor = () => {
     onSubmit: (values, actions) => {
       const vals = { ...values };
       actions.resetForm();
-      fetch("http://localhost:4000/auth/inicio", {
+      fetch("http://localhost:4000/auth/registroVendedor", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -39,7 +39,7 @@ const RegistroVendedor = () => {
         if (data.status) {
           setError(data.status);
         } else if (data.loggedIn) {
-          navigate("/Home");
+          navigate("/inicio");
         }
 
       });
@@ -54,16 +54,27 @@ const RegistroVendedor = () => {
       </Text>
       <FormControl>
         <label htmlFor="Nombre">Nombre del vendedor:</label>
-        <input type="text" placeholder="Nombre" />
+        <input type="text" placeholder="Nombre" name="name" {...formik.getFieldProps("name")}/>
+      </FormControl>
+      <FormControl>
         <label htmlFor="username">Foto de Perfil:</label>
         <input type="file" placeholder="Fecha de Nacimiento" />
+      </FormControl>
+      <FormControl>
         <label htmlFor="Nombre">Categoría:</label>
-        <input type="text" placeholder="Categoría" />
+        <input type="text" placeholder="Categoría" name="category" {...formik.getFieldProps("category")}/>
+      </FormControl>
+      <FormControl>
+        <label htmlFor="Nombre">Tipo de Vendedor:</label>
+        <input type="text" placeholder="Tipo" name="type" {...formik.getFieldProps("type")}/>
+      </FormControl>
+      <FormControl>
         <label htmlFor="Nombre">Certificación:</label>
-        <input type="text" placeholder="Certificación" />
-
+        <input type="text" placeholder="Certificación" name="certification" {...formik.getFieldProps("certification")}/>
+      </FormControl>
+      <FormControl>
         <label htmlFor="username">Correo Electrónico:</label>
-        <input type="text" placeholder="Correo Electrónico" />
+        <input type="text" placeholder="Correo Electrónico" name="email" {...formik.getFieldProps("email")}/>
       </FormControl>
       <FormControl isInvalid={formik.errors.username && formik.touched.username}>
         <FormLabel>Nickname:</FormLabel>

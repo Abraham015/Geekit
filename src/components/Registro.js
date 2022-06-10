@@ -10,7 +10,7 @@ export default class Registro extends Component {
         <div className='botones'>
           <button><Link to="/registroCliente">Registro para Clientes</Link></button>
           <br/><br/><br/><br/>
-          <button className='inferior'><Link to="/registroCliente">Registro para Vendedores</Link></button>
+          <button className='inferior'><Link to="/registroVendedor">Registro para Vendedores</Link></button>
         </div>
       </div>
     )

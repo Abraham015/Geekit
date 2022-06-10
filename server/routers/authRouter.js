@@ -111,4 +111,50 @@ router.post("/registroCliente", async (req, res) => {
     }
 });
 
+router.post("/registroVendedor", async (req, res) => {
+    validateForm(req, res);
+    //Para el cliente
+    const existingUserClient = await pool.query("SELECT nicknamecliente FROM cliente WHERE nicknamecliente=$1", [req.body.username]);
+    //Para el vendedor
+    const existingUserSeller = await pool.query("SELECT nicknamevendedor FROM vendedor WHERE nicknamevendedor=$1", [req.body.username]);
+    //Para el admin
+    const existingUserAdmin = await pool.query("SELECT nicknameadmin FROM administrador WHERE nicknameadmin=$1", [req.body.username]);
+    //comprobar la existencia 
+    if (existingUserClient.rowCount === 0 && existingUserSeller.rowCount === 0 && existingUserAdmin.rowCount === 0) {
+        //registrar
+        //Comprobamos si el nombre es correcto, es decir, no tiene números
+        if (!expresionesRegulares.nombre.test(req.body.name)) {
+            //Error
+            res.json({ loggedIn: false, status: "Campo nombre no debe incluir números" });
+        } else {
+            //Comprobamos si el correo esta bien escrito, es decir, no tiene números
+            if (!expresionesRegulares.correo.test(req.body.email)) {
+                //Error
+                res.json({ loggedIn: false, status: "Dirección de correo inválida" });
+            } else {
+                const fecha1=Date.now();
+                let fecha=new Date(fecha1);
+                console.log(fecha);
+                const cero = "0";
+                let mes = "";
+                if (fecha.getMonth() < 10) {
+                    let mes1 = (fecha.getMonth() + 1).toString();
+                    mes = cero + mes1;
+                } else {
+                    mes = fecha.getMonth().toString();
+                }
+                let date = fecha.getFullYear() + "-" + mes + "-" + fecha.getDate();
+                const newUserQuery = await pool.query("INSERT INTO vendedor (nombreVendedor,fechaUnio,categoria,tipoVendedor,calificacion,certificacion,nicknameVendedor,fotoVendedor,correo,contrasena) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING idvendedor", [req.body.name, date, req.body.category,req.body.type, 0, req.body.certification,req.body.username,"algo",req.body.email,req.body.password]);
+                req.session.user = {
+                    username: req.body.username,
+                    id: newUserQuery.rows[0].idvendedor,
+                }
+                res.json({ loggedIn: true, username: req.body.username });
+            }
+        }
+    } else {
+        res.json({ loggedIn: false, status: "Nickname ya utilizado" });
+    }
+});
+
 module.exports = router;
