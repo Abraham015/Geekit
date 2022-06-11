@@ -114,7 +114,7 @@ CREATE TABLE venta_has_producto
 /*foro_has_cliente*/
 CREATE TABLE foro_has_cliente
 (
-  creador varchar(45) not null,
+  creador BOOLEAN not null,
   idcliente int REFERENCES cliente(idcliente),
   idforo int REFERENCES foro(idforo)
 );
@@ -174,7 +174,13 @@ CREATE TABLE administrador_has_reporteContenido
 INSERT INTO cliente
   (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
-  ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'prueba', 'localhost', 'prueba123');
+  ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123');
+
+INSERT INTO cliente
+  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+VALUES
+  ('Alfredo Martínez', 'algred', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968119/clientes_fotos/perfil-1024x754_szwke1.jpg', 'localhost', 'hola12345');
+
 
 /* Valores de prueba para el foros */
 insert into foro
@@ -182,7 +188,17 @@ insert into foro
 values
   ('No dirás groserías;No provoques a la gente','https://res.cloudinary.com/geekit/image/upload/v1654965681/foro_photos/fma_aiqoc8.jpg','FullMetal Alchemist salvó mi vida','Esto es un foro cristiano');
 
+insert into foro
+  (norma, fotoPortada, nombreFoto, descripcion)
+values
+  ('No dirás groserías (no muchas);No golpearás a la gente','https://res.cloudinary.com/geekit/image/upload/v1654973896/foro_photos/images_cszeaa.jpg','El eterno resplandor de un mundo sin naturo','Foro donde nos imaginamos cómo sería vivir en un mundo sin Naruto.');
+
 insert into foro_has_cliente
   (creador, idcliente, idforo)
 values
-  ('Abraham Hernandez', '1', '1');
+  (TRUE, '1', '1');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (FALSE, '2', '1');

@@ -6,7 +6,10 @@ const cors=require("cors");
 const session=require("express-session");
 const authRouter=require("./routers/authRouter");
 const server = require("http").createServer(app);
-//
+
+// Getting routes
+const foros = require('./routers/foros');
+const cliente = require('./routers/cliente');
 
 const io =new Server(server,{
   cors:{
@@ -35,6 +38,7 @@ app.use(session({
   }
 }));
 app.use("/auth", authRouter);
+app.use(cliente);
 
 io.on("connect",socket=>{});
 
