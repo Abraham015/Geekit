@@ -46,8 +46,8 @@ const RegistroVendedor = () => {
     }
   });
   const navigate = useNavigate();
-  return <VStack as="form" className="registro" onSubmit={formik.handleSubmit}>
-    <FormControl className="Datos">
+  return <VStack as="form" className="registroVendedor" onSubmit={formik.handleSubmit}>
+    <FormControl className="DatosV">
       <h1>Registro Vendedor</h1>
       <Text as="p" color="red">
         {error}

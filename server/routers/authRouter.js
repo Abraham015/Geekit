@@ -50,34 +50,46 @@ router.route("/inicio")
         const potentialLoginAdmin = await pool.query("SELECT idadministrador,nicknameadmin,contrasenaadmin FROM administrador WHERE nicknameadmin=$1", [req.body.username]);
         //console.log(potentialLoginCliente);
         if (potentialLoginCliente.rowCount > 0 || potentialLoginVendedor.rowCount > 0 || potentialLoginAdmin.rowCount > 0) {
-            if (potentialLoginCliente.rows[0].contrasena === req.body.password) {
-                //LoginCliente
-                req.session.user = {
-                    username: req.body.username,
-                    id: potentialLoginCliente.rows[0].idcliente,
+            if (potentialLoginCliente.rowCount === 0) {
+                //No es un cliente
+                if (potentialLoginVendedor.rowCount === 0) {
+                    //No es un vendedor
+                    if (potentialLoginAdmin.rows[0].contrasenaadmin === req.body.password) {
+                        //LoginAdmin
+                        req.session.user = {
+                            username: req.body.username,
+                            id: potentialLoginAdmin.rows[0].idadministrador,
+                        }
+                        res.json({ loggedIn: true, username: req.body.username });
+                    } else {
+                        //not good login
+                        res.json({ loggedIn: false, status: "Usuario y/o contraseña incorrectos" });
+                    }
+                } else {
+                    //Si es un vendedor
+                    if (potentialLoginVendedor.rows[0].contrasena === req.body.password) {
+                        //LoginVendedor
+                        req.session.user = {
+                            username: req.body.username,
+                            id: potentialLoginVendedor.rows[0].idvendedor,
+                        }
+                        res.json({ loggedIn: true, username: req.body.username });
+                    }
                 }
-                res.json({ loggedIn: true, username: req.body.username });
-            } else if (potentialLoginVendedor.rows[0].contrasena === req.body.password) {
-                //LoginVendedor
-                req.session.user = {
-                    username: req.body.username,
-                    id: potentialLoginVendedor.rows[0].idvendedor,
-                }
-                res.json({ loggedIn: true, username: req.body.username });
-            } else if (potentialLoginAdmin.rows[0].contrasenaadmin === req.body.password) {
-                //LoginAdmin
-                req.session.user = {
-                    username: req.body.username,
-                    id: potentialLoginAdmin.rows[0].idadministrador,
-                }
-                res.json({ loggedIn: true, username: req.body.username });
             } else {
-                //not good login
-                res.json({ loggedIn: false, status: "Usuario y/o contraseña incorrectos" });
-                console.log("no entro bien");
+                //Si es un cliene
+                if (potentialLoginCliente.rows[0].contrasena === req.body.password) {
+                    //LoginCliente
+                    req.session.user = {
+                        username: req.body.username,
+                        id: potentialLoginCliente.rows[0].idcliente,
+                    }
+                    res.json({ loggedIn: true, username: req.body.username });
+                }
             }
+            
         } else {
-            res.json({ loggedIn: false, status: "Usuario y/o contraseña incorrectos" });
+            res.json({ loggedIn: false, status: "Usuario y/o contraseña incorrectos"});
             console.log("Usuario y/o contraseña incorrectos");
         }
 
