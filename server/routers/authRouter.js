@@ -19,7 +19,8 @@ var transporter = nodemailer.createTransport({
     secureConnection: false, // TLS requires secureConnection to be false
     port: 587, // port for secure SMTP
     tls: {
-        ciphers: 'SSLv3'
+        ciphers: 'SSLv3',
+        rejectUnauthorized: false
     },
     auth: {
         user: 'geekitISW1006@outlook.com',
@@ -93,56 +94,62 @@ router.post("/registroCliente", async (req, res) => {
     const existingUserAdmin = await pool.query("SELECT nicknameadmin FROM administrador WHERE nicknameadmin=$1", [req.body.username]);
     //comprobar la existencia 
     if (existingUserClient.rowCount === 0 && existingUserSeller.rowCount === 0 && existingUserAdmin.rowCount === 0) {
-        //registrar
-        //Comprobamos si el nombre es correcto, es decir, no tiene números
-        if (!expresionesRegulares.nombre.test(req.body.name)) {
-            //Error
-            res.json({ loggedIn: false, status: "Campo nombre no debe incluir números" });
-        } else {
-            //Comprobamos si el correo esta bien escrito, es decir, no tiene números
-            if (!expresionesRegulares.correo.test(req.body.email)) {
+        const existingEmailUser = await pool.query("SELECT correo FROM cliente WHERE nicknamecliente=$1", [req.body.email]);
+        const existingEmailSeller = await pool.query("SELECT correo FROM vendedor WHERE nicknamevendedor=$1", [req.body.email]);
+        if(existingEmailUser.rowCount===0 && existingEmailSeller.rowCount===0){
+            //registrar
+            //Comprobamos si el nombre es correcto, es decir, no tiene números
+            if (!expresionesRegulares.nombre.test(req.body.name)) {
                 //Error
-                res.json({ loggedIn: false, status: "Dirección de correo inválida" });
+                res.json({ loggedIn: false, status: "Campo nombre no debe incluir números" });
             } else {
-                const fecha = new Date(req.body.birth);
-                const cero = "0";
-                let mes = "";
-                if (fecha.getMonth() < 10) {
-                    let mes1 = (fecha.getMonth() + 1).toString();
-                    mes = cero + mes1;
+                //Comprobamos si el correo esta bien escrito, es decir, no tiene números
+                if (!expresionesRegulares.correo.test(req.body.email)) {
+                    //Error
+                    res.json({ loggedIn: false, status: "Dirección de correo inválida" });
                 } else {
-                    mes = fecha.getMonth().toString();
-                }
-                let date = fecha.getFullYear() + "-" + mes + "-" + fecha.getDate();
-                const newUserQuery = await pool.query("INSERT INTO cliente (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena,correo) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING idcliente", [req.body.name, req.body.username, date, "algo", req.body.direction, req.body.password, req.body.email]);
-                req.session.user = {
-                    username: req.body.username,
-                    id: newUserQuery.rows[0].idcliente,
-                }
-                // setup e-mail data, even with unicode symbols
-                var mailOptions = {
-                    from: '"Geekit" <geekitISW1006@outlook.com>', // sender address (who sends)
-                    to: req.body.email, // list of receivers (who receives)
-                    subject: 'Confirmación de Creación de Cuenta', // Subject line
-                    text: 'Confirmación de Creación de Cuenta', // plaintext body
-                    html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo">', // html body
-
-                    attachments: [{
-                        filename: 'test.png',
-                        path: __dirname + '/images/Confirmación.png',
-                        cid: 'logo' //my mistake was putting "cid:logo@cid" here! 
-                    }]
-                };
-
-                // send mail with defined transport object
-                transporter.sendMail(mailOptions, function (error, info) {
-                    if (error) {
-                        return console.log(error);
+                    const fecha = new Date(req.body.birth);
+                    const cero = "0";
+                    let mes = "";
+                    if (fecha.getMonth() < 10) {
+                        let mes1 = (fecha.getMonth() + 1).toString();
+                        mes = cero + mes1;
+                    } else {
+                        mes = fecha.getMonth().toString();
                     }
-                    console.log('Message sent: ' + info.response);
-                });
-                res.json({ loggedIn: true, username: req.body.username });
+                    let date = fecha.getFullYear() + "-" + mes + "-" + fecha.getDate();
+                    const newUserQuery = await pool.query("INSERT INTO cliente (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena,correo) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING idcliente", [req.body.name, req.body.username, date, "algo", req.body.direction, req.body.password, req.body.email]);
+                    req.session.user = {
+                        username: req.body.username,
+                        id: newUserQuery.rows[0].idcliente,
+                    }
+                    // setup e-mail data, even with unicode symbols
+                    var mailOptions = {
+                        from: '"Geekit" <geekitISW1006@outlook.com>', // sender address (who sends)
+                        to: req.body.email, // list of receivers (who receives)
+                        subject: 'Confirmación de Creación de Cuenta', // Subject line
+                        text: 'Confirmación de Creación de Cuenta', // plaintext body
+                        html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo">', // html body
+
+                        attachments: [{
+                            filename: 'test.png',
+                            path: __dirname + '/images/Confirmación.png',
+                            cid: 'logo' //my mistake was putting "cid:logo@cid" here! 
+                        }]
+                    };
+
+                    // send mail with defined transport object
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        console.log('Message sent: ' + info.response);
+                    });
+                    res.json({ loggedIn: true, username: req.body.username });
+                }
             }
+        }else{
+            res.json({ loggedIn: false, status: "Correo electrónico ya utilizado" });
         }
     } else {
         res.json({ loggedIn: false, status: "Nickname ya utilizado" });

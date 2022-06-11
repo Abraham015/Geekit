@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/Foros.css';
+import '../css/foros.css';
 import { Link, useNavigate, Redirect } from 'react-router-dom'
 import Buscar from './Buscar';
 import Discusion from './Discusion';
