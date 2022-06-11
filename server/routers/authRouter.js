@@ -3,6 +3,7 @@ const validateForm = require("../controllers/validateForms");
 const router = express.Router();
 const Yup = require("yup");
 const pool = require("../database");
+var nodemailer = require('nodemailer');
 
 //Declaramos las expresiones regualares a utilizar
 const expresionesRegulares = {
@@ -10,6 +11,21 @@ const expresionesRegulares = {
     correo: new RegExp(/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ0-9_.+-]+@[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ0-9-]+\.[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ0-9-.]+$/),
     pass: new RegExp(/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{5,15}$/),
 };
+
+// Create the transporter with the required configuration for Outlook
+// change the user and pass !
+var transporter = nodemailer.createTransport({
+    host: "smtp-mail.outlook.com", // hostname
+    secureConnection: false, // TLS requires secureConnection to be false
+    port: 587, // port for secure SMTP
+    tls: {
+        ciphers: 'SSLv3'
+    },
+    auth: {
+        user: 'geekitISW1006@outlook.com',
+        pass: 'geekit1006'
+    }
+});
 
 const formSchema = Yup.object({
     username: Yup.string().required("¡Nombre de usuario requerido!"),
@@ -103,6 +119,28 @@ router.post("/registroCliente", async (req, res) => {
                     username: req.body.username,
                     id: newUserQuery.rows[0].idcliente,
                 }
+                // setup e-mail data, even with unicode symbols
+                var mailOptions = {
+                    from: '"Geekit" <geekitISW1006@outlook.com>', // sender address (who sends)
+                    to: req.body.email, // list of receivers (who receives)
+                    subject: 'Confirmación de Creación de Cuenta', // Subject line
+                    text: 'Confirmación de Creación de Cuenta', // plaintext body
+                    html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo">', // html body
+
+                    attachments: [{
+                        filename: 'test.png',
+                        path: __dirname + '/images/Confirmación.png',
+                        cid: 'logo' //my mistake was putting "cid:logo@cid" here! 
+                    }]
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message sent: ' + info.response);
+                });
                 res.json({ loggedIn: true, username: req.body.username });
             }
         }
@@ -132,8 +170,8 @@ router.post("/registroVendedor", async (req, res) => {
                 //Error
                 res.json({ loggedIn: false, status: "Dirección de correo inválida" });
             } else {
-                const fecha1=Date.now();
-                let fecha=new Date(fecha1);
+                const fecha1 = Date.now();
+                let fecha = new Date(fecha1);
                 console.log(fecha);
                 const cero = "0";
                 let mes = "";
@@ -144,11 +182,33 @@ router.post("/registroVendedor", async (req, res) => {
                     mes = fecha.getMonth().toString();
                 }
                 let date = fecha.getFullYear() + "-" + mes + "-" + fecha.getDate();
-                const newUserQuery = await pool.query("INSERT INTO vendedor (nombreVendedor,fechaUnio,categoria,tipoVendedor,calificacion,certificacion,nicknameVendedor,fotoVendedor,correo,contrasena) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING idvendedor", [req.body.name, date, req.body.category,req.body.type, 0, req.body.certification,req.body.username,"algo",req.body.email,req.body.password]);
+                const newUserQuery = await pool.query("INSERT INTO vendedor (nombreVendedor,fechaUnio,categoria,tipoVendedor,calificacion,certificacion,nicknameVendedor,fotoVendedor,correo,contrasena) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING idvendedor", [req.body.name, date, req.body.category, req.body.type, 0, req.body.certification, req.body.username, "algo", req.body.email, req.body.password]);
                 req.session.user = {
                     username: req.body.username,
                     id: newUserQuery.rows[0].idvendedor,
                 }
+                // setup e-mail data, even with unicode symbols
+                var mailOptions = {
+                    from: '"Geekit" <geekitISW1006@outlook.com>', // sender address (who sends)
+                    to: req.body.email, // list of receivers (who receives)
+                    subject: 'Confirmación de Creación de Cuenta', // Subject line
+                    text: 'Confirmación de Creación de Cuenta', // plaintext body
+                    html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo">', // html body
+
+                    attachments: [{
+                        filename: 'test.png',
+                        path: __dirname + '/images/Confirmación.png',
+                        cid: 'logo' //my mistake was putting "cid:logo@cid" here! 
+                    }]
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message sent: ' + info.response);
+                });
                 res.json({ loggedIn: true, username: req.body.username });
             }
         }

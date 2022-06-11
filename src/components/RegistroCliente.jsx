@@ -10,7 +10,7 @@ const RegistroCliente = () => {
   const { setUser } = useContext(AccountContext);
   const [error, setError] = useState(null);
   const formik = useFormik({
-    initialValues: { username: "", password: "", name: "", birth: "", email: "", direction: "" },
+    initialValues: { username: "", password: "", name: "", birth: "", email: "", direction: "", photo: "" },
     validationSchema: Yup.object({
       username: Yup.string().required("¡Nombre de usuario requerido!"),
       password: Yup.string().required("¡Contraseña requerida!").min(5, "Contraseña corta").max(15, "Contraseña demasiado larga"),
@@ -67,7 +67,7 @@ const RegistroCliente = () => {
       </FormControl>
       <FormControl>
         <label htmlFor="username">Foto de Perfil:</label>
-        <input type="file" placeholder="Fecha de Nacimiento" />
+        <input type="file" placeholder="Fecha de Nacimiento" name="photo" {...formik.getFieldProps("photo")}/>
       </FormControl>
       <FormControl isInvalid={formik.errors.email && formik.touched.email}>
         <label htmlFor="username">Correo Electrónico:</label>
