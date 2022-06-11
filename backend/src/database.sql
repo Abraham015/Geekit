@@ -6,7 +6,7 @@ CREATE TABLE cliente
   nombreCliente varchar(100),
   nicknameCliente varchar(45),
   fechaNacimiento DATE,
-  fotoPerfil varchar(45),
+  fotoPerfil varchar(300),
   direccion varchar(100),
   contrasena varchar(45),
   correo varchar(100)
@@ -18,12 +18,12 @@ CREATE TABLE vendedor
   idvendedor serial not null primary key,
   nombreVendedor varchar(45) not null,
   fechaUnio date not null,
-  categoria varchar(45) not null,
-  tipoVendedor varchar(45) not null,
+  categoria varchar(200) not null,
+  tipoVendedor varchar(60) not null,
   calificacion float not null,
   certificacion int not null,
   nicknameVendedor varchar(45) not null,
-  fotoVendedor varchar(45) not null,
+  fotoVendedor varchar(200) not null,
   correo varchar(100),
   contrasena varchar(45)
 );
@@ -37,7 +37,7 @@ CREATE TABLE administrador
   emailAdmin varchar(45) not null,
   nicknameAdmin varchar(45) not null,
   fechaNacimientoAdmin date not null,
-  fotoAdmin varchar(45)
+  fotoAdmin varchar(200)
 );
 
 /*efectivo*/
@@ -49,11 +49,11 @@ CREATE TABLE efectivo
 /*Foro*/
 CREATE TABLE foro
 (
-  idforo int not null primary key,
-  norma varchar(45) not null,
-  fotoPortada varchar(45) not null,
-  nombreFoto varchar(45) not null,
-  descripcion varchar(45) not null
+  idforo serial not null primary key,
+  norma varchar(450) not null,
+  fotoPortada varchar(300) not null,
+  nombreFoto varchar(200) not null,
+  descripcion varchar(1000) not null
 );
 
 /*Tabla Venta*/
@@ -79,7 +79,7 @@ CREATE TABLE metodoPago
 /*tarjeta*/
 CREATE TABLE tarjeta
 (
-  numTarjeta int,
+  numTarjeta varchar(20),
   fechaCaducidad date,
   nombreTarjeta varchar(45),
   codigoSeguridad int,
@@ -91,12 +91,12 @@ CREATE TABLE tarjeta
 CREATE TABLE producto
 (
   idProducto int not null primary key,
-  nombreProducto varchar(45) not null,
+  nombreProducto varchar(60) not null,
   precio float not null,
-  etiqueta varchar(45) not null,
-  descripcion varchar(100) not null,
+  etiqueta varchar(80) not null,
+  descripcion varchar(200) not null,
   metodoEntrega varchar(45) not null,
-  fotosProducto varchar(45) not null,
+  fotosProducto varchar(1000) not null,
   stock int not null,
   idvendedor int REFERENCES efectivo(idmetodoPago)
   /*Para hacer la relación entre tablas*/
@@ -131,9 +131,9 @@ CREATE TABLE discusion
 (
   iddiscusion int not null primary key,
   fechaDiscusion date not null,
-  reaccion int not null,
-  fotoDiscusion varchar(45),
-  contenido varchar(45) not null,
+  reaccion varchar(20) not null,
+  fotoDiscusion varchar(2000),
+  contenido varchar(200) not null,
   idcliente int REFERENCES cliente(idcliente),
   idforo int REFERENCES foro(idforo)
 );
@@ -143,9 +143,9 @@ CREATE TABLE comentario
 (
   idcomentario int not null primary key,
   fechaComentario date not null,
-  voto int,
-  contenidoComentario varchar(45) not null,
-  fotoComentario varchar(45),
+  voto varchar(20) not null,
+  contenidoComentario varchar(200) not null,
+  fotoComentario varchar(2000),
   idcliente int REFERENCES cliente(idcliente),
   idforo int REFERENCES foro(idforo),
   idvendedor int REFERENCES vendedor(idvendedor)
@@ -175,3 +175,14 @@ INSERT INTO cliente
   (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
   ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'prueba', 'localhost', 'prueba123');
+
+/* Valores de prueba para el foros */
+insert into foro
+  (norma, fotoPortada, nombreFoto, descripcion)
+values
+  ('No dirás groserías;No provoques a la gente','https://res.cloudinary.com/geekit/image/upload/v1654965681/foro_photos/fma_aiqoc8.jpg','FullMetal Alchemist salvó mi vida','Esto es un foro cristiano');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  ('Abraham Hernandez', '1', '1');

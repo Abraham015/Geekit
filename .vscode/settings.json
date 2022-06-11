@@ -3,16 +3,5 @@
         "comments": "",
         "textMateRules": []
     },
-    "sqltools.connections": [
-        {
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 5432,
-            "driver": "PostgreSQL",
-            "name": "Prueba",
-            "database": "geekit",
-            "username": "root",
-            "password": "root"
-        }
-    ]
+    "sqltools.connections": []
 }
