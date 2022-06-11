@@ -18,6 +18,7 @@ const RegistroCliente = () => {
     onSubmit: (values, actions) => {
       const vals = { ...values };
       //actions.resetForm();
+      console.log(values);
       fetch("http://localhost:4000/auth/registroCliente", {
         method: "POST",
         credentials: "include",

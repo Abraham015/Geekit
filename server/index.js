@@ -6,7 +6,7 @@ const cors=require("cors");
 const session=require("express-session");
 const authRouter=require("./routers/authRouter");
 const server = require("http").createServer(app);
-//require("dotenv").config();
+//
 
 const io =new Server(server,{
   cors:{
@@ -34,7 +34,7 @@ app.use(session({
     /*sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax ",*/
   }
 }));
-app.use("/auth",authRouter);
+app.use("/auth", authRouter);
 
 io.on("connect",socket=>{});
 
