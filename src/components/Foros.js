@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react'
-import '../css/Foros.css';
+import '../css/foros.css';
 import { Link, useNavigate} from 'react-router-dom'
 import Buscar from './Buscar';
 import Discusion from './Discusion';
@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 import { AccountContext } from "./Login/AccountContext";
 export default function ForoDetalles(props) {
-    const navigate = useNavigate();; // Para redireccionar
+    const navigate = useNavigate(); // Para redireccionar
 
     // Declaramos las varibles de state
     const [foros, setForos] = useState([]);

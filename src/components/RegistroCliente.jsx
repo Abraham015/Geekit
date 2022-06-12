@@ -48,7 +48,7 @@ const RegistroCliente = () => {
   });
   const navigate = useNavigate();
   return <VStack as="form" className="registro" onSubmit={formik.handleSubmit}>
-    <FormControl className="Datos">
+    <FormControl className="DatosC">
       <h1>Registro Cliente</h1>
       <Text as="p" color="red">
         {error}

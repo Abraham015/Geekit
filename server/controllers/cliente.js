@@ -13,7 +13,7 @@ clienteCtrl.getCliente = async (idCliente) =>{
 }
 // Obtener varios clientes por id
 clienteCtrl.getClientes = async (idClientes) => {
-    const clientes = await pool.query("SELECT * FROM cliente WHERE idcliente in $1", [idClientes]);
+    const clientes = await pool.query("SELECT * FROM cliente WHERE idcliente in ($1)", [idClientes]);
     return clientes.rows;
 }
 
