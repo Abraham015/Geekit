@@ -77,7 +77,7 @@ const Inicio = () => {
         <Button type="submit" className="Crear" onClick={()=>navigate("/Registro")}>Crear Cuenta</Button>
       </ButtonGroup>
       <br />
-      <a href="!#"> ¿Olvidaste tu contraseña ? </a>
+      <a href="/prerestore"> ¿Olvidaste tu contraseña ? </a>
     </FormControl>
   </VStack>;
 };

@@ -38,10 +38,13 @@ app.use(session({
     /*sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax ",*/
   }
 }));
+
 app.use("/auth", authRouter);
 app.use(foros);
 app.use(cliente);
 app.use(discusiones);
+
+
 
 io.on("connect",socket=>{});
 

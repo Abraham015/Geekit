@@ -1,6 +1,5 @@
-/*Para el inicio de sesión*/
-
-.inicio {
+/*configuracion de la pantalla*/
+.restore {
     margin: 0;
     padding: 0;
     background: url(./Images/fondoinicio.JPG) no-repeat center top;
@@ -8,9 +7,32 @@
     height: 89vh;
 }
 
-.CuadroGrande {
-    width: 320px;
-    height: 420px;
+/*donde estara el formulario*/
+.Datos{
+  width: 500px;
+    height: 330px;
+    background-color: rgba(234, 237, 95, .7);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 50px;
+}
+
+.Datos .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -45px;
+    left: 190px;
+}
+
+.DatosR {
+    width: 350px;
+    height: 520px;
     background-color: rgba(234, 237, 95, .7);
     top: 55%;
     left: 50%;
@@ -21,17 +43,17 @@
     border-radius: 50px;
 }
 
-.CuadroGrande .avatar {
+.DatosR .avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     position: absolute;
     top: -45px;
-    left: 110px;
+    left: 120px;
     background-color: #000;
 }
 
-.CuadroGrande h1 {
+.DatosR h1 {
     margin: 0;
     padding: 0 0 20px;
     font-weight: bold;
@@ -39,22 +61,22 @@
     text-align: center;
 }
 
-.CuadroGrande label {
+.DatosR label {
     margin: 0;
     padding: 0 0 0.5em;
     font-weight: bold;
     display: block;
 }
 
-.CuadroGrande input {
+.DatosR input {
     width: 100%;
     margin-bottom: 10px;
     padding: 0.7em;
 
 }
 
-.CuadroGrande input[type="text"],
-.CuadroGrande input[type="password"] {
+.DatosR input[type="text"],
+.DatosR input[type="password"] {
     border: none;
     border-radius: 10px;
     border-bottom: 1px solid #EDE7E7;
@@ -62,7 +84,7 @@
     font-size: 18px;
 }
 
-.CuadroGrande input[type="submit"] {
+.DatosR input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -74,11 +96,11 @@
     cursor: pointer;
 }
 
-.CuadroGrande input[type="submit"]:hover {
+.DatosR input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-.CuadroGrande a {
+.DatosR a {
     text-decoration: none;
     font-size: 18px;
     line-height: 20px;
@@ -86,14 +108,27 @@
     font-weight: bold;
 }
 
-.CuadroGrande a:hover {
+.DatosR a:hover {
     text-decoration: underline;
 }
 
-/*Cambios para la nueva pantalla*/
-.Grupo{
-    padding-bottom: 2em;
-    padding-left: 3em;
+h1{
+  font-weight: bold;
+}
+
+p{
+  text-align: center;
+  font-weight: bold;
+}
+
+.Grupo1{
+    padding-bottom: 1em;
+    padding-left: 7em;
+}
+
+.Grupo2{
+    padding-top: 0.5em;
+    padding-left: 6.5em;
 }
 
 .Crear{
@@ -120,10 +155,17 @@
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
-    
 }
 
-.CuadroGrande .mensaje{
-    font-size: small;
-    color: red;
+ .Entrar{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 80px;
+    background: #75F460;
+    color: #000;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
