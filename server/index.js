@@ -37,8 +37,11 @@ app.use(session({
     /*sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax ",*/
   }
 }));
+
 app.use("/auth", authRouter);
 app.use(cliente);
+
+
 
 io.on("connect",socket=>{});
 

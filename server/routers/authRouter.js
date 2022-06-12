@@ -19,11 +19,10 @@ var transporter = nodemailer.createTransport({
     secureConnection: false, // TLS requires secureConnection to be false
     port: 587, // port for secure SMTP
     tls: {
-        ciphers: 'SSLv3',
-        rejectUnauthorized: false
+        ciphers: 'SSLv3'
     },
     auth: {
-        user: 'geekitISW1006@outlook.com',
+        user: 'geekitISW1007@outlook.com',
         pass: 'geekit1006'
     }
 });
@@ -137,11 +136,11 @@ router.post("/registroCliente", async (req, res) => {
                     }
                     // setup e-mail data, even with unicode symbols
                     var mailOptions = {
-                        from: '"Geekit" <geekitISW1006@outlook.com>', // sender address (who sends)
+                        from: '"Geekit" <geekitISW1007@outlook.com>', // sender address (who sends)
                         to: req.body.email, // list of receivers (who receives)
                         subject: 'Confirmación de Creación de Cuenta', // Subject line
                         text: 'Confirmación de Creación de Cuenta', // plaintext body
-                        html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo">', // html body
+                        html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo" height="100px" weight="100px">', // html body
 
                         attachments: [{
                             filename: 'test.png',
@@ -211,11 +210,11 @@ router.post("/registroVendedor", async (req, res) => {
                     }
                     // setup e-mail data, even with unicode symbols
                     var mailOptions = {
-                        from: '"Geekit" <geekitISW1006@outlook.com>', // sender address (who sends)
+                        from: '"Geekit" <geekitISW1007@outlook.com>', // sender address (who sends)
                         to: req.body.email, // list of receivers (who receives)
                         subject: 'Confirmación de Creación de Cuenta', // Subject line
                         text: 'Confirmación de Creación de Cuenta', // plaintext body
-                        html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo">', // html body
+                        html: '<b>BIENVENIDO AL SISTEMA GEEKIT</b><br>Hola querido usuario, nos complace informar que su cuenta dentro de la plataforma ha sido creada con éxito. <br>Esperemos que disfurtes de la aplicación y de la grandiosa comunidad. <br><br><img src="cid:logo" height="100px" weight="100px">', // html body
 
                         attachments: [{
                             filename: 'test.png',
@@ -242,5 +241,87 @@ router.post("/registroVendedor", async (req, res) => {
         res.json({ loggedIn: false, status: "Nickname ya utilizado" });
     }
 });
+
+router.post("/prerestore", async (req, res) => {
+    if (!expresionesRegulares.correo.test(req.body.email)) {
+        //Error
+        res.json({ loggedIn: false, status: "Dirección de correo inválida" });
+    } else {
+        var mailOptions = {
+            from: '"Geekit" <geekitISW1007@outlook.com>', // sender address (who sends)
+            to: req.body.email, // list of receivers (who receives)
+            subject: 'Restaurar contraseña', // Subject line
+            text: 'Restauración de la cuenta', // plaintext body
+            html: 'Estimado usuario, usted ha solicitado la recuperación de su cuenta, por favor le pedimos que de clic en el siguiente link para cambiar su contraseña: <br><br><a href=http://localhost:3000/restore>Restaurar contraseña</a>'
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+        });
+    }
+    
+});
+
+router.post("/restore", async (req, res) => {
+    const existingEmailCliente = await pool.query("SELECT correo FROM cliente WHERE correo=$1", [req.body.email]);
+    const existingEmailSeller = await pool.query("SELECT correo FROM vendedor WHERE correo=$1", [req.body.email]);
+    const existingEmailAdmin = await pool.query("SELECT emailAdmin FROM administrador WHERE emailadmin=$1", [req.body.email]);
+    console.log(existingEmailCliente.rowCount);
+    console.log(existingEmailSeller.rowCount);
+    console.log(existingEmailAdmin.rowCount);
+    
+    if (!expresionesRegulares.correo.test(req.body.email)) {
+        //Error
+        res.json({ loggedIn: false, status: "Dirección de correo inválida" });
+    } else {
+        //comprobamos que las contraseñas sean iguales 
+        if (req.body.password === req.body.confirm) {
+            //Confirmar la existencia
+            if (existingEmailCliente.rowCount === 0 || existingEmailSeller.rowCount === 0 || existingEmailAdmin.rowCount === 0) {
+                //Confirmamos que la contraseña no existaconst 
+                existingPasswordCliente = await pool.query("SELECT contrasena FROM cliente WHERE contrasena=$1", [req.body.password]);
+                const existingPasswordSeller = await pool.query("SELECT contrasena FROM vendedor WHERE contrasena=$1", [req.body.password]);
+                const existingPasswordAdmin = await pool.query("SELECT contrasenaadmin FROM administrador WHERE contrasenaadmin=$1", [req.body.password]);
+                if (existingPasswordCliente.rowCount === 0 && existingPasswordSeller.rowCount === 0 && existingPasswordAdmin.rowCount === 0) {
+                    if (existingEmailCliente.rowCount > 0) {
+                        const updateUserQuery = await pool.query("UPDATE cliente set contrasena = $1 WHERE correo = $2 RETURNING idcliente", [req.body.password, req.body.email]);
+                            req.session.user = {
+                            username: req.body.email,
+                            id: updateUserQuery.rows[0].idcliente,
+                        }
+                    }else{
+                        if(existingEmailSeller.rowCount > 0){
+                            const updateUserQuery = await pool.query("UPDATE vendedor set contrasena = $1 WHERE correo = $2 RETURNING idvendedor", [req.body.password, req.body.email]);
+                                req.session.user = {
+                                username: req.body.email,
+                                id: updateUserQuery.rows[0].idvendedor,
+                            }
+                        }else{
+                            if(existingEmailAdmin > 0){
+                                const updateUserQuery = await pool.query("UPDATE administrador set contrasenaadmin = $1 WHERE emailAdmin = $2 RETURNING idadministrador", [req.body.password, req.body.email]);
+                                req.session.user = {
+                                    username: req.body.email,
+                                    id: updateUserQuery.rows[0].idadministrador,
+                                }
+                            }
+                        }
+                    }
+                    
+                } else {
+                    res.json({ loggedIn: false, status: "Elige una contraseña distinta a la existente" });
+                }
+            }else{
+                res.json({ loggedIn: false, status: "Dirección de correo no asociada con ninguna cuenta" });
+            }
+        } else {
+            res.json({ loggedIn: false, status: "Las contraseñas no coinciden" });
+        }
+    }
+});
+    
 
 module.exports = router;

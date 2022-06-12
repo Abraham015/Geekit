@@ -20,6 +20,9 @@ import ForoDetalles from './components/ForoDetalles';
 import ForoDiscusiones from './components/ForoDiscusiones';
 import DiscusionComentarios from './components/DiscusionComentarios';
 import Recomendaciones from './components/Recomendaciones';
+import Prerestaurar from './components/Prerestaurar';
+import Restaurar from './components/Restaurar';
+
 function App() {
   return (
     <UserContext>
@@ -34,6 +37,8 @@ function App() {
               <Route path="/Home" element={<Home />} />
             </Route>}
             <Route path="/inicio" element={<Inicio />} />
+            <Route path="/prerestore" element={<Prerestaurar />} />
+            <Route path="/restore" element={<Restaurar />} />
             <Route path="/registro" element={<Registro />} />
             <Route path="/registroCliente" element={<RegistroCliente />} />
             <Route path="/registroVendedor" element={<RegistroVendedor />} />
