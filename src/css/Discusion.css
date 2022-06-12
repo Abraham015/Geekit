@@ -85,6 +85,7 @@
 .contenido-discusion > p{
     margin: 20px;
     height: auto;
+    text-align: left;
 }
 .contenido-discusion .imagenes-discusion{
     display: flex;

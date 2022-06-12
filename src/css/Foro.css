@@ -91,6 +91,9 @@
 
     border: 1px solid #808E9B;
 }
+.foro-container .detalles-foro .descripcion-foro{
+    width: 100%;
+}
 .foro-container .detalles-foro .contenido-informacion-foro{
     background-color: #485460 !important;
     border-radius: 22px 0px 22px 0px;
@@ -99,6 +102,8 @@
     color: white;
     font-family: 'Kreon', serif;
     font-size: 18px;
+    font-weight: normal;
+    text-align: left;
 }
 
 
