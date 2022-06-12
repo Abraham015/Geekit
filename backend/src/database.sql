@@ -153,9 +153,16 @@ CREATE TABLE comentario
   reaccionComent int not null,
   contenidoComentario varchar(200) not null,
   fotoComentario varchar(2000),
+  iddiscusion int REFERENCES discusion(iddiscusion),
   idcliente int REFERENCES cliente(idcliente),
-  idforo int REFERENCES foro(idforo),
   idvendedor int REFERENCES vendedor(idvendedor)
+);
+
+/*Comentario_has_comentario*/
+CREATE TABLE comentario_has_comentario
+(
+  idcomentarioPadre int not null REFERENCES comentario(idcomentario),
+  idcomentarioHijo int not null REFERENCES comentario(idcomentario)
 );
 
 /*reporteContenido*/
@@ -210,6 +217,16 @@ insert into foro_has_cliente
 values
   (FALSE, '2', '1');
 
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (TRUE, '1', '2');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (FALSE, '2', '2');
+
 /*insertar para vendedor*/
 INSERT INTO vendedor 
   (idvendedor, nombreVendedor, fechaUnio, categoria, tipoVendedor, calificacion,certificacion,nicknameVendedor,fotoVendedor, correo, contrasena)
@@ -241,3 +258,25 @@ insert into discusion
   (fechaDiscusion, reaccionLike, reaccionDislike, reaccionComent, fotoDiscusion, contenido, idcliente, idforo)
 values
   ('2021-03-15', '150', '10', '15', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', 'Hola', '2', '2');
+
+
+/* Todos los valores de prueba para comentarios*/
+
+insert into comentario
+  (fechaComentario, reaccionLike, reaccionDislike, reaccionComent, contenidoComentario, fotoComentario, iddiscusion, idcliente)
+  values
+  ('2020-03-15', '150', '10', '305', 'Hola, soy un cliente de la plataforma, quiero saber si puedo hacer una consulta sobre el producto que quiero comprar', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', '1', '2');
+
+insert into comentario
+  (fechaComentario, reaccionLike, reaccionDislike, reaccionComent, contenidoComentario, fotoComentario, iddiscusion, idcliente)
+  values
+  ('2021-03-15', '150', '10', '5', 'Hola, soy un cliente de la plataforma, quiero saber si puedo hacer una consulta sobre el producto que quiero comprar', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', '1', '2');
+insert into comentario
+  (fechaComentario, reaccionLike, reaccionDislike, reaccionComent, contenidoComentario, fotoComentario, iddiscusion, idcliente)
+  values
+  ('2021-03-15', '150', '10', '555', 'Hola, soy un cliente de la plataforma, quiero saber si puedo hacer una consulta sobre el producto que quiero comprar', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', '2', '2');
+
+insert into comentario
+  (fechaComentario, reaccionLike, reaccionDislike, reaccionComent, contenidoComentario, fotoComentario, iddiscusion, idcliente)
+  values
+  ('2025-03-15', '150', '10', '55', 'Loreeeeeeeeeem', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg;https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', '1', '2');

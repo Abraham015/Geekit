@@ -2,6 +2,11 @@ import React, { Component, useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import '../css/Discusion.css';
 
+import { format, register } from 'timeago.js';
+
+// CAMBIAMOS EL IDIOMA DE TIME AGO
+import localeFunc from './timeAgoES';
+register('es_ES', localeFunc);
 
 export default function ForoDetalles({ abrir, propiedades }) {
     const [discusion, setDiscusion] = useState(propiedades);
@@ -97,7 +102,7 @@ export default function ForoDetalles({ abrir, propiedades }) {
                     <img src={foro.fotoportada} alt="" className="foto-cliente" />
                 </Link>
             </div>
-            <Link to="#" className="antiguedad">Hace 2 hr</Link>
+            <Link to="#" className="antiguedad">{format(discusion.fechadiscusion, 'es_ES')}</Link>
             <div className="contenido-discusion">
                 <p>{discusion.contenido}
                 </p>

@@ -3,6 +3,7 @@ const {Router} = require("express");
 const router = Router();
 const forosCtrl = require('../controllers/foros');
 const clienteCtrl = require('../controllers/cliente');
+const comentariosCtrl = require('../controllers/comentarios');
 
 router.get("/foros/:id", async (req, res) => {
     const foro = await forosCtrl.getForo(req.params.id);
@@ -37,5 +38,19 @@ router.get("/foros/:id/discusiones", async (req, res) => {
     const discusiones = await forosCtrl.getDiscusionesForo(req.params.id, order);
     res.json(discusiones);
 });
+
+// Mandamos a seleccionar los comentarios destacados de un foro
+router.get('/foros/:id/comentarios', async (req, res)=>{
+    const comentariosConsulta = await comentariosCtrl.getComentariosForo(req.params.id);
+
+    const comentarios = await Promise.all(comentariosConsulta.map(async comentario =>{
+        const cliente = await clienteCtrl.getCliente(comentario.idcliente);
+        return {
+            ...comentario, fotocomentario: comentario.fotocomentario.split(';'), cliente
+        }
+    }));
+    
+    res.json(comentarios);
+})
 
 module.exports = router;
