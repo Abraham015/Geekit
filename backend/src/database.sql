@@ -9,7 +9,8 @@ CREATE TABLE cliente
   fotoPerfil varchar(300),
   direccion varchar(100),
   contrasena varchar(45),
-  correo varchar(100)
+  correo varchar(100),
+  descripcion varchar(300)
 );
 
 /*Vendedor*/
@@ -25,7 +26,8 @@ CREATE TABLE vendedor
   nicknameVendedor varchar(45) not null,
   fotoVendedor varchar(200) not null,
   correo varchar(100),
-  contrasena varchar(45)
+  contrasena varchar(45),
+  descripcion varchar(300)
 );
 
 /*Administrador*/
@@ -37,7 +39,8 @@ CREATE TABLE administrador
   emailAdmin varchar(45) not null,
   nicknameAdmin varchar(45) not null,
   fechaNacimientoAdmin date not null,
-  fotoAdmin varchar(200)
+  fotoAdmin varchar(200),
+  descripcion varchar(300)
 );
 
 /*efectivo*/
@@ -176,14 +179,14 @@ CREATE TABLE administrador_has_reporteContenido
 
 /*Valores de prueba para el login*/
 INSERT INTO cliente
-  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena, descripcion)
 VALUES
-  ('Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123');
+  ('Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123', 'Me gusta el vino tinto y un buen queso');
 
 INSERT INTO cliente
-  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena, descripcion)
 VALUES
-  ('Alfredo Martínez', 'algred', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968119/clientes_fotos/perfil-1024x754_szwke1.jpg', 'localhost', 'hola12345');
+  ('Alfredo Martínez', 'algred', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968119/clientes_fotos/perfil-1024x754_szwke1.jpg', 'localhost', 'hola12345', 'Me gusta el pan y una buena botana');
 
 
 /* Valores de prueba para el foros */

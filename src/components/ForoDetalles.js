@@ -1,21 +1,44 @@
-import React from 'react'
-//import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useParams, Link } from "react-router-dom";
 import '../css/Foro.css';
 
 export default function ForoDetalles(props) {
-    //const { id } = useParams();
+    const { id } = useParams();
+    const [foro, setForo] = useState({});
+    const [usuarios, setUsuarios] = useState([]);
+    const [reglas, setReglas] = useState([]);
+
+    // Escuchamos las variables del estado
+    useEffect(() => {
+        cargarForo();
+    }, [id]);
+
+    // Función para pedir y cargar los datos del foro
+    const cargarForo = async () => {
+        const res = await fetch(`http://localhost:4000/foros/${id}`);
+        const data = await res.json();
+        setForo(data);
+        setReglas(data.norma.split(";"));
+        cargarUsuarios(data);
+    }
+    // Función para cargar usuarios
+    const cargarUsuarios = async (data) => {
+        const res = await fetch(`http://localhost:4000/foros/${data.idforo}/clientes`);
+        const users = await res.json();
+        setUsuarios(users);
+    }
 
     return (
         <div className="foro-container">
             <div className="foto-nombre-foro">
-                <img className="foto-foro" src={process.env.REACT_APP_BASE_URL_IMAGES + '/fma.jpg'} alt="" />
-                <h1 className="nombre-foro">FullMetal Alchemist salvó mi vida</h1>
+                <img className="foto-foro" src={foro.fotoportada} alt="" />
+                <h1 className="nombre-foro">{foro.nombrefoto}</h1>
             </div>
             <div className="detalles-foro">
                 <div className="descripcion-foro">
                     <h2 className="titulo-informacion-foro">DESCRIPCIÓN</h2>
                     <hr />
-                    <p className="contenido-informacion-foro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus adipisci repellendus sequi dolores nulla eligendi modi debitis dicta sunt nobis ad facere, similique natus vero ea accusamus? A, incidunt laborum.</p>
+                    <p className="contenido-informacion-foro">{foro.descripcion}</p>
                 </div>
                 <div className="miembros-foro">
                     <h2 className="titulo-informacion-foro">MIEMBROS</h2>
@@ -35,27 +58,21 @@ export default function ForoDetalles(props) {
                             </div>
                         </div>
                         <div className="lista-miembros">
-                            <div className="miembro-foro">
-                                <img className="foto-miembro-foro" src={process.env.REACT_APP_BASE_URL_IMAGES + '/ernesto.jpg'} alt="" />
-                                <div className="detalles-miembro-foro">
-                                    <div className="nombre-miembro-foro">Ernesto de la Cruz</div>
-                                    <div className="descripción-miembro-foro">El vino tinto y el queso son mi pasión, también soy fan de los buenos ánimes y el cine de...</div>
-                                </div>
-                            </div>
-                            <div className="miembro-foro">
-                                <img className="foto-miembro-foro" src={process.env.REACT_APP_BASE_URL_IMAGES + '/ernesto.jpg'} alt="" />
-                                <div className="detalles-miembro-foro">
-                                    <div className="nombre-miembro-foro">Ernesto de la Cruz</div>
-                                    <div className="descripción-miembro-foro">El vino tinto y el queso son mi pasión, también soy fan de los buenos ánimes y el cine de...</div>
-                                </div>
-                            </div>
-                            <div className="miembro-foro">
-                                <img className="foto-miembro-foro" src={process.env.REACT_APP_BASE_URL_IMAGES + '/ernesto.jpg'} alt="" />
-                                <div className="detalles-miembro-foro">
-                                    <div className="nombre-miembro-foro">Ernesto de la Cruz</div>
-                                    <div className="descripción-miembro-foro">El vino tinto y el queso son mi pasión, también soy fan de los buenos ánimes y el cine de...</div>
-                                </div>
-                            </div>
+                            { // Mostramos cada foro del
+                                usuarios.map(usuario => {
+                                    return (
+                                        <div className="miembro-foro">
+                                            <img className="foto-miembro-foro" src={usuario.fotoperfil} alt="" />
+                                            <div className="detalles-miembro-foro">
+                                                <div className="nombre-miembro-foro">{usuario.nombrecliente}</div>
+                                                <div className="descripción-miembro-foro">{usuario.descripcion}</div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+
                         </div>
                     </div>
                 </div>
@@ -65,12 +82,14 @@ export default function ForoDetalles(props) {
                         <hr />
                         <div className="contenido-informacion-foro">
                             <ul>
-                                <li>No insultar ni promover el odio en comentarios o discusiones</li>
-                                <li>No promocionar productos</li>
-                                <li>No comentar fotos obscenas</li>
+                                {
+                                    reglas.map((regla, index) => {
+                                        return <li key={index}>{regla}</li>
+                                    })
+                                }
                             </ul>
                         </div>
-                    </div> 
+                    </div>
                     <div className="acciones-foro">
                         <div className="usuario-miembro mostrar-botones">
                             <button className="boton-accion" id="ver-discusiones">VER DISCUSIONES</button>

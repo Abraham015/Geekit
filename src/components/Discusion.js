@@ -18,13 +18,13 @@ export default function ForoDetalles({ abrir, propiedades }) {
     }, [discusion]);
 
     useEffect(() => {
-        
+
     }, [liked]);
     useEffect(() => {
 
     }, [creador]);
     useEffect(() => {
-        
+
     }, [foro]);
 
     // Manejo de reacciones (likes y dislikes)
@@ -41,7 +41,7 @@ export default function ForoDetalles({ abrir, propiedades }) {
                 setLiked(false);
             }
 
-            if(disliked === true){
+            if (disliked === true) {
                 dislikes--;
                 setDisliked(false);
             }
@@ -53,12 +53,12 @@ export default function ForoDetalles({ abrir, propiedades }) {
                 dislikes--;
                 setDisliked(false);
             }
-            if(liked === true){
+            if (liked === true) {
                 likes--;
                 setLiked(false);
             }
         }
-        
+
         // Actualizamos las reacciones en la base de datos
         let res = await fetch(`http://localhost:4000/discusiones/${discusion.iddiscusion}`, {
             method: 'PUT',
@@ -76,11 +76,11 @@ export default function ForoDetalles({ abrir, propiedades }) {
     }
 
     // Función para pedir al servidor la foto de perfil y portada en la discusion
-    const cargarFotos = async() => {
+    const cargarFotos = async () => {
         const res = await fetch(`http://localhost:4000/discusiones/${discusion.iddiscusion}/creador`);
         const res2 = await fetch(`http://localhost:4000/discusiones/${discusion.iddiscusion}/foro`);
-setCreador(await res.json());
-setForo(await res2.json());
+        setCreador(await res.json());
+        setForo(await res2.json());
     }
 
 
@@ -91,9 +91,9 @@ setForo(await res2.json());
                     <img src={creador.fotoperfil} alt="" className="foto-cliente" />
                 </Link>
                 <p className="titulo-discusion">
-                    <Link to="#">{creador.nombrecliente}</Link> agregó en <Link to="#"> {foro.nombrefoto}</Link>
+                    <Link to="#">{creador.nombrecliente}</Link> agregó en <Link to={"/foros/" + foro.idforo}> {foro.nombrefoto}</Link>
                 </p>
-                <Link to="!#">
+                <Link to={"/foros/" + foro.idforo}>
                     <img src={foro.fotoportada} alt="" className="foto-cliente" />
                 </Link>
             </div>

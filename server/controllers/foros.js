@@ -15,6 +15,10 @@ forosCtrl.getMembersIdForo = async(idForo) =>{
     const membersId = await pool.query("SELECT idcliente FROM foro_has_cliente where idforo=$1", [idForo]);
     return membersId.rows;
 }
+forosCtrl.getMembersForo = async(idForo) =>{
+    const members = await pool.query("SELECT * FROM cliente where idcliente in (SELECT idcliente FROM foro_has_cliente where idforo=$1)", [idForo]);
+    return members.rows;
+}
 forosCtrl.getDiscusionesForo = async(idForo, order) =>{
     let discusiones;
     if(order == 'fechaDiscusion')

@@ -1,15 +1,17 @@
 import React, { Component, useEffect, useState } from 'react'
 import '../css/Foros.css';
-import { Link, useNavigate, Redirect } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import Buscar from './Buscar';
 import Discusion from './Discusion';
 import { useContext } from "react";
 
 import { AccountContext } from "./Login/AccountContext";
 export default function ForoDetalles(props) {
-    
+    const navigate = useNavigate();; // Para redireccionar
+
     // Declaramos las varibles de state
-    const [foros, setForos] = useState([], []);
+    const [foros, setForos] = useState([]);
+    const [forosBusqueda, setForosBusqueda] = useState([]);
     const [discusiones, setDiscusiones] = useState([]);
     const [order, setOrder] = useState('newer');
     
@@ -32,6 +34,7 @@ export default function ForoDetalles(props) {
         let res = await fetch(`http://localhost:4000/cliente/${user.username}/foros`);
         res = await res.json();
         setForos(res.foros);
+        setForosBusqueda(res.foros);
     }
 
     // Función que obtiene la información de las discusiones de los foros del usuario
@@ -43,7 +46,7 @@ export default function ForoDetalles(props) {
     
     // Función que redirecciona a los detalles de un foro
     const redireccionarAForo = (foroItem) => {
-        window.location = "/foros/" + foroItem.idforo;
+        navigate("/foros/" + foroItem.idforo);
     }
 
     // Función para manejar el cambio de select
@@ -57,8 +60,8 @@ export default function ForoDetalles(props) {
                     <div className="tus-foros">
                         <h2 className="titulo-seccion">Tus foros</h2>
                         <div className="foros">
-                            { // Mostramos cada foro del
-                                foros.map(foroItem =>{
+                            { // Mostramos cada foro del usuario
+                                forosBusqueda.map(foroItem =>{
                                 return (
                                     <div className="foro-item" onClick={() => {redireccionarAForo(foroItem)}} key={foroItem.idforo}>   
                                         <div className="informacion-foro">
@@ -84,18 +87,24 @@ export default function ForoDetalles(props) {
                     <h2 className="titulo-seccion">Explorar foros</h2>
                     <Buscar></Buscar>
                     <div className="foros">
-                        <div className="foro-item">
-                            <div className="informacion-foro">
-                                <div className="nombre-foro">
-                                    El eterno resplandor de un mundo sin Naruto
-                                </div>
-                                <div className="descripcion-foro">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fuga asdsssssss sssssssssss ssssssssss sssss ssssssssss...
-                                </div>
-                                <div className="miembros-foro">355 miembros</div>
-                            </div>
-                            <img className="foto-foro" src={process.env.REACT_APP_BASE_URL_IMAGES + "/Naruto.jpg"} alt="" />
-                        </div>
+                    { // Mostramos cada foro de la búsqueda
+                                foros.map(foroItem =>{
+                                return (
+                                    <div className="foro-item" onClick={() => {redireccionarAForo(foroItem)}} key={foroItem.idforo}>   
+                                        <div className="informacion-foro">
+                                            <div className="nombre-foro">
+                                                {foroItem.nombrefoto}                       
+                                            </div>
+                                            <div className="descripcion-foro">
+                                                {foroItem.descripcion}
+                                            </div>
+                                            <div className="miembros-foro">{foroItem.n_miembros}</div>
+                                        </div>
+                                        <img className="foto-foro" src={foroItem.fotoportada} alt="" />
+                                    </div>
+                                )
+                              }) 
+                            }
                     </div>
                 </div>
             </div>

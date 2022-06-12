@@ -11,6 +11,11 @@ clienteCtrl.getCliente = async (idCliente) =>{
     const cliente = await pool.query("SELECT * FROM cliente WHERE idcliente=$1", [idCliente]);
     return cliente.rows[0];
 }
+// Obtener varios clientes por id
+clienteCtrl.getClientes = async (idClientes) => {
+    const clientes = await pool.query("SELECT * FROM cliente WHERE idcliente in $1", [idClientes]);
+    return clientes.rows;
+}
 
 /* Exportamos las funciones */
 module.exports = clienteCtrl;
