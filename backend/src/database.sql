@@ -98,7 +98,7 @@ CREATE TABLE producto
   metodoEntrega varchar(45) not null,
   fotosProducto varchar(1000) not null,
   stock int not null,
-  idvendedor int REFERENCES efectivo(idmetodoPago)
+  idvendedor int REFERENCES vendedor(idvendedor)
   /*Para hacer la relación entre tablas*/
 );
 
@@ -177,9 +177,9 @@ VALUES
   ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123');
 
 INSERT INTO cliente
-  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+  (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
-  ('Alfredo Martínez', 'algred', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968119/clientes_fotos/perfil-1024x754_szwke1.jpg', 'localhost', 'hola12345');
+  ('2','Alfredo Martínez', 'algred', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968119/clientes_fotos/perfil-1024x754_szwke1.jpg', 'localhost', 'hola12345');
 
 
 /* Valores de prueba para el foros */
@@ -202,3 +202,15 @@ insert into foro_has_cliente
   (creador, idcliente, idforo)
 values
   (FALSE, '2', '1');
+
+/*insertar para vendedor*/
+INSERT INTO vendedor 
+  (idvendedor, nombreVendedor, fechaUnio, categoria, tipoVendedor, calificacion,certificacion,nicknameVendedor,fotoVendedor, correo, contrasena)
+VALUES
+  ('1','Gloria Olivares', '2022-01-22','peluches','individual',4.8,5,'Gloris01','blabla','blabla@example.com','12345');
+
+/*insertar para producto*/
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamaño mediano, original de Pokemon', 'A domicilio', 'blablabla', 3,'1');

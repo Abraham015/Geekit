@@ -10,6 +10,7 @@ const server = require("http").createServer(app);
 // Getting routes
 const foros = require('./routers/foros');
 const cliente = require('./routers/cliente');
+const productos = require('./routers/producto');
 
 const io =new Server(server,{
   cors:{
@@ -39,6 +40,7 @@ app.use(session({
 }));
 app.use("/auth", authRouter);
 app.use(cliente);
+app.use(productos);
 
 io.on("connect",socket=>{});
 
