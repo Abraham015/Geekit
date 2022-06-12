@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 import { AccountContext } from "./Login/AccountContext";
 export default function ForoDetalles(props) {
-    const navigate = useNavigate();; // Para redireccionar
+    const navigate = useNavigate(); // Para redireccionar
 
     // Declaramos las varibles de state
     const [foros, setForos] = useState([]);

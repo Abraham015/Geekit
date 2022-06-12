@@ -1,17 +1,33 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate} from "react-router-dom";
 import '../css/Foro.css';
+
+import { useContext } from "react";
+import { AccountContext } from "./Login/AccountContext";
 
 export default function ForoDetalles(props) {
     const { id } = useParams();
     const [foro, setForo] = useState({});
     const [usuarios, setUsuarios] = useState([]);
     const [reglas, setReglas] = useState([]);
+    const [unido, setUnido] = useState(false);
+
+    let { user: { loggedIn, username } } = useContext(AccountContext);
+    const navigate = useNavigate();; // Para redireccionar
 
     // Escuchamos las variables del estado
-    useEffect(() => {
+    useEffect( () => {
         cargarForo();
-    }, [id]);
+    }, []); 
+    useEffect( () => {
+        if(Object.keys(foro).length !== 0) // Comprobamos que ya tenga algo
+        cargarUsuarios();
+    }, [foro]);
+    useEffect( () => {
+        if(usuarios.length !== 0) // Comprobamos que ya tenga algo
+        comprobarPertenencia();
+    }, [usuarios]);
+
 
     // Función para pedir y cargar los datos del foro
     const cargarForo = async () => {
@@ -19,13 +35,45 @@ export default function ForoDetalles(props) {
         const data = await res.json();
         setForo(data);
         setReglas(data.norma.split(";"));
-        cargarUsuarios(data);
     }
     // Función para cargar usuarios
-    const cargarUsuarios = async (data) => {
-        const res = await fetch(`http://localhost:4000/foros/${data.idforo}/clientes`);
+    const cargarUsuarios = async () => {
+        const res = await fetch(`http://localhost:4000/foros/${foro.idforo}/clientes`);
         const users = await res.json();
         setUsuarios(users);
+    }
+    // Función que comprueba que el usuario pertenezca al foro
+    const comprobarPertenencia = () => {
+        if(usuarios.some(user => user.nicknamecliente == username)) setUnido(true);
+        else setUnido(false);   
+    }
+
+    // Función para eliminar el usuario del foro
+    const eliminarUsuario = async () => {
+        const res = await fetch(`http://localhost:4000/foros/${id}/clientes/${username}`, {
+            method: 'DELETE'
+        });
+        const data = await res.json();
+        setUsuarios(data);
+        setUnido(false);
+    }
+
+    // Función para agregar el usuario al foro
+    const agregarUsuario = async () => {
+        if(loggedIn === false){
+            navigate('/inicio'); // Si no está unido, redirigimos a inicio de sesión   
+        }
+        const res = await fetch(`http://localhost:4000/foros/${id}/clientes/${username}`, {
+            method: 'POST'
+        });
+        const data = await res.json();
+        setUsuarios(data);
+        setUnido(true);
+    }
+
+    // Redireccionar a discusiones
+    const redirigirDiscusiones = () => {
+        navigate(`/foros/${id}/discusiones`);
     }
 
     return (
@@ -61,7 +109,7 @@ export default function ForoDetalles(props) {
                             { // Mostramos cada foro del
                                 usuarios.map(usuario => {
                                     return (
-                                        <div className="miembro-foro">
+                                        <div className="miembro-foro" key={usuario.idcliente}>
                                             <img className="foto-miembro-foro" src={usuario.fotoperfil} alt="" />
                                             <div className="detalles-miembro-foro">
                                                 <div className="nombre-miembro-foro">{usuario.nombrecliente}</div>
@@ -91,14 +139,19 @@ export default function ForoDetalles(props) {
                         </div>
                     </div>
                     <div className="acciones-foro">
-                        <div className="usuario-miembro mostrar-botones">
-                            <button className="boton-accion" id="ver-discusiones">VER DISCUSIONES</button>
-                            <button className="boton-accion bckg-yellow-button" id="reportar-foro">REPORTAR FORO</button>
-                            <button className="boton-accion bckg-red-button" id="abandonar-foro">ABANDONAR FORO</button>
-                        </div>
-                        <div className="usuario-no-miembro no-mostrar-botones" >
-                            <button className="boton-accion bckg-green-button" id="unirme">UNIRME</button>
-                        </div>
+                        { // MOSTRAR BOTONES DEPENDIENDO SI ESTÁ UNIDO O NO
+                    unido === true ?
+                    <div className="usuario-miembro mostrar-botones">
+                    <button className="boton-accion" id="ver-discusiones" onClick={() =>{redirigirDiscusiones()}}>VER DISCUSIONES</button>
+                    <button className="boton-accion bckg-yellow-button" id="reportar-foro">REPORTAR FORO</button>
+                    <button className="boton-accion bckg-red-button" id="abandonar-foro" onClick={() =>{eliminarUsuario()}}>ABANDONAR FORO</button>
+                </div>
+                    : <div className="usuario-no-miembro mostrar-botones" >
+                    <button className="boton-accion bckg-green-button" id="unirme" onClick={() =>{agregarUsuario()}}>UNIRME</button>
+                </div>
+                }
+                        
+                        
                     </div>
                 </div>
             </div>
