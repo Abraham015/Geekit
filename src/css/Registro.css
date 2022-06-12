@@ -121,7 +121,7 @@
 }
 
 /********************************************************************************************/
-.Datos {
+.DatosC {
   width: 320px;
   height: 670px;
   background-color: rgba(234, 237, 95, .7);
@@ -134,7 +134,7 @@
   border-radius: 50px;
 }
 
-.Datos h1 {
+.DatosC h1 {
   margin: 0;
   padding: 0 0 20px;
   font-weight: bold;
@@ -143,22 +143,22 @@
   font-size: 25px;
 }
 
-.Datos label {
+.DatosC label {
   margin: 0;
   padding: 0 0 0.4em;
   font-weight: bold;
   display: block;
 }
 
-.Datos input {
+.DatosC input {
   width: 100%;
   margin-bottom: 0.5em;
   padding: 0.4em;
   border-radius: 10px;
 }
 
-.Datos input[type="text"],
-.Datos input[type="password"] {
+.DatosC input[type="text"],
+.DatosC input[type="password"] {
   border: none;
   border-bottom: 1px solid #EDE7E7;
   height: 40px;
@@ -166,7 +166,7 @@
 
 }
 
-.Datos input[type="submit"] {
+.DatosC input[type="submit"] {
   border: none;
   outline: none;
   height: 50px;
@@ -181,11 +181,11 @@
   padding-bottom: 0.4em;
 }
 
-.Datos input[type="submit"]:hover {
+.DatosC input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.Datos a {
+.DatosC a {
   text-decoration: none;
   font-size: 18px;
   line-height: 20px;
