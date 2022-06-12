@@ -90,7 +90,7 @@ CREATE TABLE tarjeta
 /*Producto*/
 CREATE TABLE producto
 (
-  idProducto int not null primary key,
+  idProducto SERIAL not null primary key,
   nombreProducto varchar(60) not null,
   precio float not null,
   etiqueta varchar(80) not null,
@@ -129,9 +129,11 @@ CREATE TABLE foro_has_vendedor
 /*Discusion*/
 CREATE TABLE discusion
 (
-  iddiscusion int not null primary key,
+  iddiscusion SERIAL not null primary key,
   fechaDiscusion date not null,
-  reaccion varchar(20) not null,
+  reaccionLike int not null,
+  reaccionDislike int not null,
+  reaccionComent int not null,
   fotoDiscusion varchar(2000),
   contenido varchar(200) not null,
   idcliente int REFERENCES cliente(idcliente),
@@ -141,9 +143,11 @@ CREATE TABLE discusion
 /*Comentario*/
 CREATE TABLE comentario
 (
-  idcomentario int not null primary key,
+  idcomentario SERIAL not null primary key,
   fechaComentario date not null,
-  voto varchar(20) not null,
+  reaccionLike int not null,
+  reaccionDislike int not null,
+  reaccionComent int not null,
   contenidoComentario varchar(200) not null,
   fotoComentario varchar(2000),
   idcliente int REFERENCES cliente(idcliente),
@@ -154,7 +158,7 @@ CREATE TABLE comentario
 /*reporteContenido*/
 CREATE TABLE reporteContenido
 (
-  idreporteContenido int not null primary key,
+  idreporteContenido SERIAL not null primary key,
   contenidoReportado varchar(45) not null,
   motivo varchar(100) not null,
   idforo int REFERENCES foro(idforo),
@@ -172,9 +176,9 @@ CREATE TABLE administrador_has_reporteContenido
 
 /*Valores de prueba para el login*/
 INSERT INTO cliente
-  (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
-  ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123');
+  ('Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123');
 
 INSERT INTO cliente
   (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
@@ -214,3 +218,23 @@ INSERT INTO producto
   (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
 VALUES
   (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamaño mediano, original de Pokemon', 'A domicilio', 'blablabla', 3,'1');
+  insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (TRUE, '1', '2');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (FALSE, '2', '2');
+
+/* Valores de prueba para discusiones */
+insert into discusion
+  (fechaDiscusion, reaccionLike, reaccionDislike, reaccionComent, fotoDiscusion, contenido, idcliente, idforo)
+values
+  ('2020-03-15', '150', '10', '305', 'https://res.cloudinary.com/geekit/image/upload/v1654997704/discusiones_fotos/princesaDeZora_ihbsdl.png;https://res.cloudinary.com/geekit/image/upload/v1654997702/discusiones_fotos/fma_2003_acivmn.webp;https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', 'Hola, soy un cliente de la plataforma, quiero saber si puedo hacer una consulta sobre el producto que quiero comprar', '2', '2');
+
+insert into discusion
+  (fechaDiscusion, reaccionLike, reaccionDislike, reaccionComent, fotoDiscusion, contenido, idcliente, idforo)
+values
+  ('2021-03-15', '150', '10', '15', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', 'Hola', '2', '2');

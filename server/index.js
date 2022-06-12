@@ -11,6 +11,7 @@ const server = require("http").createServer(app);
 const foros = require('./routers/foros');
 const cliente = require('./routers/cliente');
 const productos = require('./routers/producto');
+const discusiones = require('./routers/discusiones');
 
 const io =new Server(server,{
   cors:{
@@ -38,9 +39,14 @@ app.use(session({
     /*sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax ",*/
   }
 }));
+
 app.use("/auth", authRouter);
+app.use(foros);
 app.use(cliente);
 app.use(productos);
+app.use(discusiones);
+
+
 
 io.on("connect",socket=>{});
 
