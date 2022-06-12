@@ -10,6 +10,7 @@ const server = require("http").createServer(app);
 // Getting routes
 const foros = require('./routers/foros');
 const cliente = require('./routers/cliente');
+const productos = require('./routers/producto');
 const discusiones = require('./routers/discusiones');
 
 const io =new Server(server,{
@@ -42,6 +43,7 @@ app.use(session({
 app.use("/auth", authRouter);
 app.use(foros);
 app.use(cliente);
+app.use(productos);
 app.use(discusiones);
 
 

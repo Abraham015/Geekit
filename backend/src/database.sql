@@ -101,7 +101,7 @@ CREATE TABLE producto
   metodoEntrega varchar(45) not null,
   fotosProducto varchar(1000) not null,
   stock int not null,
-  idvendedor int REFERENCES efectivo(idmetodoPago)
+  idvendedor int REFERENCES vendedor(idvendedor)
   /*Para hacer la relación entre tablas*/
 );
 
@@ -209,6 +209,18 @@ insert into foro_has_cliente
   (creador, idcliente, idforo)
 values
   (FALSE, '2', '1');
+
+/*insertar para vendedor*/
+INSERT INTO vendedor 
+  (idvendedor, nombreVendedor, fechaUnio, categoria, tipoVendedor, calificacion,certificacion,nicknameVendedor,fotoVendedor, correo, contrasena)
+VALUES
+  ('1','Gloria Olivares', '2022-01-22','peluches','individual',4.8,5,'Gloris01','blabla','blabla@example.com','12345');
+
+/*insertar para producto*/
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamaño mediano, original de Pokemon', 'A domicilio', 'blablabla', 3,'1');
   insert into foro_has_cliente
   (creador, idcliente, idforo)
 values
