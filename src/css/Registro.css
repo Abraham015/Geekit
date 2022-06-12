@@ -15,6 +15,13 @@
   width: 98.7vw;
 }
 
+.registroVendedor{
+  background: url(./Images/fondoinicio.JPG) no-repeat center top;
+  background-size: cover;
+  height: 120vh;
+  width: 98.7vw;
+}
+
 /*Para la pantalla de registro*/
 
 .Datos1 {
@@ -187,6 +194,130 @@
 }
 
 .Grupo {
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.register,
+.iniciar {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 110px;
+  background: #75F460;
+  color: #000;
+  font-size: 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*Para rederigir a las paginas*/
+.botones{
+  width: 320px;
+  height: 300px;
+  background-color: rgba(234, 237, 95, .7);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 30px;
+  border-radius: 50px;
+  padding-top: 3em;
+  
+}
+
+.botones button{
+   border: none;
+  outline: none;
+  height: 70px;
+  width: 250px;
+  background: #75F460;
+  color: #000;
+  font-size: 28px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botones button:hover{
+  background-color: #45a049;
+}
+
+.DatosV {
+  width: 320px;
+  height: 750px;
+  background-color: rgba(234, 237, 95, .7);
+  top: 67.5%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 30px;
+  border-radius: 50px;
+}
+
+.DatosV h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  font-size: 25px;
+}
+
+.DatosV label {
+  margin: 0;
+  padding: 0 0 0.4em;
+  font-weight: bold;
+  display: block;
+}
+
+.DatosV input {
+  width: 100%;
+  margin-bottom: 0.5em;
+  padding: 0.4em;
+  border-radius: 10px;
+}
+
+.DatosV input[type="text"],
+.DatosV input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #EDE7E7;
+  height: 40px;
+  font-size: 18px;
+
+}
+
+.DatosV input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 50px;
+  background: #75F460;
+  color: #000;
+  font-size: 18px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.cont {
+  padding-bottom: 0.4em;
+}
+
+.DatosV input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.DatosV a {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+.GrupoV {
   padding-top: 1em;
   padding-left: 1em;
 }

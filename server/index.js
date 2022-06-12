@@ -6,7 +6,12 @@ const cors=require("cors");
 const session=require("express-session");
 const authRouter=require("./routers/authRouter");
 const server = require("http").createServer(app);
-require("dotenv").config();
+
+// Getting routes
+const foros = require('./routers/foros');
+const cliente = require('./routers/cliente');
+const productos = require('./routers/producto');
+const discusiones = require('./routers/discusiones');
 
 const io =new Server(server,{
   cors:{
@@ -22,7 +27,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(session({
-  secret: process.env.COOKIE_SECRET,
+  secret: "iuiuiusdaficxzvmzx322343124123",
   credentials: true,
   name:"sid",
   resave: false,
@@ -34,7 +39,14 @@ app.use(session({
     /*sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax ",*/
   }
 }));
-app.use("/auth",authRouter);
+
+app.use("/auth", authRouter);
+app.use(foros);
+app.use(cliente);
+app.use(productos);
+app.use(discusiones);
+
+
 
 io.on("connect",socket=>{});
 

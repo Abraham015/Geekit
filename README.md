@@ -16,3 +16,8 @@ npm start
 ```
 npm run build
 ```
+
+### Descargar las librerias nuevas
+```
+npm i @chakra-ui/react formik
+```

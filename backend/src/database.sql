@@ -2,40 +2,42 @@ CREATE DATABASE geekit;
 /*Tabla del cliente*/
 CREATE TABLE cliente
 (
-  idcliente int not null primary key,
+  idcliente serial not null primary key,
   nombreCliente varchar(100),
   nicknameCliente varchar(45),
   fechaNacimiento DATE,
-  fotoPerfil varchar(45),
+  fotoPerfil varchar(300),
   direccion varchar(100),
-  contrasena varchar(45)
+  contrasena varchar(45),
+  correo varchar(100)
 );
 
 /*Vendedor*/
 CREATE TABLE vendedor
 (
-  idvendedor int not null primary key,
+  idvendedor serial not null primary key,
   nombreVendedor varchar(45) not null,
   fechaUnio date not null,
-  categoria varchar(45) not null,
-  tipoVendedor varchar(45) not null,
+  categoria varchar(200) not null,
+  tipoVendedor varchar(60) not null,
   calificacion float not null,
   certificacion int not null,
   nicknameVendedor varchar(45) not null,
-  fotoVendedor varchar(45) not null,
+  fotoVendedor varchar(200) not null,
+  correo varchar(100),
   contrasena varchar(45)
 );
 
 /*Administrador*/
 CREATE TABLE administrador
 (
-  idadministrador int not null primary key,
+  idadministrador serial not null primary key,
   contrasenaadmin varchar(45) not null,
   nombreAdmin varchar(45) not null,
   emailAdmin varchar(45) not null,
   nicknameAdmin varchar(45) not null,
   fechaNacimientoAdmin date not null,
-  fotoAdmin varchar(45)
+  fotoAdmin varchar(200)
 );
 
 /*efectivo*/
@@ -47,11 +49,11 @@ CREATE TABLE efectivo
 /*Foro*/
 CREATE TABLE foro
 (
-  idforo int not null primary key,
-  norma varchar(45) not null,
-  fotoPortada varchar(45) not null,
-  nombreFoto varchar(45) not null,
-  descripcion varchar(45) not null
+  idforo serial not null primary key,
+  norma varchar(450) not null,
+  fotoPortada varchar(300) not null,
+  nombreFoto varchar(200) not null,
+  descripcion varchar(1000) not null
 );
 
 /*Tabla Venta*/
@@ -77,7 +79,7 @@ CREATE TABLE metodoPago
 /*tarjeta*/
 CREATE TABLE tarjeta
 (
-  numTarjeta int,
+  numTarjeta varchar(20),
   fechaCaducidad date,
   nombreTarjeta varchar(45),
   codigoSeguridad int,
@@ -88,15 +90,15 @@ CREATE TABLE tarjeta
 /*Producto*/
 CREATE TABLE producto
 (
-  idProducto int not null primary key,
-  nombreProducto varchar(45) not null,
+  idProducto SERIAL not null primary key,
+  nombreProducto varchar(60) not null,
   precio float not null,
-  etiqueta varchar(45) not null,
-  descripcion varchar(100) not null,
+  etiqueta varchar(80) not null,
+  descripcion varchar(200) not null,
   metodoEntrega varchar(45) not null,
-  fotosProducto varchar(45) not null,
+  fotosProducto varchar(1000) not null,
   stock int not null,
-  idvendedor int REFERENCES efectivo(idmetodoPago)
+  idvendedor int REFERENCES vendedor(idvendedor)
   /*Para hacer la relación entre tablas*/
 );
 
@@ -112,7 +114,7 @@ CREATE TABLE venta_has_producto
 /*foro_has_cliente*/
 CREATE TABLE foro_has_cliente
 (
-  creador varchar(45) not null,
+  creador BOOLEAN not null,
   idcliente int REFERENCES cliente(idcliente),
   idforo int REFERENCES foro(idforo)
 );
@@ -127,11 +129,13 @@ CREATE TABLE foro_has_vendedor
 /*Discusion*/
 CREATE TABLE discusion
 (
-  iddiscusion int not null primary key,
+  iddiscusion SERIAL not null primary key,
   fechaDiscusion date not null,
-  reaccion int not null,
-  fotoDiscusion varchar(45),
-  contenido varchar(45) not null,
+  reaccionLike int not null,
+  reaccionDislike int not null,
+  reaccionComent int not null,
+  fotoDiscusion varchar(2000),
+  contenido varchar(200) not null,
   idcliente int REFERENCES cliente(idcliente),
   idforo int REFERENCES foro(idforo)
 );
@@ -139,11 +143,13 @@ CREATE TABLE discusion
 /*Comentario*/
 CREATE TABLE comentario
 (
-  idcomentario int not null primary key,
+  idcomentario SERIAL not null primary key,
   fechaComentario date not null,
-  voto int,
-  contenidoComentario varchar(45) not null,
-  fotoComentario varchar(45),
+  reaccionLike int not null,
+  reaccionDislike int not null,
+  reaccionComent int not null,
+  contenidoComentario varchar(200) not null,
+  fotoComentario varchar(2000),
   idcliente int REFERENCES cliente(idcliente),
   idforo int REFERENCES foro(idforo),
   idvendedor int REFERENCES vendedor(idvendedor)
@@ -152,7 +158,7 @@ CREATE TABLE comentario
 /*reporteContenido*/
 CREATE TABLE reporteContenido
 (
-  idreporteContenido int not null primary key,
+  idreporteContenido SERIAL not null primary key,
   contenidoReportado varchar(45) not null,
   motivo varchar(100) not null,
   idforo int REFERENCES foro(idforo),
@@ -170,6 +176,65 @@ CREATE TABLE administrador_has_reporteContenido
 
 /*Valores de prueba para el login*/
 INSERT INTO cliente
+  (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
+VALUES
+  ('Abraham Hernandez', 'Abis015', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968148/clientes_fotos/foto-perfil-psicologo-180x180_zfaypi.webp', 'localhost', 'prueba123');
+
+INSERT INTO cliente
   (idcliente,nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena)
 VALUES
-  ('1','Abraham Hernandez', 'Abis015', '2022-03-15', 'prueba', 'localhost', 'prueba123');
+  ('2','Alfredo Martínez', 'algred', '2022-03-15', 'https://res.cloudinary.com/geekit/image/upload/v1654968119/clientes_fotos/perfil-1024x754_szwke1.jpg', 'localhost', 'hola12345');
+
+
+/* Valores de prueba para el foros */
+insert into foro
+  (norma, fotoPortada, nombreFoto, descripcion)
+values
+  ('No dirás groserías;No provoques a la gente','https://res.cloudinary.com/geekit/image/upload/v1654965681/foro_photos/fma_aiqoc8.jpg','FullMetal Alchemist salvó mi vida','Esto es un foro cristiano');
+
+insert into foro
+  (norma, fotoPortada, nombreFoto, descripcion)
+values
+  ('No dirás groserías (no muchas);No golpearás a la gente','https://res.cloudinary.com/geekit/image/upload/v1654973896/foro_photos/images_cszeaa.jpg','El eterno resplandor de un mundo sin naturo','Foro donde nos imaginamos cómo sería vivir en un mundo sin Naruto.');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (TRUE, '1', '1');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (FALSE, '2', '1');
+
+/*insertar para vendedor*/
+INSERT INTO vendedor 
+  (idvendedor, nombreVendedor, fechaUnio, categoria, tipoVendedor, calificacion,certificacion,nicknameVendedor,fotoVendedor, correo, contrasena)
+VALUES
+  ('1','Gloria Olivares', '2022-01-22','peluches','individual',4.8,5,'Gloris01','blabla','blabla@example.com','12345');
+
+/*insertar para producto*/
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamaño mediano, original de Pokemon', 'A domicilio', 'blablabla', 3,'1');
+  insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (TRUE, '1', '2');
+
+insert into foro_has_cliente
+  (creador, idcliente, idforo)
+values
+  (FALSE, '2', '2');
+
+/* Valores de prueba para discusiones */
+insert into discusion
+  (fechaDiscusion, reaccionLike, reaccionDislike, reaccionComent, fotoDiscusion, contenido, idcliente, idforo)
+values
+  ('2020-03-15', '150', '10', '305', 'https://res.cloudinary.com/geekit/image/upload/v1654997704/discusiones_fotos/princesaDeZora_ihbsdl.png;https://res.cloudinary.com/geekit/image/upload/v1654997702/discusiones_fotos/fma_2003_acivmn.webp;https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', 'Hola, soy un cliente de la plataforma, quiero saber si puedo hacer una consulta sobre el producto que quiero comprar', '2', '2');
+
+insert into discusion
+  (fechaDiscusion, reaccionLike, reaccionDislike, reaccionComent, fotoDiscusion, contenido, idcliente, idforo)
+values
+  ('2021-03-15', '150', '10', '15', 'https://res.cloudinary.com/geekit/image/upload/v1654997700/discusiones_fotos/ernesto_uvseea.jpg', 'Hola', '2', '2');

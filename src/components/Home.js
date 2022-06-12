@@ -27,7 +27,7 @@ const Home = () => {
           {user.loggedIn === true ?
             <>
               <i className="fa-solid fa-cart-shopping" />
-              <p className="Log"><Link to="/">Cerrar Sesión</Link></p>
+              <p className="Log" onClick={()=>{user.loggedIn=false}}><Link to="/">Cerrar Sesión</Link></p>
             </>
             :
             <>
