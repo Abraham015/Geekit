@@ -26,7 +26,7 @@ const Home = () => {
         <FormControl className="LogIn">
           {user.loggedIn === true ?
             <>
-              <i className="fa-solid fa-cart-shopping" />
+              <Link to="/Carrito?="><i className="fa-solid fa-cart-shopping" /></Link>
               <p className="Log" onClick={()=>{user.loggedIn=false}}><Link to="/">Cerrar Sesión</Link></p>
             </>
             :

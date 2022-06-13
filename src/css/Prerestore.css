@@ -144,18 +144,6 @@ p{
     cursor: pointer;
 }
 
- .Entrar{
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 80px;
-    background: #75F460;
-    color: #000;
-    font-size: 18px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
  .Entrar{
     border: none;

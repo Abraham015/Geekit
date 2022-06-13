@@ -322,6 +322,53 @@ router.post("/restore", async (req, res) => {
         }
     }
 });
-    
+
+router.post("/metodo", async(req, res)=>{
+    //console.log("Si entra");
+    const existingUserCliente = await pool.query("SELECT nicknameCliente FROM cliente WHERE nicknameCliente=$1", [req.body.user]);
+    const existingUserVendedor = await pool.query("SELECT nicknameVendedor FROM vendedor WHERE nicknameVendedor=$1", [req.body.user]);
+
+    if(!expresionesRegulares.nombre.test(req.body.nombre)){
+        res.json({ loggedIn: false, status: "Nombre no válido, escriba nuevamente"});
+    }else{
+        if(existingUserCliente.rowCount === 0 && existingUserVendedor.rowCount === 0){
+            res.json({ loggedIn: false, status: "Nombre de usuario no existente"});
+        }else{
+            if(existingUserCliente.rowCount > 0){
+                //Es cliente   
+                const fecha = new Date(req.body.fecha);
+                const cero = "0";
+                let mes = "";
+                if (fecha.getMonth() < 10) {
+                    let mes1 = (fecha.getMonth() + 1).toString();
+                    mes = cero + mes1;
+                } else {
+                    mes = fecha.getMonth().toString();
+                }
+                let date = fecha.getFullYear() + "-" + mes + "-00" ;
+                console.log(date);
+                /*const newUserQuery = await pool.query("INSERT INTO cliente (nombreCliente,nicknameCliente,fechaNacimiento,fotoPerfil,direccion,contrasena,correo) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING idcliente", [req.body.name, req.body.username, date, "algo", req.body.direction, req.body.password, req.body.email]);
+                req.session.user = {
+                    username: req.body.username,
+                    id: newUserQuery.rows[0].idcliente,
+                }*/
+            }else{
+                //Es vendedor
+                const fecha = new Date(req.body.fecha);
+                const cero = "0";
+                let mes = "";
+                if (fecha.getMonth() < 10) {
+                    let mes1 = (fecha.getMonth() + 1).toString();
+                    mes = cero + mes1;
+                } else {
+                    mes = fecha.getMonth().toString();
+                }
+                let date = fecha.getFullYear() + "-" + mes + "-" + fecha.getDate();
+                //const newUserQuery1 = await pool.query("INSERT INTO efectivo VALUES 1");
+                const newUserQuery = await pool.query("INSERT INTO tarjeta (numTarjeta,fechaCaducidad,nombreTarjeta,codigoSeguridad) VALUES ($1,$2,$3,$4)", [req.body.tarjeta, date, req.body.nombre, req.body.CCV]);
+            }
+        }
+    } 
+});
 
 module.exports = router;

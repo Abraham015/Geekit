@@ -22,6 +22,8 @@ import DiscusionComentarios from './components/DiscusionComentarios';
 import Recomendaciones from './components/Recomendaciones';
 import Prerestaurar from './components/Prerestaurar';
 import Restaurar from './components/Restaurar';
+import Pago from './components/Pago';
+import Carrito from './components/Carrito';
 
 function App() {
   return (
@@ -29,12 +31,13 @@ function App() {
       <Router>
         <div>
           <Navigation />
-
           <Routes> {/* Renderizamos componentes según las rutas */}
             <Route path="/" element={<Home />} />
             {/*Dentro de esta ruta deben ir todas las pantallas que el usuario utilizará cuando haya iniciado sesión*/}
             {<Route element={<PrivateRoutes />}>
               <Route path="/Home" element={<Home />} />
+              <Route path="/Carrito" element={<Carrito />} />
+              <Route path="/metodoPago" element={<Pago />} />
             </Route>}
             <Route path="/inicio" element={<Inicio />} />
             <Route path="/prerestore" element={<Prerestaurar />} />

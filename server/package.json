@@ -13,8 +13,11 @@
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
     "helmet": "^5.1.0",
+    "html-pdf": "^3.0.1",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.7.5",
+    "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.13.0",
     "pg": "^8.7.3",
     "socket.io": "^4.5.1",
     "yup": "^0.32.11"
