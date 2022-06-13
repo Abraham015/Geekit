@@ -133,7 +133,7 @@ CREATE TABLE foro_has_vendedor
 CREATE TABLE discusion
 (
   iddiscusion SERIAL not null primary key,
-  fechaDiscusion date not null,
+  fechaDiscusion timestamp with time zone not null,
   reaccionLike int not null,
   reaccionDislike int not null,
   reaccionComent int not null,
@@ -147,7 +147,7 @@ CREATE TABLE discusion
 CREATE TABLE comentario
 (
   idcomentario SERIAL not null primary key,
-  fechaComentario date not null,
+  fechaComentario timestamp with time zone not null,
   reaccionLike int not null,
   reaccionDislike int not null,
   reaccionComent int not null,

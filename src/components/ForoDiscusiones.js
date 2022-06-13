@@ -29,6 +29,7 @@ export default function ForoDetalles(props) {
         consultarDiscusiones();
     }, [order]);
     useEffect(() => {
+        if(username == null) navigate("/inicio");
         consultarComentarios();
     }, []);
 
@@ -62,6 +63,7 @@ export default function ForoDetalles(props) {
     const redireccionarAForo = () => {
         navigate("/foros/" + id);
     }
+
     return (
         <div className="wrapper-container-modal">
             <div className="discusiones-container">
@@ -126,7 +128,7 @@ export default function ForoDetalles(props) {
                 </div>
             </div>
 
-            <ModalNuevoContenido titulo="Nueva discusión en " placeholder="Escribe sobre un tema..."></ModalNuevoContenido>
+            <ModalNuevoContenido titulo="Nueva discusión en " placeholder="Escribe sobre un tema..." reload={consultarDiscusiones}></ModalNuevoContenido>
 
         </div>
     )
