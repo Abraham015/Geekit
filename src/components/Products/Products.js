@@ -8,13 +8,16 @@ function Products(){
         const res = await fetch('http://localhost:4000/productos');
         const getdata = await res.json()
         setProductos(getdata.productos || []);   
-        console.log(getdata);
+        console.log(productos);
     }
 
     useEffect(()=>{
         getProductos(); 
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);    
+    },[]);
+    
+    useEffect(()=>{
+        console.log(productos)
+    },[productos])
 
         
         return (
