@@ -6,6 +6,8 @@ const cors=require("cors");
 const session=require("express-session");
 const authRouter=require("./routers/authRouter");
 const server = require("http").createServer(app);
+const fileUpload = require('express-fileupload');
+const cloudinary = require('cloudinary');
 
 // Getting routes
 const foros = require('./routers/foros');
@@ -26,6 +28,7 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+app.use(fileUpload())
 app.use(session({
   secret: "iuiuiusdaficxzvmzx322343124123",
   credentials: true,
@@ -39,6 +42,11 @@ app.use(session({
     /*sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax ",*/
   }
 }));
+cloudinary.config({ 
+  cloud_name: 'geekit', 
+  api_key: '282731594457536', 
+  api_secret: 'Nn6hubJJj6g1wxY4RXOtG88jDu8' 
+});
 
 app.use("/auth", authRouter);
 app.use(foros);

@@ -3424,7 +3424,7 @@
   "resolved" "https://registry.npmjs.org/bluebird/-/bluebird-3.7.2.tgz"
   "version" "3.7.2"
 
-"body-parser@1.20.0":
+"body-parser@^1.20.0", "body-parser@1.20.0":
   "integrity" "sha512-DfJ+q6EPcGKZD1QWUjSpqp+Q7bDQTsQIF4zfUAtZ6qk+H/3/QRhg9CEp39ss+/T2vw0+HaidC0ecJj/DRLIaKg=="
   "resolved" "https://registry.npmjs.org/body-parser/-/body-parser-1.20.0.tgz"
   "version" "1.20.0"
@@ -6969,14 +6969,11 @@
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.3.tgz"
   "version" "2.0.3"
 
-<<<<<<< HEAD
-=======
 "nodemailer@^6.7.5":
   "integrity" "sha512-6VtMpwhsrixq1HDYSBBHvW0GwiWawE75dS3oal48VqRhUvKJNnKnJo2RI/bCVQubj1vgrgscMNW4DHaD6xtMCg=="
   "resolved" "https://registry.npmjs.org/nodemailer/-/nodemailer-6.7.5.tgz"
   "version" "6.7.5"
 
->>>>>>> 92fb1d674ef2b9d7acf134fe63bb43a39fd4d5a2
 "normalize-path@^3.0.0", "normalize-path@~3.0.0":
   "integrity" "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="
   "resolved" "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz"
