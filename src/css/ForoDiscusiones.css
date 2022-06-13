@@ -169,9 +169,13 @@
 .comentarios-seccion .texto-comentario {
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
+    text-align: justify;
+    font-weight: normal;
     line-height: 1.15em;
 
     padding: 5px 20px;
+
+    align-self: flex-start;
 }
 .comentarios-seccion .fotos-comentario {
     align-self: flex-start;

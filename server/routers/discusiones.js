@@ -1,10 +1,11 @@
-const {Router} = require("express");
+const { Router } = require("express");
 
 const router = Router();
 
 const discusionesCtrl = require('../controllers/discusiones');
 const clienteCtrl = require('../controllers/cliente');
 const forosCtrl = require('../controllers/foros');
+
 
 router.get("/discusiones/:id", async (req, res) => {
     const discusion = await discusionesCtrl.getDiscusion(req.params.id);
@@ -41,6 +42,32 @@ router.put("/discusiones/:id", async (req, res) => {
     const discusionActualizada = await discusionesCtrl.updateDiscusion(discusionID, values);
 
     res.json(discusionActualizada);
+});
+
+// Insertar una nueva discusion
+router.post("/discusiones/", async (req, res) => {
+    // Obtenemos los valores del body
+    const {contenido, idforo, nickCliente} = req.body;
+
+    // Obtenemos todas las imágenes de la discusión
+    const imagenes = Object.values(req.files || {});
+
+    // Las subimos a cloudinary y obtenemos sus urls
+    let urls = '';
+    for(let i = 0; i < imagenes.length; i+=1){
+        try {   
+            const url = await discusionesCtrl.uploadImage(imagenes[i]);
+            urls = urls + url + ";";
+        } catch(error){
+            res.json({error});
+        }
+    }
+    
+    // Insertamos la discusión
+    const idCliente = await clienteCtrl.getId(nickCliente);
+    const resInsert = await discusionesCtrl.createDiscusion(urls, contenido, idCliente, idforo);
+
+    res.json({message: "OK"});
 });
 
 module.exports = router;

@@ -99,8 +99,9 @@
 }
 .contenido-discusion .imagenes-discusion img{
     max-height: 100px;
-
+    
     margin: 2px;
+    background-color: white;
 }
 .contenido-discusion .imagenes-discusion img:hover{
     transform: scale(1.5);
