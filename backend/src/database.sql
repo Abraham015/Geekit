@@ -238,6 +238,23 @@ INSERT INTO producto
   (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
 VALUES
   (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamaño mediano, original de Pokemon', 'A domicilio', 'blablabla', 3,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (2, 'Funkopop Leonard Hofstater',339.20,'#Nuevo', 'Figura Funkpop Leonard Hofstater The Big Bang Theory', 'A domicilio', 'blablabla', 2,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (3, 'Juego de llaveros de Marvel',600.00,'#Temporada #Marvel #Superheroes', 'Juego de 6 llaveros de superhérores de Marvel', 'A domicilio', 'blablabla', 42,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (4, 'Playera de Flash DC Comics',230.75,'#DC #Flash', 'Playera de DC Comics de Flash talla mediana para caballero', 'A domicilio', 'blablabla', 23,'1');
+
+/*---------*/
   insert into foro_has_cliente
   (creador, idcliente, idforo)
 values
