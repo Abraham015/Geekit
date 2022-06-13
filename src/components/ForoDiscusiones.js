@@ -29,6 +29,7 @@ export default function ForoDetalles(props) {
         consultarDiscusiones();
     }, [order]);
     useEffect(() => {
+        if(username == null) navigate("/inicio");
         consultarComentarios();
     }, []);
 

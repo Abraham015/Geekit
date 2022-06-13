@@ -106,15 +106,15 @@ export default function ForoDetalles({ abrir, propiedades }) {
             <div className="contenido-discusion">
                 <p>{discusion.contenido}
                 </p>
+                <div className="imagenes-discusion">
                 { // MOSTRAMOS LAS FOTOS DE LA DISCUSIÓN
                     fotosLinks.map(fotoItem => {
                         return (
-                            <div className="imagenes-discusion">
                                 <img src={fotoItem} alt="" className="imagen-discusion" />
-                            </div>
                         )
                     })
                 }
+                </div>
             </div>
             <div className="reacciones-discusion">
                 <div className="reaccion like" onClick={() => { reaccionar("like") }} > {/* Se actualiza el objeto */}
