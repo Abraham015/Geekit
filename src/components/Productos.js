@@ -10,7 +10,6 @@ export default function Productos() {
     const res = await fetch('http://localhost:4000/search/productos?q=');
     const getdata = await res.json()
     setProductos(getdata.arreglo || []);
-    console.log(getdata.arreglo)
   }
 
   useEffect(() => {

@@ -15,7 +15,6 @@ function Products(props){
     
     return (
         <div className="wrapperProductos">
-            <div className="rowProductos">
                 {
                     productos.map((producto)=>(
                         <div className="card" key={producto.idproducto}>
@@ -29,7 +28,6 @@ function Products(props){
                         </div>
                     ))
                 }
-            </div>
         </div>
     );
     

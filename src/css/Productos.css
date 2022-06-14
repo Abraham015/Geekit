@@ -10,6 +10,13 @@
     overflow: hidden;
     zoom: 100%;
     background-color: white;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    
+
 }
 
 /*Para el div donde estara todo*/
@@ -29,7 +36,6 @@
   border-radius: 10px;
   text-align: center;
   width: 100%;
-  height: 100%;
   padding: 10px;
 }
 .productos .img {
