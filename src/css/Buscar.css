@@ -64,6 +64,8 @@
     color: white;
 
     cursor: pointer;
+
+    margin-top: 5px;
 }
 .categorias-busquedas ul li:hover{
     color: #484C88;

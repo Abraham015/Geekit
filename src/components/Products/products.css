@@ -1,17 +1,22 @@
-.wrapperProductos .rowProductos{
+/* .wrapperProductos .rowProductos{
     display: grid;
     grid-template-columns: repeat(3, 400px);
     grid-gap: 50px;
     margin-bottom: 50px;
-}
+} */
 
 .wrapperProductos{
-    width: 100%;
-    overflow: hidden;
+    margin: 0px 20px;
     display: flex !important;
-    justify-content: center !important;
-}
+    justify-content: flex-start !important;
 
+    flex-flow: row wrap !important;
+    align-items: stretch !important;
+}
+.card{
+    width: 400px !important;
+    margin: 5px;
+}
 .wrapperProductos .img, .wrapperProductos{
     display: flex !important;
     justify-content: center !important;

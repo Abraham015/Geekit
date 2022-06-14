@@ -26,6 +26,7 @@ import Pago from './components/Pago';
 import Carrito from './components/Carrito';
 import Envio from './components/Envio';
 import IndividualProduct from './components/IndividualProduct/IndividualProduct';
+import Envio from './components/Envio.jsx';
 
 function App() {
   return (

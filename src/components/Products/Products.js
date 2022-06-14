@@ -3,21 +3,20 @@ import { useParams, Link, useNavigate} from "react-router-dom";
 import './products.css';
 import '../IndividualProduct/individualProduct.css'
 
-function Products(){
+function Products(props){
     const [productos, setProductos] = useState([]);
     let navigate = useNavigate();
 
+    const getProductos = async () =>{
+        setProductos(props.productos);
+    }
+
     useEffect(()=>{
-        fetch('http://localhost:4000/productos').then(async (res) =>{
-            const products = await res.json();
-            setProductos(products.products)
-            console.log(products.products)
-        }).catch(console.error)
-    },[]);
+        getProductos(); 
+    },[props]);
     
     return (
         <div className="wrapperProductos">
-            <div className="rowProductos">
                 {
                     productos.map((producto)=>(
                         <div className="card" key={producto.idproducto}>
@@ -32,7 +31,6 @@ function Products(){
                         </div>
                     ))
                 }
-            </div>
         </div>
     );
     
