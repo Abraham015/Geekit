@@ -65,7 +65,7 @@ export default function ForoDetalles(props) {
                         <h2 className="titulo-seccion">Tus foros</h2>
                         <div className="foros">
                             { // Mostramos cada foro del usuario
-                                forosBusqueda.map(foroItem =>{
+                                foros.map(foroItem =>{
                                 return (
                                     <div className="foro-item" onClick={() => {redireccionarAForo(foroItem)}} key={foroItem.idforo}>   
                                         <div className="informacion-foro">

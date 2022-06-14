@@ -12,7 +12,7 @@ function Buscar(props) {
             res = await res.json();
             handleSearch(res.arreglo);
         } else if (type === "foros") {
-            let res = await fetch(`http://localhost:4000/search/foros?q=${busqueda}&id=${user.username}`);
+            let res = await fetch(`http://localhost:4000/search/foros?q=${busqueda}&username=${user.username}`);
             res = await res.json();
             handleSearch(res.arreglo);
         } else {
@@ -34,7 +34,7 @@ function Buscar(props) {
                     </form>
                 </div>
                 {
-                    props.type !== "members" || props.type !== "foros"
+                    props.type === "productos"
                         ? <div id="filtro-busqueda">
                             <i className="fa-solid fa-sliders" />
                         </div>
