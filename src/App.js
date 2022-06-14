@@ -24,7 +24,6 @@ import Prerestaurar from './components/Prerestaurar';
 import Restaurar from './components/Restaurar';
 import Pago from './components/Pago';
 import Carrito from './components/Carrito';
-import Envio from './components/Envio';
 import IndividualProduct from './components/IndividualProduct/IndividualProduct';
 import Envio from './components/Envio.jsx';
 

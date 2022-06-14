@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react'
-import '../css/Foros.css';
+import '../css/foros.css';
 import { Link, useNavigate} from 'react-router-dom'
 import Buscar from './Buscar';
 import Discusion from './Discusion';
