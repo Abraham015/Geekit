@@ -14,6 +14,7 @@ const foros = require('./routers/foros');
 const cliente = require('./routers/cliente');
 const motor = require('./routers/motorBusquedas');
 const discusiones = require('./routers/discusiones');
+const producto = require('./routers/producto');
 
 const io =new Server(server,{
   cors:{
@@ -53,6 +54,7 @@ app.use(foros);
 app.use(cliente);
 app.use(motor);
 app.use(discusiones);
+app.use(producto);
 
 
 
