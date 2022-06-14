@@ -7,6 +7,8 @@ const formSchema = Yup.object({
 
 const validateForm = (req, res) => {
     const formData = req.body;
+    console.log("Data from form")
+    console.log(formData);
     formSchema.validate(formData).catch(e => {
         res.status(422).send();
         console.log(e.errors);

@@ -5,6 +5,7 @@ const Yup = require("yup");
 const pool = require("../database");
 var nodemailer = require('nodemailer');
 
+
 //Declaramos las expresiones regualares a utilizar
 const expresionesRegulares = {
     nombre: new RegExp(/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ\s]{1,40}$/),
@@ -44,6 +45,8 @@ router.route("/inicio")
     .post(async (req, res) => {
         validateForm(req, res);
         console.log(req.session);
+        console.log("Username:")
+        console.log(req.body.username);
         const potentialLoginCliente = await pool.query("SELECT idcliente,nicknameCliente, contrasena FROM cliente WHERE nicknameCliente=$1", [req.body.username]);
         const potentialLoginVendedor = await pool.query("SELECT idvendedor,nicknamevendedor,contrasena FROM vendedor WHERE nicknamevendedor=$1", [req.body.username]);
         const potentialLoginAdmin = await pool.query("SELECT idadministrador,nicknameadmin,contrasenaadmin FROM administrador WHERE nicknameadmin=$1", [req.body.username]);
@@ -369,6 +372,48 @@ router.post("/metodo", async(req, res)=>{
             }
         }
     } 
+});
+
+router.post("/correo", async(req,res)=>{
+    if(!expresionesRegulares.correo.test(req.body.email)){
+        res.json({ loggedIn: false, status: "Dirección de correo inválida" });
+    }else{
+        const existingEmailUser = await pool.query("SELECT correo FROM cliente WHERE nicknamecliente=$1", [req.body.email]);
+        const existingEmailSeller = await pool.query("SELECT correo FROM vendedor WHERE nicknamevendedor=$1", [req.body.email]);
+        if(existingEmailUser.rowCount===0 && existingEmailSeller.rowCount===0){
+            //No existe el correo
+            res.json({ loggedIn: false, status: "Cuenta de correo electrónico no registrada y/o relacionada" });
+        } else {
+            var mailOptions = {
+                from: '"Geekit" <geekitISW1007@outlook.com>', // sender address (who sends)
+                to: req.body.email, // list of receivers (who receives)
+                subject: 'Confirmación de Compra', // Subject line
+                text: 'Confirmación de Compra', // plaintext body
+                html: '<b>GRACIAS POR TU COMPRA</b><br>Hola querido usuario, nos complace informar que su compra ha sido registrada en el sistema. <br>En un lapso máximo de dos días habiles para corroborar los datos de envío de tus productos. <br><br>Agradecemos tu preferencia y esperamos que tu experiencia dentro de la aplicación sea la mejor<br><br><img src="cid:logo" height="100px" weight="100px">', // html body
+                
+                attachments: [{
+                    filename: 'logo.png',
+                    path:'C:/Users/hp/Desktop/Geekit/Geekit/server/images/Geekit.png',
+                    cid: 'logo' //my mistake was putting "cid:logo@cid" here! 
+                },
+                {
+                    filename: 'comprobante.pdf',
+                    path: 'C:/Users/hp/Desktop/Geekit/Geekit/server/files/comprobante-pago.pdf',
+                    cid: 'logo', //my mistake was putting "cid:logo@cid" here! 
+                    contentType: "application/pdf"
+                }    
+                ]
+                
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        console.log('Message sent: ' + info.response);
+                    });
+                    res.json({ loggedIn: true, username: req.body.username });
+        }
+    }
 });
 
 module.exports = router;

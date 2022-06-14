@@ -24,6 +24,7 @@ import Prerestaurar from './components/Prerestaurar';
 import Restaurar from './components/Restaurar';
 import Pago from './components/Pago';
 import Carrito from './components/Carrito';
+import Envio from './components/Envio.jsx';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/Home" element={<Home />} />
               <Route path="/Carrito" element={<Carrito />} />
               <Route path="/metodoPago" element={<Pago />} />
+              <Route path="/Envio" element={<Envio />} />
             </Route>}
             <Route path="/inicio" element={<Inicio />} />
             <Route path="/prerestore" element={<Prerestaurar />} />
