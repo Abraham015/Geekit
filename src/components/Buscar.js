@@ -39,6 +39,7 @@ function Buscar() {
     }
 
     const searchProducts = async () => {
+        console.log(id)
         let res = await fetch(`http://localhost:4000/productos/:${id}`);
             res = await res.json();
             setProductos(res.productosF);

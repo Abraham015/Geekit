@@ -1,0 +1,74 @@
+.envio{
+  margin: 0;
+    padding: 0;
+    background: url(./Images/fondoinicio.JPG) no-repeat center top;
+    background-size: cover;
+    height: 89vh;
+}
+
+.DatosEnvio{
+  width: 390px;
+    height: 280px;
+    background-color: rgba(234, 237, 95, .7);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 50px;
+}
+
+.DatosEnvio .avatar{
+  width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -45px;
+    left: 150px;
+    background-color: #000;
+}
+
+.DatosEnvio label {
+    margin: 0;
+    padding: 0 0 0.5em;
+    font-weight: bold;
+    display: block;
+}
+
+.DatosEnvio input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0.7em;
+
+}
+
+.DatosEnvio input[type="text"] {
+    border: none;
+    border-radius: 10px;
+    border-bottom: 1px solid #EDE7E7;
+    height: 40px;
+    font-size: 18px;
+}
+
+.DatosEnvio button[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 120px;
+    background: #75F460;
+    color: #000;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.DatosEnvio button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.Grupo4{
+    padding-bottom: 5em;
+    padding-left: 6em;
+}
