@@ -89,7 +89,7 @@ export default function ForoDetalles(props) {
                 }
                 <div className="explorar-foros">
                     <h2 className="titulo-seccion">Explorar foros</h2>
-                    <Buscar handleSearch={handleSearch} type="foros" user={user.username}></Buscar>
+                    <Buscar handleSearch={handleSearch} type="foros" user={user}></Buscar>
                     <div className="foros">
                     { // Mostramos cada foro de la búsqueda
                                 forosBusqueda.map(foroItem =>{

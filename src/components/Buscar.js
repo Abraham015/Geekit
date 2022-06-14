@@ -4,18 +4,18 @@ import { useCallback, useState, useEffect, useRef } from "react";
 import Products from "./Products/Products";
 
 function Buscar(props) {
-    const { handleSearch } = props;
-
+    const { handleSearch, type, user } = props;
+    console.log(type)
     const search = async (busqueda) => {
-        if(props.type !== "members"){
-            
-        let res = await fetch(`http://localhost:4000/search/productos?q=${busqueda}`);
-        res = await res.json();
-        handleSearch(res.arreglo);
-        
-        } else if(props.type === "foros"){
-console.log("foros")
-        } else{
+        if (type === "productos") {
+            let res = await fetch(`http://localhost:4000/search/productos?q=${busqueda}`);
+            res = await res.json();
+            handleSearch(res.arreglo);
+        } else if (type === "foros") {
+            let res = await fetch(`http://localhost:4000/search/foros?q=${busqueda}&id=${user.username}`);
+            res = await res.json();
+            handleSearch(res.arreglo);
+        } else {
             let res = await fetch(`http://localhost:4000/search/miembros?id=${props.id}&q=${busqueda}`);
             res = await res.json();
             handleSearch(res.arreglo);

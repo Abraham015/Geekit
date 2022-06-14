@@ -25,7 +25,7 @@ export default function Productos() {
       <br />
 
       <div className="column middle">
-        <Buscar handleSearch={handleSearch}></Buscar>
+        <Buscar handleSearch={handleSearch} type={"productos"}></Buscar>
         <br />
         <br />
       </div>
