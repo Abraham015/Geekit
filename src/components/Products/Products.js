@@ -1,9 +1,11 @@
 import React, {useEffect, useState } from 'react'
+import { useParams, Link, useNavigate} from "react-router-dom";
 import './products.css';
 import '../IndividualProduct/individualProduct.css'
 
 function Products(props){
     const [productos, setProductos] = useState([]);
+    let navigate = useNavigate();
 
     const getProductos = async () =>{
         setProductos(props.productos);
@@ -25,6 +27,7 @@ function Products(props){
                             <p className="Precio">${producto.precio}</p>
                             <p className="descripcionProducto">{producto.descripcion}</p>
                             <button className="comprar">AGREGAR AL CARRITO</button>
+                            <button className="comprar" onClick={() => {navigate(`/productos/${producto.idproducto}`);}}>VER DETALLES</button>
                         </div>
                     ))
                 }

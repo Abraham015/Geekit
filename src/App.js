@@ -24,6 +24,7 @@ import Prerestaurar from './components/Prerestaurar';
 import Restaurar from './components/Restaurar';
 import Pago from './components/Pago';
 import Carrito from './components/Carrito';
+import IndividualProduct from './components/IndividualProduct/IndividualProduct';
 import Envio from './components/Envio.jsx';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route exact path="/foros/:id/discusiones/:id" element={<DiscusionComentarios />} />
             <Route path="/conocenos" element={<Conocenos />} />
             <Route path="/productos" element={<Productos />} />
+            <Route exact path="/productos/:id" element={<IndividualProduct />}/>
           </Routes>
         </div>
 
