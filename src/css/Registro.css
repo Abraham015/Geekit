@@ -213,7 +213,7 @@
 }
 
 /*Para rederigir a las paginas*/
-.botones{
+.botones1{
   width: 320px;
   height: 300px;
   background-color: rgba(234, 237, 95, .7);
@@ -228,7 +228,7 @@
   
 }
 
-.botones button{
+.botones1 button{
    border: none;
   outline: none;
   height: 70px;
@@ -241,7 +241,7 @@
   cursor: pointer;
 }
 
-.botones button:hover{
+.botones1 button:hover{
   background-color: #45a049;
 }
 

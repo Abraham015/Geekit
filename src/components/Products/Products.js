@@ -26,7 +26,7 @@ function Products(props){
                             <p className="NombreProducto">{producto.nombreproducto}</p>
                             <p className="Precio">${producto.precio}</p>
                             <p className="descripcionProducto">{producto.descripcion}</p>
-                            <button className="comprar">AGREGAR AL CARRITO</button>
+                            <button className="comprar" onClick={()=>alert("Producto agregado al carrito")}>AGREGAR AL CARRITO</button>
                             <button className="comprar" onClick={() => {navigate(`/productos/${producto.idproducto}`);}}>VER DETALLES</button>
                         </div>
                     ))

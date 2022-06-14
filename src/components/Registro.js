@@ -7,7 +7,7 @@ export default class Registro extends Component {
   render() {
     return (
       <div className='inicio'>
-        <div className='botones'>
+        <div className='botones1'>
           <button><Link to="/registroCliente">Registro para Clientes</Link></button>
           <br/><br/><br/><br/>
           <button className='inferior'><Link to="/registroVendedor">Registro para Vendedores</Link></button>
