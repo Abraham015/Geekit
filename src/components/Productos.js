@@ -1,24 +1,38 @@
-import React, { Component} from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import "../css/Productos.css";
 import Buscar from "./Buscar";
 import Products from "./Products/Products";
 
-export default class Productos extends Component {
-  render() {
-    return (
-      <div className="productos">
-          <br />
+export default function Productos() {
+  const [productos, setProductos] = useState([]);
 
-          <div className="column middle">
-          <Buscar></Buscar>
-            <br />
-            <br />
-          </div>
-          
-          <br /> 
-          <Products />
-      </div>
-    );
+  const getProductos = async () => {
+    const res = await fetch('http://localhost:4000/search/productos?q=');
+    const getdata = await res.json()
+    setProductos(getdata.productos || []);
   }
+
+  useEffect(() => {
+    getProductos();
+  }, []);
+
+  function handleSearch(productosArreglo) {
+    setProductos(productosArreglo);
+  }
+
+  return (
+    <div className="productos">
+      <br />
+
+      <div className="column middle">
+        <Buscar handleSearch={handleSearch}></Buscar>
+        <br />
+        <br />
+      </div>
+
+      <br />
+      <Products productos={productos} />
+    </div>
+  );
 }
 

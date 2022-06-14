@@ -1,24 +1,17 @@
 import React, {useEffect, useState } from 'react'
 import './products.css';
 
-function Products(){
+function Products(props){
     const [productos, setProductos] = useState([]);
     
     const getProductos = async () =>{
-        const res = await fetch('http://localhost:4000/productos');
-        const getdata = await res.json()
-        setProductos(getdata.productos || []);   
-        console.log(productos);
+        setProductos(props.productos);
     }
 
     useEffect(()=>{
         getProductos(); 
-    },[]);
+    },[props]);
     
-    useEffect(()=>{
-        console.log(productos)
-    },[productos])
-
         
         return (
             <div className="wrapperProductos">

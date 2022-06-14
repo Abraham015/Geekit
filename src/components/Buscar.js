@@ -3,15 +3,13 @@ import '../css/Buscar.css'
 import { useCallback, useState, useEffect, useRef } from "react";
 import Products from "./Products/Products";
 
-function Buscar() {
-
-    const [productos, setProductos] = useState([]);
+function Buscar(props) {
+    const {handleSearch} = props;
 
     const searchProducts = async (busqueda) => {
         let res = await fetch(`http://localhost:4000/search/productos?q=${busqueda}`);
         res = await res.json();
-        setProductos(res.arreglo);
-        console.log(res.arreglo);
+        handleSearch(res.arreglo);
     }
 
     return (
