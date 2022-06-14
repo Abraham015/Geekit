@@ -20,7 +20,7 @@ function Buscar(props) {
                         <label htmlFor="input-busqueda">
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </label>
-                        <input type="text" name="input-busqueda" id="input-busqueda" placeholder="Buscar foro" onChange={(e)=>searchProducts(e.target.value)}/>
+                        <input type="text" name="input-busqueda" id="input-busqueda" placeholder="Buscar foro" onChange={(e)=>searchProducts(e.target.value)} autocomplete="off"/>
                     </form>
                 </div>
                 <div id="filtro-busqueda">

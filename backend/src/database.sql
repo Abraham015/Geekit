@@ -237,22 +237,47 @@ VALUES
 INSERT INTO producto
   (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
 VALUES
-  (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamaño mediano, original de Pokemon', 'A domicilio', 'blablabla', 3,'1');
+  (1, 'Peluche Pikachu',500.50,'#Usado #Original', 'Peluche pikachu tamanio mediano, original de Pokemon', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655175585/products/pikachu_nvdxta.jpg', 3,'1');
 
 INSERT INTO producto
   (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
 VALUES
-  (2, 'Funkopop Leonard Hofstater',339.20,'#Nuevo', 'Figura Funkpop Leonard Hofstater The Big Bang Theory', 'A domicilio', 'blablabla', 2,'1');
+  (2, 'Funkopop Leonard Hofstater',339.20,'#Nuevo', 'Figura Funkpop Leonard Hofstater The Big Bang Theory', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655176071/products/leonardTBBT_jymdst.jpg', 2,'1');
 
 INSERT INTO producto
   (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
 VALUES
-  (3, 'Juego de llaveros de Marvel',600.00,'#Temporada #Marvel #Superheroes', 'Juego de 6 llaveros de superhérores de Marvel', 'A domicilio', 'blablabla', 42,'1');
+  (3, 'Juego de llaveros de Marvel',600.00,'#Temporada #Marvel #Superheroes', 'Juego de 6 llaveros de superherores de la franquicia de Marvel, de temporada', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655176157/products/llaverosMarvel_ufhohp.png', 42,'1');
 
 INSERT INTO producto
   (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
 VALUES
-  (4, 'Playera de Flash DC Comics',230.75,'#DC #Flash', 'Playera de DC Comics de Flash talla mediana para caballero', 'A domicilio', 'blablabla', 23,'1');
+  (4, 'Playera de Flash DC Comics',230.75,'#DC #Flash', 'Playera de DC Comics de Flash talla mediana para caballero', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655176199/products/playeraFlash_iycibv.jpg', 23,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (5, 'Star Wars Darth Vader - Sable de Luz Roja',762.15,'#StarWars #LadoOscuro #juguete', 'Sable de luz roja de Darth Vader, iluminado, con luces, integrado con sonidos y frases', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655179866/products/sableLuz_qymtzb.jpg', 10,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (6, 'X-Men: Age of Apocalypse Omnibus',4500.32,'#Xmen #Original #Comics', 'Charles Xavier fue asesinado en el pasado en un accidente de viaje en el tiempo. Apocalypsis gobierna cruelmente, pero escondidos estan los luchadores por la libertad: ¡LOS X-MEN!', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655180147/products/x-menComic_buunlb.jpg',2,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (7, 'Attack on Titan The Final Season - LEVI',839.00,'#AttackTitan #FiguraAccion', 'Figura coleccionable del capitan Levi Ackerman de la Serie Attack of Titan', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655180409/products/Levi_oqlbz4.jpg', 35,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (8, 'The Boys Box Set | Serie Completa',3300.00,'#Serie #TheBoys', 'Pocas cosas son tan peligrosas como los supers, sobre todo porque se trata de personas torpes, corruptas, viciosas y egolatras, tal como todas las demás del mundo', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655180605/products/Boys_p96bso.jpg', 15,'1');
+
+INSERT INTO producto
+  (idProducto, nombreProducto, precio, etiqueta, descripcion, metodoEntrega, fotosProducto, stock, idvendedor)
+VALUES
+  (9, 'Ataque de los Titanes - Before the Fall',1683.00,'#Serie #Titanes', 'Este es un mundo controlado por titanes...La humanidad convertida en alimento de gigantes, ha construido paredes gigantescas, y pago el poder evitar los ataques con su libertad', 'A domicilio', 'https://res.cloudinary.com/geekit/image/upload/v1655180766/products/AoTBefore_rnke32.png', 5,'1');
 
 /*---------*/
   insert into foro_has_cliente
