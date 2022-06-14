@@ -26,6 +26,8 @@ const Inicio = () => {
         },
         body: JSON.stringify(vals),
       }).catch(e=>{
+        console.log("In error")
+        console.log(e)
         return;
       }).then(res=>{
         if(!res||!res.ok||res.status>=400){

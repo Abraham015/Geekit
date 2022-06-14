@@ -58,6 +58,8 @@ app.use(discusiones);
 
 io.on("connect",socket=>{});
 
+
+server.timeout = 0;
 server.listen(4000,()=>{
   console.log("Server listening on port 4000");
 });
