@@ -61,6 +61,36 @@ forosCtrl.getMembers = async (busqueda, idforo) =>{
     return allMembers;
 }
 
+// Obtener los foros que coincidan con la búsqueda o donde el cliente pertenezca
+forosCtrl.getForosWhere = async (busqueda, idCliente) =>{
+    let allForos = [];
+    let foros = []
+    const clave = 'idforo';
+    
+    // Seleccionamos por nombre y donde pertenezca el cliente
+    foros = await pool.query("select * from foro where nombrefoto ilike $1 and idforo in (select idforo from foro_has_cliente where idcliente = $2)", ['%'+ busqueda+'%', idCliente]);
+    allForos = allForos.concat(foros.rows)
+    allForos = eliminarDuplicados(allForos, clave);
+
+    // Seleccionamos por descripción y donde pertenezca el cliente
+    foros = await pool.query("select * from foro where descripcion ilike $1 and idforo in (select idforo from foro_has_cliente where idcliente = $2)", ['%'+ busqueda+'%', idCliente]);
+    allForos = allForos.concat(foros.rows)
+    allForos = eliminarDuplicados(allForos, clave);
+
+    // Seleccionamos por descripción sin importar si pertenece o no
+    foros = await pool.query("select * from foro where nombrefoto ilike $1", ['%'+ busqueda+'%']);
+    allForos = allForos.concat(foros.rows)
+    allForos = eliminarDuplicados(allForos, clave);
+
+    // Seleccionamos por descripción sin importar si pertenece o no
+    foros = await pool.query("select * from foro where descripcion ilike $1", ['%'+ busqueda+'%']);
+    allForos = allForos.concat(foros.rows)
+    allForos = eliminarDuplicados(allForos, clave);
+
+    return allForos;
+}
+
+
 // Seleccionar todas las discusiones de un foro respecto a order by
 forosCtrl.getDiscusionesForo = async(idForo, order) =>{
     let discusiones;
