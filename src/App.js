@@ -25,6 +25,7 @@ import Restaurar from './components/Restaurar';
 import Pago from './components/Pago';
 import Carrito from './components/Carrito';
 import Envio from './components/Envio';
+import IndividualProduct from './components/IndividualProduct/IndividualProduct';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             <Route exact path="/foros/:id/discusiones/:id" element={<DiscusionComentarios />} />
             <Route path="/conocenos" element={<Conocenos />} />
             <Route path="/productos" element={<Productos />} />
+            <Route exact path="/productos/:id" element={<IndividualProduct />}/>
           </Routes>
         </div>
 

@@ -1,9 +1,11 @@
 import React, {useEffect, useState } from 'react'
+import { useParams, Link, useNavigate} from "react-router-dom";
 import './products.css';
 import '../IndividualProduct/individualProduct.css'
 
 function Products(){
     const [productos, setProductos] = useState([]);
+    let navigate = useNavigate();
 
     useEffect(()=>{
         fetch('http://localhost:4000/productos').then(async (res) =>{
@@ -26,6 +28,7 @@ function Products(){
                             <p className="Precio">${producto.precio}</p>
                             <p className="descripcionProducto">{producto.descripcion}</p>
                             <button className="comprar">AGREGAR AL CARRITO</button>
+                            <button className="comprar" onClick={() => {navigate(`/productos/${producto.idproducto}`);}}>VER DETALLES</button>
                         </div>
                     ))
                 }
