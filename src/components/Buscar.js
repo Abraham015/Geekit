@@ -25,11 +25,11 @@ function Buscar() {
 
 
     useEffect(() => {
-        readProducts();
+        //readProducts();
     }, []);
 
     useEffect(() => {
-        searchProducts();
+        //searchProducts();
     }, []);
 
     const readProducts = async () => {
