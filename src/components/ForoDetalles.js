@@ -4,11 +4,13 @@ import '../css/Foro.css';
 
 import { useContext } from "react";
 import { AccountContext } from "./Login/AccountContext";
+import Buscar from './Buscar'
 
 export default function ForoDetalles(props) {
     const { id } = useParams();
     const [foro, setForo] = useState({});
     const [usuarios, setUsuarios] = useState([]);
+    const [usuariosBusqueda, setUsuariosBusqueda] = useState([]);
     const [reglas, setReglas] = useState([]);
     const [unido, setUnido] = useState(false);
 
@@ -26,6 +28,7 @@ export default function ForoDetalles(props) {
     useEffect( () => {
         if(usuarios.length !== 0) // Comprobamos que ya tenga algo
         comprobarPertenencia();
+        setUsuariosBusqueda(usuarios);
     }, [usuarios]);
 
 
@@ -38,9 +41,9 @@ export default function ForoDetalles(props) {
     }
     // Función para cargar usuarios
     const cargarUsuarios = async () => {
-        const res = await fetch(`http://localhost:4000/foros/${foro.idforo}/clientes`);
+        const res = await fetch(`http://localhost:4000/search/miembros?id=${id}`);
         const users = await res.json();
-        setUsuarios(users);
+        setUsuarios(users.arreglo || []);
     }
     // Función que comprueba que el usuario pertenezca al foro
     const comprobarPertenencia = () => {
@@ -76,6 +79,10 @@ export default function ForoDetalles(props) {
         navigate(`/foros/${id}/discusiones`);
     }
 
+    function handleSearch(usuariosArreglo) {
+        setUsuariosBusqueda(usuariosArreglo);
+    }
+
     return (
         <div className="foro-container">
             <div className="foto-nombre-foro">
@@ -92,22 +99,10 @@ export default function ForoDetalles(props) {
                     <h2 className="titulo-informacion-foro">MIEMBROS</h2>
                     <hr />
                     <div className="contenido-informacion-foro">
-                        <div className="busqueda">
-                            <div className="criterios-busquedas">
-                                <div className="contenedor-barra-busqueda">
-                                    <form>
-                                        <label htmlFor="input-busqueda">
-                                            <i className="fa-solid fa-magnifying-glass"></i>
-                                        </label>
-                                        <input type="text" name="input-busqueda" id="input-busqueda" placeholder="Buscar foro" />
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
+                    <Buscar handleSearch={handleSearch} type="members" id={id}></Buscar>
                         <div className="lista-miembros">
                             { // Mostramos cada foro del
-                                usuarios.map(usuario => {
+                                usuariosBusqueda.map(usuario => {
                                     return (
                                         <div className="miembro-foro" key={usuario.idcliente}>
                                             <img className="foto-miembro-foro" src={usuario.fotoperfil} alt="" />
