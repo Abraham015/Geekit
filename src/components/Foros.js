@@ -53,6 +53,10 @@ export default function ForoDetalles(props) {
     const handleChange = (event) => {
         setOrder(event.target.value);
     }
+
+    function handleSearch(forosArreglo) {
+        setForosBusqueda(forosArreglo);
+    }
     return (
         <div className="foros-containter"   >
             <div className="foros-seccion ">
@@ -85,10 +89,10 @@ export default function ForoDetalles(props) {
                 }
                 <div className="explorar-foros">
                     <h2 className="titulo-seccion">Explorar foros</h2>
-                    <Buscar></Buscar>
+                    <Buscar handleSearch={handleSearch} type="foros" user={user.username}></Buscar>
                     <div className="foros">
                     { // Mostramos cada foro de la búsqueda
-                                foros.map(foroItem =>{
+                                forosBusqueda.map(foroItem =>{
                                 return (
                                     <div className="foro-item" onClick={() => {redireccionarAForo(foroItem)}} key={foroItem.idforo}>   
                                         <div className="informacion-foro">
