@@ -22,10 +22,4 @@ router.get("/search/:category", async (req, res) => {
      res.json({arreglo});
 });
 
-//Para obtener un producto especifico segun su id
-router.get("/productos/:id", async (req, res) => {
-    const producto = await productosCtrl.getProducto(req.params.id);
-    res.json(producto, categoria);
-});
-
 module.exports = router;
